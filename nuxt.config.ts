@@ -3,6 +3,13 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: { enabled: false },
 
+    // Head [Icon, charset, meta]
+    app: {
+        head: {
+            link: [{ rel: 'icon', type: 'image/svg', href: '/logo.svg' }]
+        }
+    },
+
     // Src Directory
     srcDir: 'src/',
 
