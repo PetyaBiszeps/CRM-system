@@ -3,38 +3,38 @@ import type { ICustomer } from "~/types/deals";
 
 import { COLLECTION_CUSTOMERS, DB_ID, STORAGE_ID } from "~/constants";
 import { useMutation, useQuery } from "@tanstack/vue-query";
+import { storage } from "~/utils/appwrite";
 import { v4 as uuid } from 'uuid';
 
 useSeoMeta({
-  title: `Editing Company`,
+  title: `Company Edit | CRM System`,
 });
 
 interface InputFileEvent extends Event {
   target: HTMLInputElement;
 }
 
-interface ICustomerFormState extends Pick<ICustomer, 'name' | 'email' | 'avatar_url' | 'from_source'> {
-
-}
-
 const route = useRoute();
+const router = useRouter();
 const customerId = route.params.id as string;
 
-const { handleSubmit, defineField, setFieldValue, setValues, values } = useForm<ICustomerFormState>();
+const { handleSubmit, defineField, setFieldValue, setValues, values } = useForm<ICustomer>();
 const { data, isSuccess } = useQuery({
   queryKey: ['get customer', customerId],
   queryFn: () =>
       DB.getDocument(DB_ID, COLLECTION_CUSTOMERS, customerId)
 });
 
-watch(isSuccess, () => {
-  const initialData = data.value as unknown as ICustomerFormState;
-  setValues({
-    name: initialData.name,
-    email: initialData.email,
-    avatar_url: initialData.avatar_url,
-    from_source: initialData.from_source || '',
-  });
+watchEffect(() => {
+  if (isSuccess.value && data.value) {
+    const initialData = data.value as unknown as ICustomer;
+    setValues({
+      name: initialData.name,
+      email: initialData.email,
+      avatar_url: initialData.avatar_url,
+      from_source: initialData.from_source || '',
+    });
+  }
 });
 
 const [name, nameAttributes] = defineField('name');
@@ -43,7 +43,7 @@ const [fromSource, fromSourceAttributes] = defineField('from_source');
 
 const { mutate, isPending } = useMutation({
   mutationKey: ['update customer', customerId],
-  mutationFn: (data: ICustomerFormState) =>
+  mutationFn: (data: ICustomer) =>
       DB.updateDocument(DB_ID, COLLECTION_CUSTOMERS, customerId, data)
 });
 
@@ -52,18 +52,19 @@ const { mutate: uploadImage, isPending: isUploadImagePending } = useMutation({
   mutationFn: (file: File) => storage.createFile(STORAGE_ID, uuid(), file),
   onSuccess(data) {
     const response = storage.getFileDownload(STORAGE_ID, data.$id);
-    setFieldValue('avatar_url', response.href);
+    setFieldValue('avatar_url', response);
   }
 });
 
 const onSubmit = handleSubmit(values => {
   mutate(values);
+  router.push('/customers');
 });
 </script>
 
 <template>
   <div class="p-10">
-    <h1 class="font-bold text-2xl mb-10">Editing {{ (data as unknown as ICustomerFormState)?.name }}</h1>
+    <h1 class="font-bold text-2xl mb-10">Editing {{ (data as unknown as ICustomer)?.name }}</h1>
 
     <form class="form" @submit="onSubmit">
       <UiInput v-model="name" class="input" placeholder="Name" type="text" v-bind="nameAttributes"/>

@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import { generateStatusStyle } from "~/components/slideover/CRMSlideOverStatusStyle";
 import CRMSlideOverLabel from "~/components/slideover/CRMSlideOverLabel.vue";
 import { useDealDetailsStore } from '~/stores/dealDetailsStore';
 import dayjs from 'dayjs';
@@ -18,7 +19,7 @@ const store = useDealDetailsStore();
     </CRMSlideOverLabel>
 
     <CRMSlideOverLabel label-text="Status">
-      <UiBadge variant="outline">
+      <UiBadge :style="generateStatusStyle(store.card?.status)" variant="outline">
         {{ store.card?.status }}
       </UiBadge>
     </CRMSlideOverLabel>

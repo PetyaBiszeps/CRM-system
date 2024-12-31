@@ -1,5 +1,7 @@
 <script lang="ts" setup>
-
+useSeoMeta({
+  title: 'Help | CRM System'
+});
 </script>
 
 <template>

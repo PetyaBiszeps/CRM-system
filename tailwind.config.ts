@@ -32,7 +32,12 @@ export default <Partial<Config>>{
                     DEFAULT: "var(--popover)",
                     foreground: "var(--popover-foreground)",
                 },
-                border: "var(--border)"
+                border: "var(--border)",
+                incoming: "var(--incoming)",
+                toBeAgreed: "var(--toBeAgreed)",
+                inProgress: "var(--in-progress)",
+                produced: "var(--produced)",
+                done: "var(--done)"
             },
             borderRadius: {
                 xl: "calc(var(--radius) + 4px)",

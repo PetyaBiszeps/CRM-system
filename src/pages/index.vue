@@ -11,7 +11,6 @@ import { DB_ID, COLLECTION_DEALS } from "~/constants";
 import { useMutation } from "@tanstack/vue-query";
 import dayjs from "dayjs";
 
-
 useSeoMeta({
   title: 'Home | CRM System'
 });

@@ -29,18 +29,6 @@ const isLocalOpen = computed({
       </UCard>
     </LazyUSlideover>
   </div>
-  <!--
-  <div>
-    <USlideover v-model="isLocalOpen" :ui="{background: 'bg-transparent'}">
-      <UCard :ui="{body: {base: 'flex-1'}, ring: '', divide: 'divide-y divide-gray-100'}" class="flex flex-col flex-1 overflow-y-auto">
-        <template #header>
-          <CRMSlideOverTop/>
-          <CRMSlideOverComments/>
-        </template>
-      </UCard>
-    </USlideover>
-  </div>
-  -->
 </template>
 
 <style scoped>

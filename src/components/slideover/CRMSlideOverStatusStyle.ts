@@ -1,14 +1,14 @@
-export const generateStatusStyle = (index: number) => {
+export const generateStatusStyle = (index: string | undefined) => {
     switch (index) {
-        case 0:
+        case 'Incoming':
             return { backgroundColor: 'var(--incoming)' };
-        case 1:
+        case 'To be agreed':
             return { backgroundColor: 'var(--toBeAgreed)' };
-        case 2:
+        case 'In progress':
             return { backgroundColor: 'var(--inProgress)' };
-        case 3:
+        case 'Produced':
             return { backgroundColor: 'var(--produced)' };
-        case 4:
+        case 'Done':
             return { backgroundColor: 'var(--done)' };
     }
 };

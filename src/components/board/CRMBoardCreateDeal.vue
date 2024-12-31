@@ -49,10 +49,10 @@ const onSubmit = handleSubmit(values => {
     </button>
   </div>
   <form v-if="isOpenForm" class="form" @submit="onSubmit">
-    <UiInput v-model="name" class="input" placeholder="Name" type="text" v-bind="nameAttributes"/>
-    <UiInput v-model="price" class="input" placeholder="Price" type="number" v-bind="priceAttributes"/>
-    <UiInput v-model="customerEmail" class="input" placeholder="Email" type="text" v-bind="customerEmailAttributes"/>
-    <UiInput v-model="customerName" class="input" placeholder="Company" type="text" v-bind="customerNameAttributes"/>
+    <UiInput v-model="name" class="input" placeholder="Name" required type="text" v-bind="nameAttributes"/>
+    <UiInput v-model="price" class="input" placeholder="Price" required type="number" v-bind="priceAttributes"/>
+    <UiInput v-model="customerEmail" class="input" placeholder="Email" required type="text" v-bind="customerEmailAttributes"/>
+    <UiInput v-model="customerName" class="input" placeholder="Company" required type="text" v-bind="customerNameAttributes"/>
 
     <button :disabled="isPending" class="btn">{{ isPending ? 'Loading...' : 'Add' }}</button>
   </form>
