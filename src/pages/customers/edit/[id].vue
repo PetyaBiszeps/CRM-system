@@ -67,26 +67,26 @@ const onSubmit = handleSubmit(values => {
     <h1 class="font-bold text-2xl mb-10">Editing {{ (data as unknown as ICustomer)?.name }}</h1>
 
     <form class="form" @submit="onSubmit">
-      <UiInput v-model="name" class="input" placeholder="Name" type="text" v-bind="nameAttributes"/>
-      <UiInput v-model="email" class="input" placeholder="Email" type="text" v-bind="emailAttributes"/>
-      <UiInput v-model="fromSource" class="input" placeholder="Came from?" type="text" v-bind="fromSourceAttributes"/>
+      <div class="flex flex-col gap-2">
+        <UiInput v-model="name" class="input" placeholder="Name" type="text" v-bind="nameAttributes"/>
+        <UiInput v-model="email" class="input" placeholder="Email" type="text" v-bind="emailAttributes"/>
+        <UiInput v-model="fromSource" class="input" placeholder="Came from?" type="text" v-bind="fromSourceAttributes"/>
+      </div>
 
-      <NuxtImg v-if="values.avatar_url || isUploadImagePending" :alt="values.name" :src="values.avatar_url" class="rounded-full my-2" height="50" width="50"/>
+      <NuxtImg v-if="values.avatar_url || isUploadImagePending" :alt="values.name" :src="values.avatar_url" class="rounded-full my-2" height="100" width="100"/>
       <div class="grid w-full max-w-sm items-center gap-1.5 input">
         <label>
-          <div class="text-sm mb-2">
-            <UiInput :disabled="isUploadImagePending" :onchange="(e:InputFileEvent) => e?.target?.files?.length && uploadImage(e.target.files[0])" type="file"/>
-          </div>
+          <UiInput :disabled="isUploadImagePending" :onchange="(e:InputFileEvent) => e?.target?.files?.length && uploadImage(e.target.files[0])" type="file"/>
         </label>
       </div>
 
-      <UiButton :disabled="isPending" class="mt-3" variant="secondary">{{ isPending ? 'Loading...' : 'Save' }}</UiButton>
+      <UiButton :disabled="isPending" class="border border-primary hover:bg-primary mt-2" variant="secondary">{{ isPending ? 'Loading...' : 'Save' }}</UiButton>
     </form>
   </div>
 </template>
 
 <style scoped>
 .input {
-  @apply border-[#161c26] mb-2 placeholder:text-[#748092] focus:border-border transition-colors;
+  @apply border-border placeholder:text-[#748092] transition-colors;
 }
 </style>

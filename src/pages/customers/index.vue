@@ -24,7 +24,7 @@ const { data: costumers, isLoading } = useQuery({
         <UiTableRow>
           <UiTableHead class="w-[200px]">Image</UiTableHead>
           <UiTableHead class="w-[300px]">Name</UiTableHead>
-          <UiTableHead class="w-[200px]">Email</UiTableHead>
+          <UiTableHead class="w-[500px]">Email</UiTableHead>
           <UiTableHead>Came from</UiTableHead>
         </UiTableRow>
       </UiTableHeader>
@@ -32,7 +32,7 @@ const { data: costumers, isLoading } = useQuery({
         <UiTableRow v-for="customer in (costumers?.documents as unknown as ICustomer[])" :key="customer.$id">
           <UiTableCell>
             <NuxtLink :href="`/customers/edit/${customer.$id}`">
-              <NuxtImg :alt="customer.name" :src="customer.avatar_url" class="rounded-full" height="50" width="50"/>
+              <NuxtImg :alt="customer.name" :src="customer.avatar_url" class="rounded-full" width="80"/>
             </NuxtLink>
           </UiTableCell>
           <UiTableCell class="font-medium">{{ customer.name }}</UiTableCell>
