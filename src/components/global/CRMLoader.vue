@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <div class="flex items-center justify-center w-screen h-screen">
+  <div class="h-screen grid place-content-center">
     <NuxtImg alt="Loader" src="/loader.svg" width="500"/>
   </div>
 </template>

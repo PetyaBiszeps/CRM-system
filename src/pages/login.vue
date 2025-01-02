@@ -50,7 +50,7 @@ const register = async () => {
 
 <template>
   <div class="flex items-center justify-center w-full min-h-screen">
-    <div class="w-1/4 p-5 rounded border-2">
+    <div class="w-full max-w-2xl p-5 border-2 rounded ">
       <h1 class="mb-5 text-center text-2xl font-bold">Sign in</h1>
 
       <form>

@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/utils/shadcn'
 
@@ -8,7 +8,7 @@ const props = defineProps<{
 </script>
 
 <template>
-  <div :class="cn('flex items-center p-6 pt-0', props.class)">
-    <slot />
+  <div :class="cn('flex items-center p-3 pt-0 sm:p-6 sm:pt-0', props.class)">
+    <slot/>
   </div>
 </template>
