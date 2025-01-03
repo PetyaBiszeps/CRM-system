@@ -37,7 +37,9 @@ export default <Partial<Config>>{
                 toBeAgreed: "var(--toBeAgreed)",
                 inProgress: "var(--in-progress)",
                 produced: "var(--produced)",
-                done: "var(--done)"
+                done: "var(--done)",
+                edit: "var(--edit)",
+                delete: "var(--delete)"
             },
             borderRadius: {
                 xl: "calc(var(--radius) + 4px)",

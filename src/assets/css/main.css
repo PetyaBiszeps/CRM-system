@@ -24,6 +24,9 @@
         --inProgress: #C821B2;
         --produced: #48BCA1;
         --done: #23B816;
+
+        --edit: #3B783D;
+        --delete: #B11010;
     }
 
     .dark {
@@ -47,6 +50,9 @@
         --inProgress: #C821B2;
         --Produced: #48BCA1;
         --Done: #23B816;
+
+        --edit: #3B783D;
+        --delete: #B11010;
     }
 }
 

@@ -2,11 +2,8 @@
 import type { IDeal } from '~/types/deals';
 
 import { COLLECTION_DEALS, DB_ID } from "~/constants";
-
-import { v4 as uuid } from 'uuid';
 import { useMutation } from '@tanstack/vue-query';
-
-const isOpenForm = ref(false);
+import { v4 as uuid } from 'uuid';
 
 interface IDealFormState extends Pick<IDeal, 'name' | 'price'> {
   customer: {
@@ -19,6 +16,8 @@ interface IDealFormState extends Pick<IDeal, 'name' | 'price'> {
 const props = defineProps({
   status: { type: String, default: '' }, refetch: { type: Function }
 });
+
+const isOpenForm = ref(false);
 
 const { handleSubmit, defineField, handleReset } = useForm<IDealFormState>({ initialValues: { status: props.status } });
 const [name, nameAttributes] = defineField('name');
