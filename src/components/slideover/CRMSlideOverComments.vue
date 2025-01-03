@@ -24,7 +24,10 @@ const card = data as unknown as IDeal;
       </div>
     </div>
   </div>
-  <UiInput v-model="commentRef" placeholder="Write a comment" @keyup.enter="writeComment"/>
+  <div class="relative">
+    <UiInput v-model="commentRef" class="pr-9" placeholder="Write a comment" @keyup.enter="writeComment"/>
+    <Icon class="absolute top-2 right-1.5 hover:text-primary" name="radix-icons:paper-plane" size="22" @click="writeComment"/>
+  </div>
 </template>
 
 <style scoped>

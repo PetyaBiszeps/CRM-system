@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import type { HTMLAttributes } from 'vue'
 import { cn } from '@/utils/shadcn'
 
@@ -10,7 +10,7 @@ const props = defineProps<{
 <template>
   <div class="relative w-full overflow-auto">
     <table :class="cn('w-full caption-bottom text-sm', props.class)">
-      <slot />
+      <slot/>
     </table>
   </div>
 </template>

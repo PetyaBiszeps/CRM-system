@@ -25,7 +25,7 @@ onMounted(async () => {
   <section v-else :class="{layoutGrid: authStore.isAuth}" class="min-h-screen bg-background">
     <CRMNavbar v-if="authStore.isAuth" class="block sm:hidden"/>
     <CRMSidebar v-if="authStore.isAuth" class="hidden sm:block"/>
-    <div>
+    <div class="max-w-full overflow-x-scroll">
       <slot/>
     </div>
   </section>
@@ -34,10 +34,11 @@ onMounted(async () => {
 <style scoped>
 .layoutGrid {
   display: grid;
-  grid-template-columns: 1fr 6fr;
+  grid-template-columns: 1fr minmax(0, 6fr);
 
   @media (max-width: 639px) {
     grid-template-columns: 1fr;
+    grid-template-rows: 0fr;
   }
 }
 </style>

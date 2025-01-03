@@ -16,31 +16,33 @@ const { data: costumers, isLoading } = useQuery({
 </script>
 
 <template>
-  <div class="p-10">
+  <div class="p-2 sm:p-10">
     <h1 class="font-bold text-2xl mb-10">Our Clients</h1>
     <div v-if="isLoading">Loading...</div>
-    <UiTable v-else>
-      <UiTableHeader>
-        <UiTableRow>
-          <UiTableHead class="w-[200px]">Image</UiTableHead>
-          <UiTableHead class="w-[300px]">Name</UiTableHead>
-          <UiTableHead class="w-[500px]">Email</UiTableHead>
-          <UiTableHead>Came from</UiTableHead>
-        </UiTableRow>
-      </UiTableHeader>
-      <UiTableBody>
-        <UiTableRow v-for="customer in (costumers?.documents as unknown as ICustomer[])" :key="customer.$id">
-          <UiTableCell>
-            <NuxtLink :href="`/customers/edit/${customer.$id}`">
-              <NuxtImg :alt="customer.name" :src="customer.avatar_url" class="rounded-full" width="80"/>
-            </NuxtLink>
-          </UiTableCell>
-          <UiTableCell class="font-medium">{{ customer.name }}</UiTableCell>
-          <UiTableCell class="font-medium">{{ customer.email }}</UiTableCell>
-          <UiTableCell class="font-medium">{{ customer.from_source }}</UiTableCell>
-        </UiTableRow>
-      </UiTableBody>
-    </UiTable>
+    <div v-else class="border-2 border-border rounded-2xl">
+      <UiTable class="w-full">
+        <UiTableHeader>
+          <UiTableRow>
+            <UiTableHead class="w-[200px]">Image</UiTableHead>
+            <UiTableHead class="w-[300px]">Name</UiTableHead>
+            <UiTableHead class="w-[500px]">Email</UiTableHead>
+            <UiTableHead>Came from</UiTableHead>
+          </UiTableRow>
+        </UiTableHeader>
+        <UiTableBody>
+          <UiTableRow v-for="customer in (costumers?.documents as unknown as ICustomer[])" :key="customer.$id">
+            <UiTableCell>
+              <NuxtLink :href="`/customers/edit/${customer.$id}`">
+                <NuxtImg :alt="customer.name" :src="customer.avatar_url" class="rounded-full" width="80"/>
+              </NuxtLink>
+            </UiTableCell>
+            <UiTableCell class="font-medium">{{ customer.name }}</UiTableCell>
+            <UiTableCell class="font-medium">{{ customer.email }}</UiTableCell>
+            <UiTableCell class="font-medium">{{ customer.from_source }}</UiTableCell>
+          </UiTableRow>
+        </UiTableBody>
+      </UiTable>
+    </div>
   </div>
 </template>
 

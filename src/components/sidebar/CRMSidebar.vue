@@ -15,7 +15,7 @@ const logout = async () => {
   await router.push('/login');
 
   isLoadingStore.set(false);
-}
+};
 </script>
 
 <template>
@@ -23,7 +23,7 @@ const logout = async () => {
     <NuxtLink class="mb-10 block" to="/">
       <NuxtImg alt="logo" class="w-32 mx-auto" src="/logo.svg"/>
     </NuxtLink>
-    <button class="absolute top-2 right-3 transition-colors hover:text-primary" @click="logout">
+    <button class="items-center absolute top-2 right-3 transition-colors hover:text-primary" @click="logout">
       <Icon name="line-md:logout" size="24"/>
     </button>
     <CRMSidebarMenu/>
