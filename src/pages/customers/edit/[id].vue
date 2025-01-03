@@ -2,6 +2,7 @@
 import type { ICustomer } from "~/types/deals";
 
 import { COLLECTION_CUSTOMERS, DB_ID, STORAGE_ID } from "~/constants";
+import { useBoardQuery } from "~/components/board/CRMBoardQuery";
 import { useMutation, useQuery } from "@tanstack/vue-query";
 import { storage } from "~/utils/appwrite";
 import { v4 as uuid } from 'uuid';
@@ -16,6 +17,7 @@ interface InputFileEvent extends Event {
 
 const route = useRoute();
 const router = useRouter();
+const { refetch } = useBoardQuery();
 const customerId = route.params.id as string;
 
 const { handleSubmit, defineField, setFieldValue, setValues, values } = useForm<ICustomer>();
@@ -44,7 +46,10 @@ const [fromSource, fromSourceAttributes] = defineField('from_source');
 const { mutate, isPending } = useMutation({
   mutationKey: ['update customer', customerId],
   mutationFn: (data: ICustomer) =>
-      DB.updateDocument(DB_ID, COLLECTION_CUSTOMERS, customerId, data)
+      DB.updateDocument(DB_ID, COLLECTION_CUSTOMERS, customerId, data),
+  onSuccess() {
+    refetch();
+  }
 });
 
 const { mutate: uploadImage, isPending: isUploadImagePending } = useMutation({

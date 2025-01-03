@@ -15,6 +15,12 @@ const isLocalOpen = computed({
     store.isOpen = value;
   }
 });
+const isEditMenuOpen = computed({
+  get: () => store.isOpen,
+  set: value => {
+    store.isOpen = value;
+  }
+});
 
 const { mutate, isPending } = useMutation(({
   mutationKey: ['delete card'],
@@ -27,6 +33,10 @@ const { mutate, isPending } = useMutation(({
 const removeTask = () => {
   isLocalOpen.value = false;
   mutate();
+};
+
+const changeTask = () => {
+  isLocalOpen.value = false;
 };
 </script>
 
@@ -67,13 +77,12 @@ const removeTask = () => {
         <UiAlertDialogHeader>
           <UiAlertDialogTitle>Are you absolutely sure?</UiAlertDialogTitle>
           <UiAlertDialogDescription>
-            This action cannot be undone. This will permanently delete your account
-            and remove your data from our servers.
+            This action cannot be undone. This will permanently change this task data on both your browser and our servers.
           </UiAlertDialogDescription>
         </UiAlertDialogHeader>
         <UiAlertDialogFooter>
           <UiAlertDialogCancel>Cancel</UiAlertDialogCancel>
-          <UiAlertDialogAction>Continue</UiAlertDialogAction>
+          <UiAlertDialogAction class="bg-card border border-border hover:bg-edit" @click="changeTask">Continue</UiAlertDialogAction>
         </UiAlertDialogFooter>
       </UiAlertDialogContent>
     </UiAlertDialog>
@@ -91,7 +100,7 @@ const removeTask = () => {
         </UiAlertDialogHeader>
         <UiAlertDialogFooter>
           <UiAlertDialogCancel>Cancel</UiAlertDialogCancel>
-          <UiAlertDialogAction :disabled="isPending" class="bg-card hover:bg-delete" @click="removeTask">Continue</UiAlertDialogAction>
+          <UiAlertDialogAction :disabled="isPending" class="bg-card border border-border hover:bg-delete" @click="removeTask">Continue</UiAlertDialogAction>
         </UiAlertDialogFooter>
       </UiAlertDialogContent>
     </UiAlertDialog>

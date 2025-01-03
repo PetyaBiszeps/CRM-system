@@ -63,7 +63,7 @@ function handleDrop(targetColumn: IColumn) {
           </div>
           <div>
             <CRMBoardCreateDeal :refetch="refetch" :status="column.id"/>
-            <UiCard v-for="card in column.items" :key="card.id" class="mb-3" draggable="true" @click="store.set(card)"
+            <UiCard v-for="card in column.items" :key="card.id" class="mb-3 cursor-pointer" draggable="true" @click="store.set(card)"
                     @dragstart="() => handleDragStart(card, column)">
               <UiCardHeader role="button">
                 <UiCardTitle>{{ card.name }}</UiCardTitle>

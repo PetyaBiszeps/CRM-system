@@ -23,9 +23,9 @@ const { data: costumers, isLoading } = useQuery({
       <UiTable class="w-full">
         <UiTableHeader>
           <UiTableRow>
-            <UiTableHead class="w-[200px]">Image</UiTableHead>
-            <UiTableHead class="w-[300px]">Name</UiTableHead>
-            <UiTableHead class="w-[500px]">Email</UiTableHead>
+            <UiTableHead>Image</UiTableHead>
+            <UiTableHead>Name</UiTableHead>
+            <UiTableHead>Email</UiTableHead>
             <UiTableHead>Came from</UiTableHead>
           </UiTableRow>
         </UiTableHeader>
