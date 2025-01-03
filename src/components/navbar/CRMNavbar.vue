@@ -40,7 +40,7 @@ const logout = async () => {
       <button v-if="isOpenNav" class="navbar-menu absolute bottom-0 right-2 transition-colors hover:text-primary" @click="logout">
         <Icon name="line-md:logout" size="24"/>
       </button>
-      <CRMNavbarMenu v-if="isOpenNav" class="navbar-menu" @click="closeDelay"/>
+      <CRMNavbarMenu v-if="isOpenNav" class="navbar-menu" @click="isOpenNav = false"/>
     </div>
   </nav>
 </template>
