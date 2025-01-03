@@ -15,12 +15,6 @@ const isLocalOpen = computed({
     store.isOpen = value;
   }
 });
-const isEditMenuOpen = computed({
-  get: () => store.isOpen,
-  set: value => {
-    store.isOpen = value;
-  }
-});
 
 const { mutate, isPending } = useMutation(({
   mutationKey: ['delete card'],
@@ -35,8 +29,33 @@ const removeTask = () => {
   mutate();
 };
 
-const changeTask = () => {
-  isLocalOpen.value = false;
+const isEditActive = ref(false);
+const editableFields = reactive({
+  name: store.card?.name || "",
+  price: store.card?.price || 0
+});
+
+const { mutate: updateMutate, isPending: isUpdating } = useMutation({
+  mutationKey: ["update card"],
+  mutationFn: () =>
+      DB.updateDocument(DB_ID, COLLECTION_DEALS, store.card!.id, {
+        name: editableFields.name,
+        price: editableFields.price
+      }),
+  onSuccess: () => {
+    isLocalOpen.value = false;
+    refetch();
+  }
+});
+
+const toggleEditMode = () => {
+  if (isEditActive.value) {
+    updateMutate();
+  } else {
+    editableFields.name = store.card?.name || "";
+    editableFields.price = store.card?.price || 0;
+  }
+  isEditActive.value = !isEditActive.value;
 };
 </script>
 
@@ -47,11 +66,23 @@ const changeTask = () => {
       <Icon class="cursor-pointer hover:text-primary transition-all" name="radix-icons:cross-1" size="24" @click="isLocalOpen = !isLocalOpen"/>
     </div>
     <CRMSlideOverLabel label-text="Name">
-      <h2>{{ store.card?.name }}</h2>
+      <template v-if="isEditActive">
+        <UiInput v-model="editableFields.name"/>
+      </template>
+
+      <template v-else>
+        <h2>{{ store.card?.name }}</h2>
+      </template>
     </CRMSlideOverLabel>
 
     <CRMSlideOverLabel label-text="Price">
-      {{ convertCurrency(store.card?.price || 0) }}
+      <template v-if="isEditActive">
+        <UiInput v-model="editableFields.price" type="number"/>
+      </template>
+
+      <template v-else>
+        <h2>{{ convertCurrency(store.card?.price || 0) }}</h2>
+      </template>
     </CRMSlideOverLabel>
 
     <CRMSlideOverLabel label-text="Status">
@@ -61,31 +92,17 @@ const changeTask = () => {
     </CRMSlideOverLabel>
 
     <CRMSlideOverLabel label-text="Client">
-      {{ store.card?.companyName }}
+      <h2>{{ store.card?.companyName }}</h2>
     </CRMSlideOverLabel>
 
     <CRMSlideOverLabel label-text="Creation Date">
-      {{ dayjs(store.card?.$createdAt).format('DD MMMM YYYY') }}
+      <h2>{{ dayjs(store.card?.$createdAt).format('DD MMMM YYYY') }}</h2>
     </CRMSlideOverLabel>
   </div>
   <div class="flex gap-4 sm:gap-8 mt-5">
-    <UiAlertDialog>
-      <UiAlertDialogTrigger class="w-full">
-        <UiButton class="border border-max-w-full bg-card text-card-foreground hover:bg-edit">Edit</UiButton>
-      </UiAlertDialogTrigger>
-      <UiAlertDialogContent>
-        <UiAlertDialogHeader>
-          <UiAlertDialogTitle>Are you absolutely sure?</UiAlertDialogTitle>
-          <UiAlertDialogDescription>
-            This action cannot be undone. This will permanently change this task data on both your browser and our servers.
-          </UiAlertDialogDescription>
-        </UiAlertDialogHeader>
-        <UiAlertDialogFooter>
-          <UiAlertDialogCancel>Cancel</UiAlertDialogCancel>
-          <UiAlertDialogAction class="bg-card border border-border hover:bg-edit" @click="changeTask">Continue</UiAlertDialogAction>
-        </UiAlertDialogFooter>
-      </UiAlertDialogContent>
-    </UiAlertDialog>
+    <UiButton :disabled="isUpdating" class="border border-max-w-full bg-card text-card-foreground hover:bg-edit" @click="toggleEditMode">
+      {{ isEditActive ? (isUpdating ? "Saving..." : "Save") : "Edit" }}
+    </UiButton>
 
     <UiAlertDialog>
       <UiAlertDialogTrigger class="w-full">
