@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint'],
+  modules: ['@nuxt/eslint', '@pinia/nuxt'],
   devtools: {
     enabled: true,
   },
@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   eslint: {
     config: {
       stylistic: true,
+      standalone: true,
     },
   },
 })

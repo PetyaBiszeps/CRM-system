@@ -1,3 +1,7 @@
 <template>
-  <aside>Test</aside>
+  <aside>
+    <ul>
+      <li />
+    </ul>
+  </aside>
 </template>
