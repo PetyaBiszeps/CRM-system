@@ -1,7 +1,7 @@
 <template>
-  <LayoutSidebar />
+  <div :class="['wrapper']">
+    <LayoutSidebar />
 
-  <main>
     <NuxtPage />
-  </main>
+  </div>
 </template>
