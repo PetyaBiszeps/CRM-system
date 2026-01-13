@@ -1,0 +1,18 @@
+@use "../core/variables.scss" as *;
+
+@mixin scrollbar($size: 6px, $color: $accent) {
+  &::-webkit-scrollbar {
+    width: $size;
+    height: $size;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color;
+    border-radius: 16px;
+  }
+
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar-corner {
+    display: none;
+  }
+}
