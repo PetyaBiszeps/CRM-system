@@ -13,9 +13,7 @@
       }
 
       &:hover {
-        color: $accent;
-
-        @include glassBg;
+        @include accentGlass;
       }
     }
   }
