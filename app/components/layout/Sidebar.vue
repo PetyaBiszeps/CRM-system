@@ -18,10 +18,12 @@ const sidebarTab: sidebarTab[] = [{
 
 <template>
   <aside :class="['sidebar']">
-    <NuxtImg
-      src="favicon.svg"
-      width="125"
-    />
+    <NuxtLink to="/">
+      <NuxtImg
+        src="favicon.svg"
+        width="125"
+      />
+    </NuxtLink>
 
     <ul>
       <li
