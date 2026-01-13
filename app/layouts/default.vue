@@ -1,7 +1,9 @@
 <template>
-  <div :class="['wrapper']">
+  <div class="wrapper">
     <LayoutSidebar />
 
-    <NuxtPage />
+    <div class="content">
+      <slot />
+    </div>
   </div>
 </template>
