@@ -11,6 +11,13 @@ export default defineNuxtConfig({
   devtools: {
     enabled: true,
   },
+  app: {
+    head: {
+      link: [{
+        rel: 'icon', type: 'image/png', href: '/favicon.svg',
+      }],
+    },
+  },
   css: ['~/assets/styles/main.scss'],
   colorMode: {
     preference: 'system',
