@@ -1,6 +1,12 @@
 @use "../../resources.scss" as *;
 
 .sidebar {
+  gap: 32px;
+  padding: 8px;
+  display: flex;
+  border-right: 1px solid black;
+  flex-direction: column;
+
   ul {
     gap: 8px;
     display: flex;
