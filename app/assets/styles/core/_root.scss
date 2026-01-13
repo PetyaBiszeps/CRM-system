@@ -1,7 +1,11 @@
 :root {
   --accent: #EA580C;
 
+  --clr-1: #FFFFFF;
+
   &.dark {
     --accent: #FF832B;
+
+    --clr-1: #2F2F2F;
   }
 }

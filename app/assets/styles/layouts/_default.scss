@@ -1,7 +1,10 @@
+@use "../resources.scss" as *;
+
 .wrapper {
   display: flex;
   overflow: auto;
   flex-direction: row;
+  background: $globalBg;
   scrollbar-gutter: stable;
 
   .content {
