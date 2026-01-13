@@ -3,11 +3,19 @@
 .sidebar {
   ul {
     li {
+      border: 1px solid transparent;
+
       a {
         gap: 1rem;
         display: flex;
         padding: 1rem;
         align-items: center;
+      }
+
+      &:hover {
+        color: $accent;
+
+        @include glassBg;
       }
     }
   }

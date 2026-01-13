@@ -1,0 +1,9 @@
+@use "../core/vars.scss" as *;
+
+@mixin glassBg($color: $globalBg, $alpha: 95%, $filter: 10px) {
+  border: 1px solid color-mix(in srgb, #FFFFFF 10%, transparent);
+  background: color-mix(in srgb, $color, transpanent $alpha);
+  box-shadow: 0 4px 6px color-mix(in srgb, #000000 10%, transparent);
+  backdrop-filter: blur($filter);
+  -webkit-backdrop-filter: blur($filter);
+}
