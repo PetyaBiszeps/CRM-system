@@ -1,0 +1,28 @@
+@use "../resources.scss" as *;
+
+.wrapper {
+  display: flex;
+  overflow: auto;
+  background: $globalBg;
+  flex-direction: row;
+  scrollbar-gutter: stable;
+
+  .content {
+    flex: 1;
+    height: 100dvh;
+    min-width: 0;
+
+    .error {
+      top: 50%;
+      left: 50%;
+      position: absolute;
+      transform: translate(-50%, -50%);
+
+      a {
+        &:hover {
+          color: $accent;
+        }
+      }
+    }
+  }
+}
