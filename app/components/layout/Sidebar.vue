@@ -4,7 +4,12 @@
 
     <ul>
       <li>
-        <p>Sidebar</p>
+        <Icon
+          name="material-symbols:interactive-space-outline"
+          size="24"
+        />
+
+        <p>Dashboard</p>
       </li>
     </ul>
   </aside>

@@ -2,4 +2,13 @@
 
 .sidebar {
   color: $accent;
+
+  ul {
+    li {
+      gap: 1rem;
+      display: flex;
+      padding: 1rem;
+      align-items: center;
+    }
+  }
 }
