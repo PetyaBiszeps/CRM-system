@@ -1,7 +1,9 @@
 <template>
   <aside>
     <ul>
-      <li />
+      <li>
+        <p>Sidebar</p>
+      </li>
     </ul>
   </aside>
 </template>

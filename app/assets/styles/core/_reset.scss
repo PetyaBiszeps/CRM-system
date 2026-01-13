@@ -1,0 +1,73 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  color: black;
+  line-height: 1.5;
+  letter-spacing: normal;
+  font-family: "Times New Roman", sans-serif;
+}
+
+input, button, select, textarea,
+optgroup, option {
+  font: inherit;
+  letter-spacing: inherit;
+}
+
+h1, h2, h3, h4, h5, h6,
+input, button, select, textarea,
+optgroup, option, fieldset, ul, ol, li,
+strong, a, p, span, code, pre, kbd, samp {
+  color: inherit;
+}
+
+fieldset, button {
+  border: none;
+}
+
+a, button, input, textarea, select {
+  touch-action: manipulation;
+}
+
+menu {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  padding-inline-start: 0;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+img, svg {
+  display: block;
+  max-width: 100%;
+}
+
+button, input {
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+}
+
+code, pre, kbd, samp {
+  font-size: 0.9em;
+  font-family: ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+}
