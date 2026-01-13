@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
+      title: 'CRM',
       link: [{
         rel: 'icon', type: 'image/png', href: '/favicon.svg',
       }],
