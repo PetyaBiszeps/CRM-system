@@ -1,5 +1,5 @@
 export default defineNuxtConfig({
-  modules: ['@nuxt/eslint', '@pinia/nuxt'],
+  modules: ['@nuxt/eslint', '@pinia/nuxt', '@nuxt/fonts'],
   devtools: {
     enabled: true,
   },
@@ -9,6 +9,13 @@ export default defineNuxtConfig({
     config: {
       stylistic: true,
       standalone: true,
+    },
+  },
+  fonts: {
+    defaults: {
+      weights: [400, 500, 600, 700, 800],
+      styles: ['normal'],
+      subsets: ['latin', 'cyrillic'],
     },
   },
 })
