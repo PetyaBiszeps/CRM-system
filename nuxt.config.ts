@@ -4,6 +4,7 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@nuxt/fonts',
     '@nuxtjs/color-mode',
+    '@nuxtjs/i18n',
   ],
   devtools: {
     enabled: true,
@@ -27,5 +28,15 @@ export default defineNuxtConfig({
       styles: ['normal'],
       subsets: ['latin', 'cyrillic'],
     },
+  },
+  i18n: {
+    restructureDir: 'app/',
+    locales: [{
+      code: 'en', name: 'English', language: 'en-US', file: 'en.json',
+    }, {
+      code: 'uk', name: 'Українська', language: 'uk-UA', file: 'uk.json',
+    }],
+    defaultLocale: 'en',
+    strategy: 'no_prefix',
   },
 })
