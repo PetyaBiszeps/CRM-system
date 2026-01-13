@@ -2,8 +2,14 @@
 
 .sidebar {
   ul {
+    gap: 8px;
+    display: flex;
+    flex-direction: column;
+
     li {
       border: 1px solid transparent;
+      transition: all $transitionBase;
+      border-radius: $borderRadius;
 
       a {
         gap: 1rem;

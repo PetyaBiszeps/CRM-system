@@ -1,4 +1,4 @@
-@use "../core/vars.scss" as *;
+@use "../core/colors.scss" as *;
 
 @mixin scrollbar($size: 6px, $color: $accent) {
   &::-webkit-scrollbar {
