@@ -49,4 +49,10 @@ export default defineNuxtConfig({
     defaultLocale: 'en',
     strategy: 'no_prefix',
   },
+  icon: {
+    customCollections: [{
+      dir: '~/app/assets/svgs',
+      prefix: 'local',
+    }],
+  },
 })

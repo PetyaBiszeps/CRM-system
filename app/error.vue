@@ -10,6 +10,11 @@ const { error } = defineProps<{
 
 <template>
   <NuxtLayout name="error">
+    <Icon
+      name="local:logo"
+      size="150"
+    />
+
     <h1>{{ error.statusCode }}</h1>
     <h3>{{ error.message }}</h3>
 
