@@ -12,18 +12,18 @@ html {
   scroll-behavior: smooth;
   overscroll-behavior: none;
 
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
   -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  color: black;
+  color: $globalText;
   font-size: 1rem;
   line-height: 1.5;
-  letter-spacing: normal;
   font-family: "Inter", sans-serif;
+  letter-spacing: normal;
 }
 
 input, button, select, textarea,
