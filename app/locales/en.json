@@ -4,6 +4,9 @@
       "tabs": {
         "dashboard": "Dashboard",
         "goods": "Goods",
+        "payments": "Payments",
+        "orders": "Orders",
+        "customers": "Customers",
         "settings": "Settings",
         "contact": "Contact Us"
       }
@@ -23,6 +26,15 @@
     },
     "goods": {
       "title": "Goods"
+    },
+    "payments": {
+      "title": "Payments"
+    },
+    "orders": {
+      "title": "Orders"
+    },
+    "customers": {
+      "title": "Customers"
     },
     "settings": {
       "title": "Settings"

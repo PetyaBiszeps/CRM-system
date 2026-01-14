@@ -16,6 +16,18 @@ const sidebarTabs = computed<sidebarTab[]>(() => [{
   icon: 'material-symbols:shopping-bag-speed-outline',
   link: '/goods',
 }, {
+  name: i18n.t('components.sidebar.tabs.payments'),
+  icon: 'material-symbols:payment-card-outline',
+  link: '/payments',
+}, {
+  name: i18n.t('components.sidebar.tabs.orders'),
+  icon: 'material-symbols:delivery-truck-speed-outline',
+  link: '/orders',
+}, {
+  name: i18n.t('components.sidebar.tabs.customers'),
+  icon: 'material-symbols:person-outline',
+  link: '/customers',
+}, {
   name: i18n.t('components.sidebar.tabs.settings'),
   icon: 'material-symbols:settings-input-component-outline',
   link: '/settings',

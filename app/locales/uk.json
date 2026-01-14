@@ -4,6 +4,9 @@
       "tabs": {
         "dashboard": "Задачі",
         "goods": "Товари",
+        "payments": "Оплати",
+        "orders": "Замовлення",
+        "customers": "Клієнти",
         "settings": "Налаштування",
         "contact": "Зв'язок з нами"
       }
@@ -23,6 +26,15 @@
     },
     "goods": {
       "title": "Товари"
+    },
+    "payments": {
+      "title": "Оплати"
+    },
+    "orders": {
+      "title": "Замовлення"
+    },
+    "customers": {
+      "title": "Клієнти"
     },
     "settings": {
       "title": "Налаштування"
