@@ -1,15 +1,13 @@
 <script setup lang="ts">
-interface sidebarButton {
-  id: string
-  icon: string
-  title: string
-}
+import type {
+  actionButton,
+} from '@/types'
 
 const i18n = useI18n()
 const theme = useTheme()
 const isNotificationsOpen = ref<boolean>(false)
 
-const sidebarButtons = computed<sidebarButton[]>(() => [{
+const actionButtons = computed<actionButton[]>(() => [{
   id: 'notifications',
   icon: 'material-symbols:notifications-outline',
   title: i18n.t('components.actions.titles.notifications'),
@@ -40,7 +38,7 @@ async function toggleLanguage() {
   }
 }
 
-function handleClick(button: sidebarButton) {
+function handleClick(button: actionButton) {
   if (button.id === 'notifications') {
     return toggleNotifications()
   }
@@ -63,7 +61,7 @@ function handleClick(button: sidebarButton) {
   <div :class="['actions']">
     <ul>
       <li
-        v-for="button in sidebarButtons"
+        v-for="button in actionButtons"
         :key="button.id"
       >
         <button @click="handleClick(button)">

@@ -1,9 +1,7 @@
 <script setup lang="ts">
-interface sidebarTab {
-  name: string
-  icon: string
-  link: string
-}
+import type {
+  sidebarTab,
+} from '@/types'
 
 const i18n = useI18n()
 
