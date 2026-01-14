@@ -1,8 +1,8 @@
 <script setup lang="ts">
 interface sidebarButton {
   id: string
-  title: string
   icon: string
+  title: string
 }
 
 const i18n = useI18n()
@@ -11,20 +11,20 @@ const isNotificationsOpen = ref<boolean>(false)
 
 const sidebarButtons = computed<sidebarButton[]>(() => [{
   id: 'notifications',
-  title: 'notifications',
   icon: 'material-symbols:notifications-outline',
+  title: i18n.t('actions.titles.notifications'),
 }, {
   id: 'language',
-  title: 'language',
   icon: 'material-symbols:keyboard-alt-outline',
+  title: i18n.t('actions.titles.language'),
 }, {
   id: 'theme',
-  title: 'theme',
   icon: theme.currentIcon.value,
+  title: i18n.t('actions.titles.theme'),
 }, {
   id: 'logout',
-  title: 'logout',
   icon: 'material-symbols:exit-to-app',
+  title: i18n.t('actions.titles.logout'),
 }])
 
 function toggleNotifications() {

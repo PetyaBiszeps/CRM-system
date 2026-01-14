@@ -1,6 +1,6 @@
 {
   "sidebar": {
-    "tab": {
+    "tabs": {
       "dashboard": "Dashboard",
       "goods": "Goods",
       "settings": "Settings",
@@ -10,8 +10,8 @@
   "actions": {
     "titles": {
       "notifications": "notifications",
-      "language": "language",
-      "theme": "theme",
+      "language": "change language",
+      "theme": "color theme",
       "logout": "logout"
     }
   }

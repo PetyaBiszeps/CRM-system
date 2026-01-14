@@ -1,6 +1,6 @@
 {
   "sidebar": {
-    "tab": {
+    "tabs": {
       "dashboard": "Задачі",
       "goods": "Товари",
       "settings": "Налаштування",
@@ -9,10 +9,10 @@
   },
   "actions": {
     "titles": {
-      "notifications": "notifications",
-      "language": "language",
-      "theme": "theme",
-      "logout": "logout"
+      "notifications": "повідомлення",
+      "language": "зміна мови",
+      "theme": "кольорова тема",
+      "logout": "вихід з акаунту"
     }
   }
 }
