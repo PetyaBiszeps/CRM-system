@@ -4,12 +4,16 @@ interface sidebarButton {
   icon: string
 }
 
+const i18n = useI18n()
 const theme = useTheme()
 const isNotificationsOpen = ref<boolean>(false)
 
 const sidebarButtons = computed<sidebarButton[]>(() => [{
   title: 'notifications',
   icon: 'material-symbols:notifications-outline',
+}, {
+  title: 'language',
+  icon: 'material-symbols:keyboard-alt-outline',
 }, {
   title: 'theme',
   icon: theme.currentIcon.value,
@@ -22,9 +26,22 @@ function toggleNotifications() {
   isNotificationsOpen.value = !isNotificationsOpen.value
 }
 
+async function toggleLanguage() {
+  const next = i18n.locales.value
+    .find(locale => locale.code !== i18n.locale.value)
+
+  if (next) {
+    await i18n.setLocale(next.code)
+  }
+}
+
 function handleClick(button: sidebarButton) {
   if (button.title === 'notifications') {
     return toggleNotifications()
+  }
+
+  if (button.title === 'language') {
+    return toggleLanguage()
   }
 
   if (button.title === 'theme') {
