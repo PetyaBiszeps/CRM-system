@@ -4,6 +4,7 @@
   gap: 32px;
   padding: 8px;
   display: flex;
+  position: relative;
   flex-direction: column;
 
   // header {}
@@ -32,4 +33,6 @@
       }
     }
   }
+
+  @include gradientBorder;
 }

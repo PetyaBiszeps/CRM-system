@@ -1,0 +1,18 @@
+@use "../core/colors.scss" as *;
+
+@mixin gradientBorder($color: $globalBorder, $opacity: 0.1) {
+  position: relative;
+
+  $mixed-color: color-mix(in srgb, $color, transparent calc(100% - ($opacity * 100%)));
+
+  &::after {
+    content: '';
+
+    top: 0;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    background: linear-gradient(to bottom, transparent, $mixed-color 20%, $mixed-color 80%, transparent);
+  }
+}
