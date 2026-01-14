@@ -10,12 +10,26 @@ const sidebarButtons = computed<sidebarButton[]>(() => [{
   title: 'notifications',
   icon: 'material-symbols:notifications-outline',
 }, {
-  title: 'toggle theme',
+  title: 'theme',
   icon: theme.currentIcon.value,
 }, {
   title: 'logout',
   icon: 'material-symbols:exit-to-app',
 }])
+
+function handleClick(button: sidebarButton) {
+  if (button.title === 'notifications') {
+    return null
+  }
+
+  if (button.title === 'theme') {
+    theme.toggleTheme()
+  }
+
+  if (button.title === 'logout') {
+    return null
+  }
+}
 </script>
 
 <template>
@@ -25,7 +39,7 @@ const sidebarButtons = computed<sidebarButton[]>(() => [{
         v-for="button in sidebarButtons"
         :key="button.title"
       >
-        <button @click="theme.toggleTheme">
+        <button @click="handleClick(button)">
           <Icon
             :name="button.icon"
             :title="button.title"
