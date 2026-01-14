@@ -1,7 +1,7 @@
 // @ts-check
 import withNuxt from './.nuxt/eslint.config.mjs'
 
-export default withNuxt({
+export default withNuxt([{
   rules: {
     '@stylistic/eol-last': ['error', 'never'],
     '@stylistic/comma-dangle': ['error', 'never'],
@@ -21,4 +21,4 @@ export default withNuxt({
       ]
     }]
   }
-})
+}])
