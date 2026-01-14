@@ -1,1 +1,18 @@
-{}
+{
+  "sidebar": {
+    "tab": {
+      "dashboard": "Dashboard",
+      "goods": "Goods",
+      "settings": "Settings",
+      "contact": "Contact Us"
+    }
+  },
+  "actions": {
+    "titles": {
+      "notifications": "notifications",
+      "language": "language",
+      "theme": "theme",
+      "logout": "logout"
+    }
+  }
+}

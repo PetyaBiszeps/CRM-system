@@ -1,5 +1,6 @@
 <script setup lang="ts">
 interface sidebarButton {
+  id: string
   title: string
   icon: string
 }
@@ -9,15 +10,19 @@ const theme = useTheme()
 const isNotificationsOpen = ref<boolean>(false)
 
 const sidebarButtons = computed<sidebarButton[]>(() => [{
+  id: 'notifications',
   title: 'notifications',
   icon: 'material-symbols:notifications-outline',
 }, {
+  id: 'language',
   title: 'language',
   icon: 'material-symbols:keyboard-alt-outline',
 }, {
+  id: 'theme',
   title: 'theme',
   icon: theme.currentIcon.value,
 }, {
+  id: 'logout',
   title: 'logout',
   icon: 'material-symbols:exit-to-app',
 }])
@@ -36,19 +41,19 @@ async function toggleLanguage() {
 }
 
 function handleClick(button: sidebarButton) {
-  if (button.title === 'notifications') {
+  if (button.id === 'notifications') {
     return toggleNotifications()
   }
 
-  if (button.title === 'language') {
+  if (button.id === 'language') {
     return toggleLanguage()
   }
 
-  if (button.title === 'theme') {
+  if (button.id === 'theme') {
     return theme.toggleTheme()
   }
 
-  if (button.title === 'logout') {
+  if (button.id === 'logout') {
     return null
   }
 }
@@ -59,7 +64,7 @@ function handleClick(button: sidebarButton) {
     <ul>
       <li
         v-for="button in sidebarButtons"
-        :key="button.title"
+        :key="button.id"
       >
         <button @click="handleClick(button)">
           <Icon
