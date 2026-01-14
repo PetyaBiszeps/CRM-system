@@ -9,6 +9,6 @@ const model = defineModel<boolean>({
     v-if="model"
     :class="['notifications']"
   >
-    <h1>Notifications Menu :3</h1>
+    <h2>Notifications</h2>
   </div>
 </template>

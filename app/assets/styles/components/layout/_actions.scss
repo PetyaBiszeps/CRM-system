@@ -3,12 +3,12 @@
 .actions {
   right: 24px;
   bottom: 24px;
-  padding: 8px;
   position: fixed;
   border-radius: $borderRadius;
 
   ul {
     gap: 16px;
+    padding: 8px;
     display: flex;
     position: relative;
     align-items: center;

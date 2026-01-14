@@ -3,11 +3,13 @@
 
   --clr-1: #FFFFFF;
   --clr-2: #000000;
+  --clr-3: #FFFFFF;
 
   &.dark {
     --accent: #FF7A59;
 
     --clr-1: #2F2F2F;
     --clr-2: #EDEDED;
+    --clr-3: #363636;
   }
 }
