@@ -5,6 +5,7 @@ interface sidebarButton {
 }
 
 const theme = useTheme()
+const isNotificationsOpen = ref<boolean>(false)
 
 const sidebarButtons = computed<sidebarButton[]>(() => [{
   title: 'notifications',
@@ -17,13 +18,17 @@ const sidebarButtons = computed<sidebarButton[]>(() => [{
   icon: 'material-symbols:exit-to-app',
 }])
 
+function toggleNotifications() {
+  isNotificationsOpen.value = !isNotificationsOpen.value
+}
+
 function handleClick(button: sidebarButton) {
   if (button.title === 'notifications') {
-    return null
+    return toggleNotifications()
   }
 
   if (button.title === 'theme') {
-    theme.toggleTheme()
+    return theme.toggleTheme()
   }
 
   if (button.title === 'logout') {
@@ -48,6 +53,8 @@ function handleClick(button: sidebarButton) {
           />
         </button>
       </li>
+
+      <SharedNotifications v-model="isNotificationsOpen" />
     </ul>
   </div>
 </template>
