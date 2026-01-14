@@ -31,6 +31,6 @@ export const useTheme = () => {
 
   return {
     isDark, currentTheme, currentIcon, preferredTheme,
-    toggleTheme, setTheme,
+    toggleTheme, setTheme
   }
 }

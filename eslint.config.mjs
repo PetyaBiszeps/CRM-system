@@ -3,6 +3,8 @@ import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt({
   rules: {
+    '@stylistic/eol-last': ['error', 'never'],
+    '@stylistic/comma-dangle': ['error', 'never'],
     'vue/attributes-order': ['error', {
       order: [
         'CONDITIONALS', // v-if, v-else
@@ -15,8 +17,8 @@ export default withNuxt({
         'UNIQUE', // :ref, :key
         'GLOBAL', // :id
         'OTHER_ATTR', // :name, :type, :placeholder, :disabled, :readonly, :autocomplete, :model-value, :class, :style
-        'EVENTS', // @click, @focus
-      ],
-    }],
-  },
+        'EVENTS' // @click, @focus
+      ]
+    }]
+  }
 })

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const model = defineModel<boolean>({
-  required: true,
+  required: true
 })
 </script>
 

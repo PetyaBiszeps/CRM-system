@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type {
-  actionButton,
+  actionButton
 } from '@/types'
 
 const i18n = useI18n()
@@ -10,19 +10,19 @@ const isNotificationsOpen = ref<boolean>(false)
 const actionButtons = computed<actionButton[]>(() => [{
   id: 'notifications',
   icon: 'material-symbols:notifications-outline',
-  title: i18n.t('components.actions.titles.notifications'),
+  title: i18n.t('components.actions.titles.notifications')
 }, {
   id: 'language',
   icon: 'material-symbols:keyboard-alt-outline',
-  title: i18n.t('components.actions.titles.language'),
+  title: i18n.t('components.actions.titles.language')
 }, {
   id: 'theme',
   icon: theme.currentIcon.value,
-  title: i18n.t('components.actions.titles.theme'),
+  title: i18n.t('components.actions.titles.theme')
 }, {
   id: 'logout',
   icon: 'material-symbols:exit-to-app',
-  title: i18n.t('components.actions.titles.logout'),
+  title: i18n.t('components.actions.titles.logout')
 }])
 
 function toggleNotifications() {

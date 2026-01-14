@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type {
-  sidebarTab,
+  sidebarTab
 } from '@/types'
 
 const i18n = useI18n()
@@ -8,31 +8,31 @@ const i18n = useI18n()
 const sidebarTabs = computed<sidebarTab[]>(() => [{
   name: i18n.t('components.sidebar.tabs.dashboard'),
   icon: 'material-symbols:interactive-space-outline',
-  link: '/',
+  link: '/'
 }, {
   name: i18n.t('components.sidebar.tabs.goods'),
   icon: 'material-symbols:shopping-bag-speed-outline',
-  link: '/goods',
+  link: '/goods'
 }, {
   name: i18n.t('components.sidebar.tabs.payments'),
   icon: 'material-symbols:payment-card-outline',
-  link: '/payments',
+  link: '/payments'
 }, {
   name: i18n.t('components.sidebar.tabs.orders'),
   icon: 'material-symbols:delivery-truck-speed-outline',
-  link: '/orders',
+  link: '/orders'
 }, {
   name: i18n.t('components.sidebar.tabs.customers'),
   icon: 'material-symbols:person-outline',
-  link: '/customers',
+  link: '/customers'
 }, {
   name: i18n.t('components.sidebar.tabs.settings'),
   icon: 'material-symbols:settings-input-component-outline',
-  link: '/settings',
+  link: '/settings'
 }, {
   name: i18n.t('components.sidebar.tabs.contacts'),
   icon: 'material-symbols:settings-phone-outline',
-  link: '/contacts',
+  link: '/contacts'
 }])
 </script>
 

@@ -6,53 +6,53 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxt/image',
-    '@nuxt/icon',
+    '@nuxt/icon'
   ],
   devtools: {
-    enabled: true,
+    enabled: true
   },
   app: {
     head: {
       title: 'CRM',
       link: [{
-        rel: 'icon', type: 'image/png', href: '/favicon.svg',
-      }],
-    },
+        rel: 'icon', type: 'image/png', href: '/favicon.svg'
+      }]
+    }
   },
   css: ['~/assets/styles/main.scss'],
   colorMode: {
     preference: 'system',
     fallback: 'light',
-    classSuffix: '',
+    classSuffix: ''
   },
   compatibilityDate: '2025-07-15',
   eslint: {
     config: {
       stylistic: true,
-      standalone: true,
-    },
+      standalone: true
+    }
   },
   fonts: {
     defaults: {
       weights: [400, 500, 600, 700, 800],
       styles: ['normal'],
-      subsets: ['latin', 'cyrillic'],
-    },
+      subsets: ['latin', 'cyrillic']
+    }
   },
   i18n: {
     restructureDir: 'app/',
     locales: [{
-      code: 'en', name: 'English', language: 'en-US', file: 'en.json',
+      code: 'en', name: 'English', language: 'en-US', file: 'en.json'
     }, {
-      code: 'uk', name: 'Українська', language: 'uk-UA', file: 'uk.json',
+      code: 'uk', name: 'Українська', language: 'uk-UA', file: 'uk.json'
     }],
     defaultLocale: 'en',
-    strategy: 'no_prefix',
+    strategy: 'no_prefix'
   },
   icon: {
     customCollections: [{
       dir: '~/app/assets/svgs',
-      prefix: 'local',
-    }],
-  },
+      prefix: 'local'
+    }]
+  }
 })
