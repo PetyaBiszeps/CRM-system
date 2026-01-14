@@ -14,6 +14,8 @@ const sidebarButtons: sidebarButton[] = [{
   title: 'logout',
   icon: 'material-symbols:exit-to-app',
 }]
+
+const theme = useTheme()
 </script>
 
 <template>
@@ -23,7 +25,7 @@ const sidebarButtons: sidebarButton[] = [{
         v-for="button in sidebarButtons"
         :key="button.title"
       >
-        <button @click="null">
+        <button @click="theme.toggleTheme">
           <Icon
             :name="button.icon"
             :title="button.title"
