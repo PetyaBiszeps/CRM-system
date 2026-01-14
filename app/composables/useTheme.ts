@@ -9,6 +9,14 @@ export const useTheme = () => {
     return mode.value
   })
 
+  const currentIcon = computed(() => {
+    if (mode.preference === 'system') {
+      return 'material-symbols:monitor-outline'
+    }
+
+    return isDark.value ? 'material-symbols:nightlight-outline' : 'material-symbols:light-mode-outline'
+  })
+
   const preferredTheme = computed(() => {
     return mode.preference
   })
@@ -22,7 +30,7 @@ export const useTheme = () => {
   }
 
   return {
-    isDark, currentTheme, preferredTheme,
+    isDark, currentTheme, currentIcon, preferredTheme,
     toggleTheme, setTheme,
   }
 }

@@ -4,18 +4,18 @@ interface sidebarButton {
   icon: string
 }
 
-const sidebarButtons: sidebarButton[] = [{
+const theme = useTheme()
+
+const sidebarButtons = computed<sidebarButton[]>(() => [{
   title: 'notifications',
   icon: 'material-symbols:notifications-outline',
 }, {
-  title: 'theme',
-  icon: 'material-symbols:light-mode-outline',
+  title: 'toggle theme',
+  icon: theme.currentIcon.value,
 }, {
   title: 'logout',
   icon: 'material-symbols:exit-to-app',
-}]
-
-const theme = useTheme()
+}])
 </script>
 
 <template>
