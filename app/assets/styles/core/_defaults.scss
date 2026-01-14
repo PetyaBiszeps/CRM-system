@@ -1,0 +1,17 @@
+@use "../resources.scss" as *;
+
+button {
+  cursor: pointer;
+  display: inline-flex;
+  transition: all $transitionBase;
+  align-items: center;
+  justify-content: center;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:hover {
+    color: $accent;
+  }
+}

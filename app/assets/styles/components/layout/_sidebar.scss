@@ -1,31 +1,52 @@
 @use "../../resources.scss" as *;
 
 .sidebar {
-  gap: 32px;
+  gap: 16px;
   padding: 8px;
   display: flex;
   border-right: 1px solid black;
   flex-direction: column;
 
-  ul {
-    gap: 8px;
-    display: flex;
-    flex-direction: column;
+  header {
+    ul {
+      gap: 8px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 16px;
 
-    li {
-      border: 1px solid transparent;
-      transition: all $transitionBase;
-      border-radius: $borderRadius;
+      li {
+        display: inline-flex;
 
-      a {
-        gap: 1rem;
-        display: flex;
-        padding: 1rem;
-        align-items: center;
+        &:last-child {
+          margin-left: auto;
+        }
       }
+    }
+  }
 
-      &:hover {
-        @include accentGlass;
+  // main {}
+
+  footer {
+    ul {
+      gap: 8px;
+      display: flex;
+      flex-direction: column;
+
+      li {
+        border: 1px solid transparent;
+        transition: all $transitionBase;
+        border-radius: $borderRadius;
+
+        a {
+          gap: 1rem;
+          display: flex;
+          padding: 1rem;
+          align-items: center;
+        }
+
+        &:hover {
+          @include accentGlass;
+        }
       }
     }
   }
