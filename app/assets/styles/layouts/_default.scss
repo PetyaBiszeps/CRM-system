@@ -2,12 +2,16 @@
 
 .wrapper {
   display: flex;
-  overflow: auto;
+  overflow: hidden;
   flex-direction: row;
 
   .content {
     flex: 1;
+    overflow: auto;
     height: 100dvh;
     min-width: 0;
+    scrollbar-gutter: stable both-edges;
+
+    @include scrollbar;
   }
 }

@@ -25,9 +25,6 @@ body {
   line-height: 1.5;
   font-family: "Inter", sans-serif;
   letter-spacing: normal;
-  scrollbar-gutter: stable both-edges;
-
-  @include scrollbar;
 }
 
 input, button, select, textarea,
