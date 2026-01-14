@@ -32,7 +32,7 @@ const sidebarTabs = computed<sidebarTab[]>(() => [{
       <NuxtLink to="/">
         <NuxtImg
           src="favicon.svg"
-          width="125"
+          width="200"
         />
       </NuxtLink>
     </header>
