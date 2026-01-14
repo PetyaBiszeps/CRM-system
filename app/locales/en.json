@@ -16,5 +16,19 @@
         "logout": "logout"
       }
     }
+  },
+  "pages": {
+    "dashboard": {
+      "title": "Dashboard"
+    },
+    "goods": {
+      "title": "Goods"
+    },
+    "settings": {
+      "title": "Settings"
+    },
+    "contact": {
+      "title": "Contact Us"
+    }
   }
 }
