@@ -8,19 +8,19 @@ interface sidebarTab {
 const i18n = useI18n()
 
 const sidebarTabs = computed<sidebarTab[]>(() => [{
-  name: i18n.t('sidebar.tabs.dashboard'),
+  name: i18n.t('components.sidebar.tabs.dashboard'),
   icon: 'material-symbols:interactive-space-outline',
   link: '/',
 }, {
-  name: i18n.t('sidebar.tabs.goods'),
+  name: i18n.t('components.sidebar.tabs.goods'),
   icon: 'material-symbols:shopping-bag-speed-outline',
   link: '/goods',
 }, {
-  name: i18n.t('sidebar.tabs.settings'),
+  name: i18n.t('components.sidebar.tabs.settings'),
   icon: 'material-symbols:settings-input-component-outline',
   link: '/settings',
 }, {
-  name: i18n.t('sidebar.tabs.contact'),
+  name: i18n.t('components.sidebar.tabs.contact'),
   icon: 'material-symbols:settings-phone-outline',
   link: '/contact',
 }])

@@ -1,18 +1,34 @@
 {
-  "sidebar": {
-    "tabs": {
-      "dashboard": "Задачі",
-      "goods": "Товари",
-      "settings": "Налаштування",
-      "contact": "Зв'язок з нами"
+  "components": {
+    "sidebar": {
+      "tabs": {
+        "dashboard": "Задачі",
+        "goods": "Товари",
+        "settings": "Налаштування",
+        "contact": "Зв'язок з нами"
+      }
+    },
+    "actions": {
+      "titles": {
+        "notifications": "повідомлення",
+        "language": "зміна мови",
+        "theme": "кольорова тема",
+        "logout": "вихід з акаунту"
+      }
     }
   },
-  "actions": {
-    "titles": {
-      "notifications": "повідомлення",
-      "language": "зміна мови",
-      "theme": "кольорова тема",
-      "logout": "вихід з акаунту"
+  "pages": {
+    "dashboard": {
+      "title": "Задачі"
+    },
+    "goods": {
+      "title": "Товари"
+    },
+    "settings": {
+      "title": "Налаштування"
+    },
+    "contact": {
+      "title": "Зв'язок з нами"
     }
   }
 }

@@ -12,19 +12,19 @@ const isNotificationsOpen = ref<boolean>(false)
 const sidebarButtons = computed<sidebarButton[]>(() => [{
   id: 'notifications',
   icon: 'material-symbols:notifications-outline',
-  title: i18n.t('actions.titles.notifications'),
+  title: i18n.t('components.actions.titles.notifications'),
 }, {
   id: 'language',
   icon: 'material-symbols:keyboard-alt-outline',
-  title: i18n.t('actions.titles.language'),
+  title: i18n.t('components.actions.titles.language'),
 }, {
   id: 'theme',
   icon: theme.currentIcon.value,
-  title: i18n.t('actions.titles.theme'),
+  title: i18n.t('components.actions.titles.theme'),
 }, {
   id: 'logout',
   icon: 'material-symbols:exit-to-app',
-  title: i18n.t('actions.titles.logout'),
+  title: i18n.t('components.actions.titles.logout'),
 }])
 
 function toggleNotifications() {
