@@ -3,9 +3,7 @@
 .wrapper {
   display: flex;
   overflow: auto;
-  background: $globalBg;
   flex-direction: row;
-  scrollbar-gutter: stable;
 
   .content {
     flex: 1;
