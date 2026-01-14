@@ -1,0 +1,21 @@
+@use "../../resources.scss" as *;
+
+.actions {
+  right: 24px;
+  bottom: 24px;
+  padding: 8px;
+  position: fixed;
+  border-radius: $borderRadius;
+
+  ul {
+    gap: 16px;
+    display: flex;
+    align-items: center;
+
+    li {
+      display: inline-flex;
+    }
+  }
+
+  @include glassBg;
+}

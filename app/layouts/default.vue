@@ -4,6 +4,8 @@
 
     <div class="content">
       <slot />
+
+      <LayoutActions />
     </div>
   </div>
 </template>

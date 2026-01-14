@@ -7,26 +7,9 @@
   border-right: 1px solid black;
   flex-direction: column;
 
-  header {
-    ul {
-      gap: 8px;
-      display: flex;
-      align-items: center;
-      margin-bottom: 16px;
+  // header {}
 
-      li {
-        display: inline-flex;
-
-        &:last-child {
-          margin-left: auto;
-        }
-      }
-    }
-  }
-
-  // main {}
-
-  footer {
+  main {
     ul {
       gap: 8px;
       display: flex;

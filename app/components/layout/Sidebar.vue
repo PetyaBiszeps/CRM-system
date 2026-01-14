@@ -5,11 +5,6 @@ interface sidebarTab {
   link: string
 }
 
-interface sidebarButton {
-  title: string
-  icon: string
-}
-
 const sidebarTabs: sidebarTab[] = [{
   name: 'Dashboard',
   icon: 'material-symbols:interactive-space-outline',
@@ -27,49 +22,20 @@ const sidebarTabs: sidebarTab[] = [{
   icon: 'material-symbols:settings-phone-outline',
   link: '/contact',
 }]
-
-const sidebarButtons: sidebarButton[] = [{
-  title: 'theme',
-  icon: 'material-symbols:light-mode-outline',
-}, {
-  title: 'notifications',
-  icon: 'material-symbols:notifications-outline',
-}, {
-  title: 'logout',
-  icon: 'material-symbols:exit-to-app',
-}]
 </script>
 
 <template>
   <aside :class="['sidebar']">
     <header>
-      <ul>
-        <li
-          v-for="button in sidebarButtons"
-          :key="button.title"
-        >
-          <button @click="null">
-            <Icon
-              :name="button.icon"
-              :title="button.title"
-
-              size="20"
-            />
-          </button>
-        </li>
-      </ul>
-    </header>
-
-    <main>
       <NuxtLink to="/">
         <NuxtImg
           src="favicon.svg"
           width="125"
         />
       </NuxtLink>
-    </main>
+    </header>
 
-    <footer>
+    <main>
       <ul>
         <li
           v-for="tab in sidebarTabs"
@@ -82,6 +48,6 @@ const sidebarButtons: sidebarButton[] = [{
           </NuxtLink>
         </li>
       </ul>
-    </footer>
+    </main>
   </aside>
 </template>
