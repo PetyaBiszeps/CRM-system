@@ -32,9 +32,9 @@ const sidebarTabs = computed<sidebarTab[]>(() => [{
   icon: 'material-symbols:settings-input-component-outline',
   link: '/settings',
 }, {
-  name: i18n.t('components.sidebar.tabs.contact'),
+  name: i18n.t('components.sidebar.tabs.contacts'),
   icon: 'material-symbols:settings-phone-outline',
-  link: '/contact',
+  link: '/contacts',
 }])
 </script>
 

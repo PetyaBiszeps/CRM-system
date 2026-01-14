@@ -8,7 +8,7 @@
         "orders": "Orders",
         "customers": "Customers",
         "settings": "Settings",
-        "contact": "Contact Us"
+        "contacts": "Contact Us"
       }
     },
     "actions": {
@@ -39,7 +39,7 @@
     "settings": {
       "title": "Settings"
     },
-    "contact": {
+    "contacts": {
       "title": "Contact Us"
     }
   }

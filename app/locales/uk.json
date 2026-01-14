@@ -8,7 +8,7 @@
         "orders": "Замовлення",
         "customers": "Клієнти",
         "settings": "Налаштування",
-        "contact": "Зв'язок з нами"
+        "contacts": "Зв'язок з нами"
       }
     },
     "actions": {
@@ -39,7 +39,7 @@
     "settings": {
       "title": "Налаштування"
     },
-    "contact": {
+    "contacts": {
       "title": "Зв'язок з нами"
     }
   }
