@@ -2,6 +2,7 @@
 
 .tableWrapper {
   overflow: auto;
+  position: relative;
   min-height: 0;
   max-height: calc(100% - 72px);
   border-radius: $borderRadius;

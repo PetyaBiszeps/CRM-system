@@ -6,14 +6,16 @@ import {
   getCoreRowModel
 } from '@tanstack/vue-table'
 
-const { items, columns } = defineProps<{
-  items: T[]
+const { error, items, pending, columns } = defineProps<{
+  error: unknown
+  items: T[] | undefined
+  pending: boolean
   columns: ColumnDef<T>[]
 }>()
 
 const table = useVueTable({
   get data() {
-    return items
+    return items || []
   },
   get columns() {
     return columns
@@ -44,7 +46,19 @@ const table = useVueTable({
         </tr>
       </thead>
 
-      <tbody v-if="items.length > 0">
+      <tbody v-if="pending">
+        <tr>
+          <AppLoader />
+        </tr>
+      </tbody>
+
+      <tbody v-else-if="error">
+        <tr>
+          <td>Error :(</td>
+        </tr>
+      </tbody>
+
+      <tbody v-else>
         <tr
           v-for="row in table.getRowModel().rows"
           :key="row.id"
@@ -57,18 +71,6 @@ const table = useVueTable({
               :render="cell.column.columnDef.cell"
               :props="cell.getContext()"
             />
-          </td>
-        </tr>
-      </tbody>
-
-      <tbody v-else>
-        <!-- Create TableLoader.vue instead -->
-        <tr>
-          <td
-            :colspan="columns.length"
-            style="text-align: center; padding: 2rem;"
-          >
-            No data available
           </td>
         </tr>
       </tbody>
