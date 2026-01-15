@@ -169,6 +169,48 @@
   clip-path: inset(-100px -100px -100px -100px);
 }
 
+.curtain-up-enter-active,
+.curtain-up-leave-active {
+  will-change: clip-path, transform, opacity;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom;
+}
+
+.curtain-up-enter-from,
+.curtain-up-leave-to {
+  opacity: 0;
+  transform: translateY(30px);
+  clip-path: inset(100% 0% 0% 0%);
+}
+
+.curtain-up-enter-to,
+.curtain-up-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  clip-path: inset(0% 0% 0% 0%);
+}
+
+.curtain-center-enter-active,
+.curtain-up-leave-active {
+  will-change: clip-path, transform, opacity;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-origin: bottom;
+}
+
+.curtain-center-enter-from,
+.curtain-center-leave-to {
+  opacity: 0;
+  transform: translateY(-50px);
+  clip-path: inset(100% 0% 0% 0%);
+}
+
+.curtain-center-enter-to,
+.curtain-center-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  clip-path: inset(0% 0% 0% 0%);
+}
+
 .list-queue-enter-active {
   transition: all 0.4s ease;
 }
