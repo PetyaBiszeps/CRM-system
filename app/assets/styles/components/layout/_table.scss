@@ -1,0 +1,60 @@
+@use "../../resources.scss" as *;
+
+.tableWrapper {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: auto;
+  position: relative;
+  min-height: 0;
+  flex-direction: column;
+  border-radius: $borderRadius;
+
+  table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: separate;
+
+    thead {
+      top: 0;
+      z-index: 1;
+      position: sticky;
+
+      th {
+        padding: 16px;
+        text-align: left;
+        font-weight: bold;
+        white-space: nowrap;
+        border-bottom: 1px solid color-mix(in srgb, $globalBorder 10%, transparent);
+      }
+
+      @include glassBg;
+    }
+
+    tbody {
+      tr {
+        transition: background-color 0.3s ease;
+
+        td {
+          padding: 14px 16px;
+          white-space: nowrap;
+          border-bottom: 1px solid color-mix(in srgb, $globalBorder 5%, transparent);
+        }
+
+        &:hover {
+          background-color: color-mix(in srgb, white 5%, transparent);
+        }
+
+        &:last-child {
+          td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+
+  @include glassBg;
+  @include scrollbar;
+}
