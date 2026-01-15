@@ -22,6 +22,15 @@
         font-weight: bold;
         white-space: nowrap;
         border-bottom: 1px solid color-mix(in srgb, $globalBorder 10%, transparent);
+
+        h4 {
+          width: fit-content;
+          cursor: pointer;
+
+          &:hover {
+            color: $accent;
+          }
+        }
       }
 
       @include glassBg;

@@ -46,10 +46,12 @@ const table = useVueTable({
             v-for="header in headerGroup.headers"
             :key="header.id"
           >
-            <FlexRender
-              :render="header.column.columnDef.header"
-              :props="header.getContext()"
-            />
+            <h4>
+              <FlexRender
+                :render="header.column.columnDef.header"
+                :props="header.getContext()"
+              />
+            </h4>
           </th>
         </tr>
       </thead>
