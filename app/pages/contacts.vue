@@ -2,7 +2,7 @@
 const i18n = useI18n()
 
 const map = computed(() => {
-  const address = encodeURIComponent(i18n.t('pages.contacts.address_value'))
+  const address = encodeURIComponent(i18n.t('pages.contacts.address'))
 
   return `https://maps.google.com/maps?q=${address}&t=&z=15&ie=UTF8&iwloc=&output=embed`
 })
@@ -21,12 +21,10 @@ const map = computed(() => {
 
         <p>Email: {{ i18n.t('pages.contacts.email') }}</p>
         <p>Phone: {{ i18n.t('pages.contacts.phone') }}</p>
-        <p>Address: {{ i18n.t('pages.contacts.address_value') }}</p>
+        <p>Address: {{ i18n.t('pages.contacts.address') }}</p>
       </section>
 
       <section>
-        <h2>{{ i18n.t('pages.contacts.address') }}</h2>
-
         <iframe
           :src="map"
 
@@ -56,8 +54,14 @@ const map = computed(() => {
   header {
     p {
       &:first-child {
-        font-size: 0.8em;
-        margin-bottom: 8px;
+        width: fit-content;
+        color: $popoverText;
+        padding: 0 8px;
+        font-size: $fontSizeSmall;
+        border-radius: $borderRadius;
+        margin-bottom: 4px;
+
+        @include glassBg;
       }
     }
   }

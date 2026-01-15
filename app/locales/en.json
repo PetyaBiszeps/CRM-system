@@ -44,8 +44,7 @@
       "description": "Have a question? Our team is here to help you manage your business more effectively.",
       "phone": "+380 (99) 123 4567",
       "email": "Admin{'@'}crm.ca",
-      "address": "Our Office",
-      "address_value": "1600 Amphitheatre Parkway, Mountain View, CA",
+      "address": "1600 Amphitheatre Parkway, Mountain View, CA",
       "copyright": "© 2026 CRM System. Built with Nuxt 4 & Vue 3.5+."
     }
   }
