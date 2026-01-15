@@ -11,7 +11,6 @@ const map = computed(() => {
 <template>
   <div :class="['contactsPage']">
     <header>
-      <p>CRM / {{ i18n.t('pages.contacts.title') }}</p>
       <p>{{ i18n.t('pages.contacts.description') }}</p>
     </header>
 
@@ -40,50 +39,3 @@ const map = computed(() => {
     </footer>
   </div>
 </template>
-
-<style scoped lang="scss">
-@use '@/assets/styles/resources.scss' as *;
-
-.contactsPage {
-  gap: 32px;
-  height: 100%;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
-
-  header {
-    p {
-      &:first-child {
-        width: fit-content;
-        color: $secondaryText;
-        padding: 0 8px;
-        font-size: $fontSizeSmall;
-        border-radius: $borderRadius;
-        margin-bottom: 4px;
-
-        @include glassBg;
-      }
-    }
-  }
-
-  main {
-    gap: 32px;
-    display: grid;
-    grid-template-columns: 0.6fr 1fr;
-
-    section {
-      overflow: hidden;
-      border-radius: $borderRadius;
-
-      iframe {
-        border-width: 0;
-      }
-
-      p {
-        margin-top: 12px;
-      }
-    }
-  }
-
-  footer {}
-}
-</style>

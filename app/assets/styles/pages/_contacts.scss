@@ -1,0 +1,31 @@
+@use '../resources.scss' as *;
+
+.contactsPage {
+  gap: 32px;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+
+  // header {}
+
+  main {
+    gap: 32px;
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+
+    section {
+      overflow: hidden;
+      border-radius: $borderRadius;
+
+      iframe {
+        border-width: 0;
+      }
+
+      p {
+        margin-top: 12px;
+      }
+    }
+  }
+
+  // footer {}
+}

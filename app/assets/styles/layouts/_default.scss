@@ -14,6 +14,20 @@
     position: relative;
     scrollbar-gutter: stable both-edges;
 
+    nav {
+      width: fit-content;
+      padding: 0 8px;
+      border-radius: $borderRadius;
+      margin-bottom: 4px;
+
+      p {
+        color: $secondaryText;
+        font-size: $fontSizeSmall;
+      }
+
+      @include glassBg;
+    }
+
     @include scrollbar;
   }
 }

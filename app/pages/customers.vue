@@ -3,8 +3,6 @@ import type {
   ICustomers
 } from '@/types'
 
-const i18n = useI18n()
-
 const data: ICustomers = {
   items: [
     { id: 0, name: 'Ubisoft', email: 'business@ubi.com', type: 'customer', priority: 1 },
@@ -17,9 +15,7 @@ const data: ICustomers = {
 </script>
 
 <template>
-  <div>
-    <h1>{{ i18n.t('pages.customers.title') }}</h1>
-
+  <div class="customersPage">
     <LayoutTable :items="data.items" />
   </div>
 </template>

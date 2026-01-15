@@ -15,9 +15,8 @@ const columns = computed(() => {
     return []
   }
   const helper = createColumnHelper<T>()
-  const firstItem = items[0] as Record<string, any>
 
-  return Object.keys(firstItem).map(key => helper
+  return Object.keys(items[0] as Record<string, any>).map(key => helper
     .accessor(key as any, {
       header: key.toUpperCase(),
       cell: info => info.getValue()
