@@ -6,8 +6,8 @@
   @include glassBg;
 }
 
-@mixin glassBg($color: $globalBg, $alpha: 33%, $filter: 10px, $border: $globalBorder) {
-  outline: 1px solid color-mix(in srgb, $border 10%, transparent);
+@mixin glassBg($color: $globalBg, $alpha: 33%, $filter: 10px, $outline: $globalOutline) {
+  outline: 1px solid color-mix(in srgb, $outline 10%, transparent);
   background: color-mix(in srgb, $color, transparent $alpha);
   box-shadow: 0 4px 6px color-mix(in srgb, #000000 10%, transparent);
   backdrop-filter: blur($filter);

@@ -16,7 +16,7 @@
       flex-direction: column;
 
       li {
-        border: 1px solid transparent;
+        outline: 1px solid transparent;
         transition: all $transitionBase;
         border-radius: $borderRadius;
 

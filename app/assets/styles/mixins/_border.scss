@@ -1,6 +1,6 @@
 @use "../core/colors.scss" as *;
 
-@mixin gradientBorder($color: $globalBorder, $opacity: 0.1) {
+@mixin gradientBorder($color: $globalOutline, $opacity: 0.1) {
   position: relative;
 
   $mixed-color: color-mix(in srgb, $color, transparent calc(100% - ($opacity * 100%)));
