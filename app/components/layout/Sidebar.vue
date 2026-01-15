@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import type {
-  sidebarTab
+  ISidebarTab
 } from '@/types'
 
 const i18n = useI18n()
 
-const sidebarTabs = computed<sidebarTab[]>(() => [{
+const sidebarTabs = computed<ISidebarTab[]>(() => [{
   name: i18n.t('components.sidebar.tabs.dashboard'),
   icon: 'material-symbols:interactive-space-outline',
   link: '/'

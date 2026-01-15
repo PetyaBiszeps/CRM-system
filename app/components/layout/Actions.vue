@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import type {
-  actionButton
+  IActionButton
 } from '@/types'
 
 const i18n = useI18n()
 const theme = useTheme()
 const isNotificationsOpen = ref<boolean>(false)
 
-const actionButtons = computed<actionButton[]>(() => [{
+const actionButtons = computed<IActionButton[]>(() => [{
   id: 'notifications',
   icon: 'material-symbols:notifications-outline',
   title: i18n.t('components.actions.titles.notifications')
@@ -38,7 +38,7 @@ async function toggleLanguage() {
   }
 }
 
-function handleClick(button: actionButton) {
+function handleClick(button: IActionButton) {
   if (button.id === 'notifications') {
     return toggleNotifications()
   }
