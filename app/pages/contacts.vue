@@ -19,9 +19,9 @@ const map = computed(() => {
       <section>
         <h2>{{ i18n.t('pages.contacts.title') }}</h2>
 
-        <p>Email: {{ i18n.t('pages.contacts.email') }}</p>
-        <p>Phone: {{ i18n.t('pages.contacts.phone') }}</p>
-        <p>Address: {{ i18n.t('pages.contacts.address') }}</p>
+        <p>{{ i18n.t('pages.contacts.email') }}</p>
+        <p>{{ i18n.t('pages.contacts.phone') }}</p>
+        <p>{{ i18n.t('pages.contacts.address') }}</p>
       </section>
 
       <section>
@@ -55,7 +55,7 @@ const map = computed(() => {
     p {
       &:first-child {
         width: fit-content;
-        color: $popoverText;
+        color: $secondaryText;
         padding: 0 8px;
         font-size: $fontSizeSmall;
         border-radius: $borderRadius;

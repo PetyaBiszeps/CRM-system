@@ -41,12 +41,11 @@
     },
     "contacts": {
       "title": "Зв'язок з нами",
-      "description": "Have a question? Our team is here to help you manage your business more effectively.",
-      "phone": "+380 (99) 123 4567",
-      "email": "Admin{'@'}crm.ca",
-      "address": "Our Office",
-      "address": "1600 Amphitheatre Parkway, Mountain View, CA",
-      "copyright": "© 2026 CRM System. Built with Nuxt 4 & Vue 3.5+."
+      "description": "Маєте питання? Наша команда готова допомогти вам ефективніше управляти вашим бізнесом.",
+      "phone": "Телефон: +380 (99) 123 4567",
+      "email": "Електронна пошта: Admin{'@'}crm.ca",
+      "address": "Адреса: 1600 Amphitheatre Parkway, Mountain View, CA",
+      "copyright": "© 2026 CRM System. Створено за допомогою Nuxt 4 та Vue 3.5+."
     }
   }
 }
