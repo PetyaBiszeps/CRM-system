@@ -33,7 +33,5 @@ const data: ICustomers = {
 </script>
 
 <template>
-  <div class="customersPage">
-    <LayoutTable :items="data.items" />
-  </div>
+  <LayoutTable :items="data.items" />
 </template>

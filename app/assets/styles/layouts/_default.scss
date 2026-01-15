@@ -8,9 +8,11 @@
   .content {
     flex: 1;
     height: 100dvh;
+    display: flex;
     padding: $pagePadding;
     overflow: auto;
     position: relative;
+    flex-direction: column;
     scrollbar-gutter: stable both-edges;
 
     nav {
