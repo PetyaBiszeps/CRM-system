@@ -11,7 +11,7 @@
         "contacts": "Зв'язок з нами"
       }
     },
-    "actions": {
+    "toolbar": {
       "titles": {
         "notifications": "повідомлення",
         "language": "зміна мови",

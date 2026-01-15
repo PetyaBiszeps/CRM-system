@@ -21,5 +21,5 @@ const data: ICustomers = {
 </script>
 
 <template>
-  <LayoutTable :items="data.items" />
+  <AppTable :items="data.items" />
 </template>

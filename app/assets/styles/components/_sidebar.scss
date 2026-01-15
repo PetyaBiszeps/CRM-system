@@ -1,6 +1,6 @@
-@use "../../resources.scss" as *;
+@use "../resources" as *;
 
-.sidebar {
+.sidebarWrapper {
   gap: 32px;
   padding: 8px;
   display: flex;

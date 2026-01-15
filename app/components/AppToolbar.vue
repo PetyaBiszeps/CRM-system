@@ -1,28 +1,28 @@
 <script setup lang="ts">
 import type {
-  IActionButton
-} from '@/types'
+  IToolbarButton
+} from '~/types'
 
 const i18n = useI18n()
 const theme = useTheme()
 const isNotificationsOpen = ref<boolean>(false)
 
-const actionButtons = computed<IActionButton[]>(() => [{
+const toolbarButtons = computed<IToolbarButton[]>(() => [{
   id: 'notifications',
   icon: 'material-symbols:notifications-outline',
-  title: i18n.t('components.actions.titles.notifications')
+  title: i18n.t('components.toolbar.titles.notifications')
 }, {
   id: 'language',
   icon: 'material-symbols:keyboard-alt-outline',
-  title: i18n.t('components.actions.titles.language')
+  title: i18n.t('components.toolbar.titles.language')
 }, {
   id: 'theme',
   icon: theme.currentIcon.value,
-  title: i18n.t('components.actions.titles.theme')
+  title: i18n.t('components.toolbar.titles.theme')
 }, {
   id: 'logout',
   icon: 'material-symbols:exit-to-app',
-  title: i18n.t('components.actions.titles.logout')
+  title: i18n.t('components.toolbar.titles.logout')
 }])
 
 function toggleNotifications() {
@@ -38,7 +38,7 @@ async function toggleLanguage() {
   }
 }
 
-function handleClick(button: IActionButton) {
+function handleClick(button: IToolbarButton) {
   if (button.id === 'notifications') {
     return toggleNotifications()
   }
@@ -58,10 +58,10 @@ function handleClick(button: IActionButton) {
 </script>
 
 <template>
-  <div :class="['actions']">
+  <div :class="['toolbarWrapper']">
     <ul>
       <li
-        v-for="button in actionButtons"
+        v-for="button in toolbarButtons"
         :key="button.id"
       >
         <button @click="handleClick(button)">

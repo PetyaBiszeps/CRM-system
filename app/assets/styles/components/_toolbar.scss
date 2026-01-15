@@ -1,6 +1,6 @@
-@use "../../resources.scss" as *;
+@use "../resources" as *;
 
-.actions {
+.toolbarWrapper {
   right: $pagePadding;
   bottom: $pagePadding;
   position: absolute;

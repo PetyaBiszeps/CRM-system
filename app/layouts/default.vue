@@ -5,7 +5,7 @@ const route = useRoute()
 
 <template>
   <div class="wrapper">
-    <LayoutSidebar />
+    <AppSidebar />
 
     <div class="content">
       <nav v-if="route.meta.title">
@@ -14,7 +14,7 @@ const route = useRoute()
 
       <slot />
 
-      <LayoutActions />
+      <AppToolbar />
     </div>
   </div>
 </template>

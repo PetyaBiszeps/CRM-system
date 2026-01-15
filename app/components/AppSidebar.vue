@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type {
   ISidebarTab
-} from '@/types'
+} from '~/types'
 
 const i18n = useI18n()
 
@@ -37,9 +37,9 @@ const sidebarTabs = computed<ISidebarTab[]>(() => [{
 </script>
 
 <template>
-  <aside :class="['sidebar']">
+  <aside :class="['sidebarWrapper']">
     <header>
-      <NuxtLink to="/">
+      <NuxtLink to="/public">
         <NuxtImg
           src="favicon.svg"
           width="200"
