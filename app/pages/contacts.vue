@@ -74,6 +74,10 @@ const map = computed(() => {
       overflow: hidden;
       border-radius: $borderRadius;
 
+      iframe {
+        border-width: 0;
+      }
+
       p {
         margin-top: 12px;
       }

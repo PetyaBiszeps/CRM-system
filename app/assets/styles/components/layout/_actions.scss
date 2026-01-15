@@ -1,9 +1,9 @@
 @use "../../resources.scss" as *;
 
 .actions {
-  right: 24px;
-  bottom: 24px;
-  position: fixed;
+  right: $pagePadding;
+  bottom: $pagePadding;
+  position: absolute;
   border-radius: $borderRadius;
 
   ul {

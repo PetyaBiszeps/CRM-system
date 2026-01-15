@@ -8,9 +8,10 @@
   .content {
     flex: 1;
     height: 100dvh;
-    padding: 24px;
+    padding: $pagePadding;
     overflow: auto;
     min-width: 0;
+    position: relative;
     scrollbar-gutter: stable both-edges;
 
     @include scrollbar;
