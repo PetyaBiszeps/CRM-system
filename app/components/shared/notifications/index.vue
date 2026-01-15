@@ -5,10 +5,12 @@ const model = defineModel<boolean>({
 </script>
 
 <template>
-  <div
-    v-if="model"
-    :class="['notifications']"
-  >
-    <h2>Notifications</h2>
-  </div>
+  <transition name="curtain-drop">
+    <div
+      v-if="model"
+      :class="['notifications']"
+    >
+      <h2>Notifications</h2>
+    </div>
+  </transition>
 </template>
