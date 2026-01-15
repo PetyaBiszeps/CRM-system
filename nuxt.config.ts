@@ -17,6 +17,9 @@ export default defineNuxtConfig({
       link: [{
         rel: 'icon', type: 'image/png', href: '/favicon.svg'
       }]
+    },
+    pageTransition: {
+      name: 'slide-up', mode: 'out-in'
     }
   },
   css: ['~/assets/styles/main.scss'],
