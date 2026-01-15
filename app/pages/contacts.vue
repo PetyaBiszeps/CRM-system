@@ -1,4 +1,8 @@
 <script setup lang="ts">
+definePageMeta({
+  title: 'pages.contacts.title'
+})
+
 const i18n = useI18n()
 
 const map = computed(() => {

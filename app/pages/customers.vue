@@ -3,6 +3,10 @@ import type {
   ICustomers
 } from '@/types'
 
+definePageMeta({
+  title: 'pages.customers.title'
+})
+
 const data: ICustomers = {
   items: [
     { id: 0, name: 'Ubisoft', email: 'business@ubi.com', type: 'customer', priority: 1 },
