@@ -2,33 +2,21 @@
 import {
   FlexRender,
   useVueTable,
-  getCoreRowModel,
-  createColumnHelper
+  type ColumnDef,
+  getCoreRowModel
 } from '@tanstack/vue-table'
 
-const { items } = defineProps<{
+const { items, columns } = defineProps<{
   items: T[]
+  columns: ColumnDef<T>[]
 }>()
-
-const columns = computed(() => {
-  if (!items || items.length === 0) {
-    return []
-  }
-  const helper = createColumnHelper<T>()
-
-  return Object.keys(items[0] as Record<string, any>).map(key => helper
-    .accessor(key as any, {
-      header: key.toUpperCase(),
-      cell: info => info.getValue()
-    }))
-})
 
 const table = useVueTable({
   get data() {
     return items
   },
   get columns() {
-    return columns.value
+    return columns
   },
   getCoreRowModel: getCoreRowModel()
 })
@@ -36,7 +24,7 @@ const table = useVueTable({
 
 <template>
   <div class="tableWrapper">
-    <table v-if="items.length > 0">
+    <table>
       <thead>
         <tr
           v-for="headerGroup in table.getHeaderGroups()"
@@ -46,7 +34,7 @@ const table = useVueTable({
             v-for="header in headerGroup.headers"
             :key="header.id"
           >
-            <h4>
+            <h4 v-if="!header.isPlaceholder">
               <FlexRender
                 :render="header.column.columnDef.header"
                 :props="header.getContext()"
@@ -56,7 +44,7 @@ const table = useVueTable({
         </tr>
       </thead>
 
-      <tbody>
+      <tbody v-if="items.length > 0">
         <tr
           v-for="row in table.getRowModel().rows"
           :key="row.id"
@@ -72,10 +60,18 @@ const table = useVueTable({
           </td>
         </tr>
       </tbody>
-    </table>
 
-    <div v-else>
-      No data available
-    </div>
+      <tbody v-else>
+        <!-- Create TableLoader.vue instead -->
+        <tr>
+          <td
+            :colspan="columns.length"
+            style="text-align: center; padding: 2rem;"
+          >
+            No data available
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>

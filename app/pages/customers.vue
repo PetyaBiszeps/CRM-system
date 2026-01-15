@@ -21,5 +21,8 @@ const data: ICustomers = {
 </script>
 
 <template>
-  <AppTable :items="data.items" />
+  <AppTable
+    :items="data.items"
+    :columns="columns.customers"
+  />
 </template>

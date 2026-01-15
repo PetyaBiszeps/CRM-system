@@ -1,17 +1,17 @@
-interface IResponse<T> {
+export interface IResponse<T> {
   items: T[]
   total: number
 }
 
-interface IGood {
+export interface IGood {
   id: number
 }
 
-interface IPayment {
+export interface IPayment {
   id: number
 }
 
-interface IOrder {
+export interface IOrder {
   id: number
   amount: number
   status: 'pending' | 'completed' | 'canceled'
@@ -19,7 +19,7 @@ interface IOrder {
   createdAt: Date
 }
 
-interface ICustomer {
+export interface ICustomer {
   id: number
   name: string
   email: string
@@ -27,7 +27,7 @@ interface ICustomer {
   priority: number
 }
 
-interface ISetting {
+export interface ISetting {
   id: number
 }
 

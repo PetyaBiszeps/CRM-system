@@ -39,7 +39,7 @@ const sidebarTabs = computed<ISidebarTab[]>(() => [{
 <template>
   <aside :class="['sidebarWrapper']">
     <header>
-      <NuxtLink to="/public">
+      <NuxtLink to="/">
         <NuxtImg
           src="favicon.svg"
           width="200"
