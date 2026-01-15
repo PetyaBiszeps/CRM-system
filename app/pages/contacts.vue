@@ -48,7 +48,6 @@ const map = computed(() => {
   gap: 32px;
   height: 100%;
   display: grid;
-  padding: 24px;
   grid-template-rows: auto 1fr auto;
 
   header {

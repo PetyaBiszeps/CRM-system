@@ -7,8 +7,9 @@
 
   .content {
     flex: 1;
-    overflow: auto;
     height: 100dvh;
+    padding: 24px;
+    overflow: auto;
     min-width: 0;
     scrollbar-gutter: stable both-edges;
 
