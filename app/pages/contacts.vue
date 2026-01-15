@@ -11,15 +11,22 @@ const map = computed(() => {
 <template>
   <div :class="['contactsPage']">
     <header>
-      <h1>Some header text</h1>
+      <p>CRM / {{ i18n.t('pages.contacts.title') }}</p>
+      <p>{{ i18n.t('pages.contacts.description') }}</p>
     </header>
 
     <main>
       <section>
-        <h1>{{ i18n.t('pages.contacts.address') }}</h1>
+        <h2>{{ i18n.t('pages.contacts.title') }}</h2>
+
+        <p>Email: {{ i18n.t('pages.contacts.email') }}</p>
+        <p>Phone: {{ i18n.t('pages.contacts.phone') }}</p>
+        <p>Address: {{ i18n.t('pages.contacts.address_value') }}</p>
       </section>
 
       <section>
+        <h2>{{ i18n.t('pages.contacts.address') }}</h2>
+
         <iframe
           :src="map"
 
@@ -31,7 +38,7 @@ const map = computed(() => {
     </main>
 
     <footer>
-      <h1>Some footer text</h1>
+      <p>{{ i18n.t('pages.contacts.copyright') }}</p>
     </footer>
   </div>
 </template>
@@ -46,15 +53,27 @@ const map = computed(() => {
   padding: 24px;
   grid-template-rows: auto 1fr auto;
 
-  header {}
+  header {
+    p {
+      &:first-child {
+        font-size: 0.8em;
+        margin-bottom: 8px;
+      }
+    }
+  }
 
   main {
     gap: 32px;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.6fr 1fr;
 
     section {
+      overflow: hidden;
       border-radius: $borderRadius;
+
+      p {
+        margin-top: 12px;
+      }
     }
   }
 
