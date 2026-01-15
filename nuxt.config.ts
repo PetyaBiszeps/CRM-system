@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   },
   css: ['~/assets/styles/main.scss'],
   colorMode: {
+    storage: 'cookie',
     preference: 'system',
     fallback: 'light',
     classSuffix: ''

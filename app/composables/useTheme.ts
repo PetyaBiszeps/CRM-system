@@ -1,36 +1,36 @@
+type Theme = 'system' | 'light' | 'dark'
+
+const icons: Record<Theme, string> = {
+  system: 'material-symbols:monitor-outline',
+  light: 'material-symbols:light-mode-outline',
+  dark: 'material-symbols:nightlight-outline'
+}
+
 export const useTheme = () => {
   const mode = useColorMode()
-
-  const isDark = computed(() => {
-    return mode.value === 'dark'
+  const cookie = useCookie<Theme>('theme-preference', {
+    watch: true
   })
 
-  const currentTheme = computed(() => {
-    return mode.value
-  })
+  const currentIcon = computed((): string => {
+    const active = (import.meta.server ? cookie.value : mode.preference) ?? 'system'
 
-  const currentIcon = computed(() => {
-    if (mode.preference === 'system') {
-      return 'material-symbols:monitor-outline'
-    }
-
-    return isDark.value ? 'material-symbols:nightlight-outline' : 'material-symbols:light-mode-outline'
-  })
-
-  const preferredTheme = computed(() => {
-    return mode.preference
+    return icons[active as Theme] || icons.system
   })
 
   function toggleTheme() {
-    mode.preference = isDark.value ? 'light' : 'dark'
-  }
+    const themes: Theme[] = ['system', 'light', 'dark']
 
-  function setTheme(theme: 'light' | 'dark' | 'system') {
-    mode.preference = theme
+    const index = themes.indexOf(mode.preference as Theme)
+    const next = themes[(index + 1) % themes.length] as Theme
+
+    mode.preference = next
+    cookie.value = next
   }
 
   return {
-    isDark, currentTheme, currentIcon, preferredTheme,
-    toggleTheme, setTheme
+    currentIcon,
+    toggleTheme,
+    isDarkMode: computed(() => mode.value === 'dark')
   }
 }
