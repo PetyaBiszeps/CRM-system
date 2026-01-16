@@ -3,16 +3,34 @@ export const useTable = <T>(url: string) => {
     page: 1,
     limit: 10,
     search: '',
+    filters: {} as Record<string, string>,
     sortBy: undefined as string | undefined,
     sortOrder: 'asc' as 'asc' | 'desc'
+  })
+
+  const params = computed(() => {
+    const query: Record<string, unknown> = {
+      page: state.page,
+      limit: state.limit,
+      search: state.search,
+      sortBy: state.sortBy,
+      sortOrder: state.sortOrder
+    }
+
+    Object.entries(state.filters).forEach(([key, value]) => {
+      if (value) {
+        query[`col_${key}`] = value
+      }
+    })
+
+    return query
   })
 
   const { data, pending, error } = useFetch<{
     items: T[]
     total: number
   }>(url, {
-    query: state,
-    watch: [state]
+    query: params
   })
 
   const toggleSort = (columnId: string) => {
@@ -31,9 +49,19 @@ export const useTable = <T>(url: string) => {
     }
   }
 
-  watch(() => state.search, () => {
+  const toggleFilter = (columnId: string, columnValue: string) => {
+    if (!columnValue) {
+      const { [columnId]: _, ...rest } = state.filters
+      state.filters = rest
+    }
+    else {
+      state.filters[columnId] = columnValue
+    }
+  }
+
+  watch([() => state.search, () => state.filters], () => {
     state.page = 1
-  })
+  }, { deep: true })
 
   return {
     ...toRefs(state),
@@ -44,6 +72,7 @@ export const useTable = <T>(url: string) => {
     state,
     error,
     pending,
-    toggleSort
+    toggleSort,
+    toggleFilter
   }
 }

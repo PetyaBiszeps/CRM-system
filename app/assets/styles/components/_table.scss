@@ -17,19 +17,52 @@
       z-index: 1;
       position: sticky;
 
-      th {
-        padding: 16px;
-        text-align: left;
-        font-weight: bold;
-        white-space: nowrap;
-        border-bottom: 1px solid color-mix(in srgb, $globalBorder 10%, transparent);
+      tr {
+        th {
+          padding: 16px;
+          text-align: left;
+          font-weight: bold;
+          white-space: nowrap;
+          border-bottom: 1px solid color-mix(in srgb, $globalBorder 10%, transparent);
 
-        h4 {
-          width: fit-content;
-          cursor: pointer;
+          h4 {
+            width: fit-content;
+            cursor: pointer;
 
-          &:hover {
-            color: $accent;
+            &:hover {
+              color: $accent;
+            }
+          }
+        }
+      }
+
+      .filters {
+        th {
+          padding: 0;
+
+          .filterWrapper {
+            opacity: 0;
+            max-height: 0;
+            padding: 0 16px;
+            pointer-events: none;
+          }
+        }
+
+        &.open {
+          th {
+            .filterWrapper {
+              opacity: 1;
+              max-height: 200px;
+              padding-top: 12px;
+              padding-bottom: 12px;
+              pointer-events: auto;
+            }
+          }
+        }
+
+        &:not(.open) {
+          th {
+            border-bottom: 0;
           }
         }
       }

@@ -9,7 +9,7 @@ export default defineEventHandler(async (event) => {
 
   for (const [id, value] of Object.entries(query)) {
     if (id.startsWith('col_') && value) {
-      const column = id.replace('col', '') as keyof ICustomer
+      const column = id.replace('col_', '') as keyof ICustomer
 
       filters[column] = String(value)
     }

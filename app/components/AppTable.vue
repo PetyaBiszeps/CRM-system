@@ -6,16 +6,17 @@ import {
   getCoreRowModel
 } from '@tanstack/vue-table'
 
-const { error, items, pending, columns } = defineProps<{
+const { error, items, pending, columns, filters = {} } = defineProps<{
   error: unknown
   items: T[] | undefined
   pending: boolean
   columns: ColumnDef<T>[]
 
+  filters?: Record<string, string>
   sortBy?: string
   sortOrder?: 'asc' | 'desc'
 }>()
-const emit = defineEmits(['sort'])
+const emit = defineEmits(['sort', 'filter'])
 
 const table = useVueTable({
   get data() {
@@ -28,6 +29,8 @@ const table = useVueTable({
   manualPagination: true,
   getCoreRowModel: getCoreRowModel()
 })
+
+const isFilterOpen = ref<boolean>(true)
 </script>
 
 <template>
@@ -54,6 +57,30 @@ const table = useVueTable({
                 {{ sortOrder === 'asc' ? ' ↑' : ' ↓' }}
               </span>
             </h4>
+          </th>
+        </tr>
+
+        <tr
+          v-for="headerGroup in table.getHeaderGroups()"
+          :key="headerGroup.id"
+          :class="['filters', {
+            open: isFilterOpen,
+          }]"
+        >
+          <th
+            v-for="header in headerGroup.headers"
+            :key="header.id"
+          >
+            <div class="filterWrapper">
+              <input
+                v-if="header.column.getCanFilter?.() ?? true"
+                type="text"
+                :value="filters[header.id] || ''"
+                placeholder="Filter..."
+                @click.stop
+                @input="(e) => emit('filter', header.id, (e.target as HTMLInputElement).value)"
+              >
+            </div>
           </th>
         </tr>
       </thead>
