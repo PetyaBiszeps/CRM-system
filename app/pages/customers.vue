@@ -1,18 +1,21 @@
 <script setup lang="ts">
+import type {
+  ICustomer
+} from '@/types'
+
 definePageMeta({
   title: 'pages.customers.title'
 })
 
 const {
+  data,
   page,
   state,
+  error,
   search,
+  pending,
   toggleSort
-} = useTable()
-
-const { data, pending, error } = await useFetch('/api/customers', {
-  query: state
-})
+} = useTable<ICustomer>('/api/customers')
 </script>
 
 <template>

@@ -1,10 +1,18 @@
-export const useTable = () => {
+export const useTable = <T>(url: string) => {
   const state = reactive({
     page: 1,
     limit: 10,
     search: '',
     sortBy: undefined as string | undefined,
     sortOrder: 'asc' as 'asc' | 'desc'
+  })
+
+  const { data, pending, error } = useFetch<{
+    items: T[]
+    total: number
+  }>(url, {
+    query: state,
+    watch: [state]
   })
 
   const toggleSort = (columnId: string) => {
@@ -30,7 +38,10 @@ export const useTable = () => {
   return {
     ...toRefs(state),
 
+    data,
     state,
+    error,
+    pending,
     toggleSort
   }
 }
