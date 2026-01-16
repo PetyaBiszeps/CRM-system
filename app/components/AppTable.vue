@@ -56,7 +56,7 @@ const table = useVueTable({
         </tr>
       </thead>
 
-      <tbody v-if="pending">
+      <tbody v-if="pending && (!items || items.length === 0)">
         <tr>
           <AppLoader />
         </tr>
@@ -68,7 +68,12 @@ const table = useVueTable({
         </tr>
       </tbody>
 
-      <tbody v-else>
+      <tbody
+        v-else
+        :class="[{
+          pending: pending,
+        }]"
+      >
         <tr
           v-for="row in table.getRowModel().rows"
           :key="row.id"

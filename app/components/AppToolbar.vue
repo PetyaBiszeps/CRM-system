@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { state, limit, total, pending } = defineProps<{
+const { limit, total, pending } = defineProps<{
   state: object
   limit: number
   total: number
@@ -82,6 +82,8 @@ const last = () => {
           >
             ←
           </button>
+
+          <span>9999999 / 9999999</span>
 
           <button
             :disabled="pending"

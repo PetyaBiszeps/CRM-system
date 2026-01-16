@@ -38,6 +38,9 @@
     }
 
     tbody {
+      transition: $transitionBase;
+      will-change: filter, opacity;
+
       tr {
         transition: background-color 0.3s ease;
 
@@ -56,6 +59,13 @@
             border-bottom: none;
           }
         }
+      }
+
+      &.pending {
+        filter: blur(2px) grayscale(0.5);
+        opacity: 0.6;
+        transform: scale(0.995);
+        pointer-events: none;
       }
     }
   }
