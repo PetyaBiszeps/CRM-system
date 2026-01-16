@@ -11,7 +11,7 @@
         "contacts": "Contact Us"
       }
     },
-    "toolbar": {
+    "dock": {
       "titles": {
         "notifications": "notifications",
         "language": "change language",

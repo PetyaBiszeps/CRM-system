@@ -14,7 +14,7 @@ const route = useRoute()
 
       <slot />
 
-      <AppToolbar />
+      <AppDock />
     </div>
   </div>
 </template>
