@@ -1,0 +1,22 @@
+@use "../resources" as *;
+
+.dockWrapper {
+  right: $pagePadding;
+  bottom: $pagePadding;
+  position: absolute;
+  border-radius: $borderRadius;
+
+  ul {
+    gap: 16px;
+    padding: 8px;
+    display: flex;
+    position: relative;
+    align-items: center;
+
+    li {
+      display: inline-flex;
+    }
+  }
+
+  @include glassBg;
+}
