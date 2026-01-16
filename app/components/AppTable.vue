@@ -26,6 +26,7 @@ const table = useVueTable({
     return columns
   },
   manualSorting: true,
+  manualFiltering: true,
   manualPagination: true,
   getCoreRowModel: getCoreRowModel()
 })

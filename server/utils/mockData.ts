@@ -34,8 +34,11 @@ export async function getCustomersFromDB(opts: GetCustomersOptions): Promise<ICu
 
   let result = MOCK_CUSTOMERS.filter((item) => {
     const search = !opts.search
+      || String(item.id.toString().toLowerCase().includes(opts.search.toLowerCase()))
       || item.name.toLowerCase().includes(opts.search.toLowerCase())
       || item.email.toLowerCase().includes(opts.search.toLowerCase())
+      || item.type.toLowerCase().includes(opts.search.toLowerCase())
+      || String(item.priority.toString().toLowerCase().includes(opts.search.toLowerCase()))
 
     if (!search) {
       return false
