@@ -91,7 +91,7 @@ const last = () => {
             ←
           </button>
 
-          <span>9999999 / 9999999</span>
+          <span>{{ page }} / {{ totalPages }}</span>
 
           <button
             :disabled="page === totalPages || pending"
