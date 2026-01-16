@@ -37,6 +37,8 @@ export const useTable = <T>(url: string) => {
 
   return {
     ...toRefs(state),
+    items: computed(() => data.value?.items || []),
+    total: computed(() => data.value?.total || 0),
 
     data,
     state,

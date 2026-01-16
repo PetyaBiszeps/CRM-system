@@ -8,10 +8,11 @@ definePageMeta({
 })
 
 const {
-  data,
   page,
+  items,
   state,
   error,
+  total,
   search,
   pending,
   toggleSort
@@ -27,13 +28,13 @@ const {
       :state="state"
       :limit="state.limit"
 
-      :total="data?.total || 0"
+      :total="total"
       :pending="pending"
     />
 
     <AppTable
       :error="error"
-      :items="data?.items"
+      :items="items"
       :pending="pending"
       :columns="columns.customers"
 
