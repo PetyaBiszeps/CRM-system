@@ -9,7 +9,9 @@ const { limit, total, pending } = defineProps<{
 const page = defineModel<number>('page', {
   default: 1
 })
-const search = defineModel<string>('search')
+const search = defineModel<string | number>('search', {
+  default: ''
+})
 
 const totalPages = computed(() => {
   return Math.ceil(total / limit || 1)
@@ -48,11 +50,17 @@ const last = () => {
       </header>
 
       <main>
-        <input
+        <BaseInput
           v-model="search"
+
+          id="globalSearchInput"
+          name="globalSearchInput"
           type="search"
-          placeholder="Search by name..."
-        >
+          placeholder="Search..."
+          :disabled="false"
+          :readonly="false"
+          autocomplete="off"
+        />
       </main>
     </section>
 
