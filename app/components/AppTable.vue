@@ -24,6 +24,8 @@ const table = useVueTable({
   get columns() {
     return columns
   },
+  manualSorting: true,
+  manualPagination: true,
   getCoreRowModel: getCoreRowModel()
 })
 </script>
@@ -58,7 +60,9 @@ const table = useVueTable({
 
       <tbody v-if="pending && (!items || items.length === 0)">
         <tr>
-          <AppLoader />
+          <td>
+            <AppLoader />
+          </td>
         </tr>
       </tbody>
 

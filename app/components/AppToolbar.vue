@@ -77,7 +77,7 @@ const last = () => {
           </button>
 
           <button
-            :disabled="pending"
+            :disabled="page === 1 || pending"
             @click="prev"
           >
             ←
@@ -86,7 +86,7 @@ const last = () => {
           <span>9999999 / 9999999</span>
 
           <button
-            :disabled="pending"
+            :disabled="page === totalPages || pending"
             @click="next"
           >
             →
