@@ -1,12 +1,10 @@
-import type {
-  ICustomers,
-  ICustomer
-} from '@/types'
+import type { ICustomer, ICustomers } from '@/types'
 
 interface GetCustomersOptions {
   page: number
   limit: number
   search: string
+  filters: Partial<Record<keyof ICustomer, string>>
   sortBy?: string
   sortOrder?: 'asc' | 'desc'
 }
@@ -35,8 +33,25 @@ export async function getCustomersFromDB(opts: GetCustomersOptions): Promise<ICu
   await new Promise(resolve => setTimeout(resolve, 500))
 
   let result = MOCK_CUSTOMERS.filter((item) => {
-    return item.name.toLowerCase().includes(opts.search.toLowerCase())
+    const search = !opts.search
+      || item.name.toLowerCase().includes(opts.search.toLowerCase())
       || item.email.toLowerCase().includes(opts.search.toLowerCase())
+
+    if (!search) {
+      return false
+    }
+
+    if (opts.filters && Object.keys(opts.filters).length > 0) {
+      return Object.entries(opts.filters).every(([id, value]) => {
+        if (!value) {
+          return true
+        }
+        const columnValue = String(item[id as keyof ICustomer]).toLowerCase()
+
+        return columnValue.includes(value.toLowerCase())
+      })
+    }
+    return true
   })
 
   if (opts.sortBy) {
@@ -55,10 +70,9 @@ export async function getCustomersFromDB(opts: GetCustomersOptions): Promise<ICu
     })
   }
   const start = (opts.page - 1) * opts.limit
-  const filterItems = result.slice(start, start + opts.limit)
 
   return {
-    items: filterItems,
+    items: result.slice(start, start + opts.limit),
     total: result.length
   }
 }
