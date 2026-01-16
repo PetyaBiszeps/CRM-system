@@ -11,7 +11,11 @@ const { error, items, pending, columns } = defineProps<{
   items: T[] | undefined
   pending: boolean
   columns: ColumnDef<T>[]
+
+  sortBy?: string
+  sortOrder?: 'asc' | 'desc'
 }>()
+const emit = defineEmits(['sort'])
 
 const table = useVueTable({
   get data() {
@@ -35,12 +39,18 @@ const table = useVueTable({
           <th
             v-for="header in headerGroup.headers"
             :key="header.id"
+
+            @click="emit('sort', header.id)"
           >
             <h4 v-if="!header.isPlaceholder">
               <FlexRender
                 :render="header.column.columnDef.header"
                 :props="header.getContext()"
               />
+
+              <span v-if="sortBy === header.id">
+                {{ sortOrder === 'asc' ? ' ↑' : ' ↓' }}
+              </span>
             </h4>
           </th>
         </tr>
