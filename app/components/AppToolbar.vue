@@ -43,14 +43,6 @@ const last = () => {
     </section>
 
     <section>
-      s2
-    </section>
-
-    <section>
-      s3
-    </section>
-
-    <section>
       <header>
         <h4>Search</h4>
       </header>
@@ -62,6 +54,14 @@ const last = () => {
           placeholder="Search by name..."
         >
       </main>
+    </section>
+
+    <section>
+      s3
+    </section>
+
+    <section>
+      limit
     </section>
 
     <section>
