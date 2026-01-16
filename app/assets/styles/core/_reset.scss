@@ -40,8 +40,17 @@ strong, a, p, span, code, pre, kbd, samp {
   color: inherit;
 }
 
-button {
+input, button {
   background-color: transparent;
+}
+
+input {
+  border: none;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
 }
 
 fieldset, button {

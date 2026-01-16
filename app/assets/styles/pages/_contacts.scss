@@ -6,7 +6,13 @@
   display: grid;
   grid-template-rows: auto 1fr auto;
 
-  // header {}
+  header {
+    width: fit-content;
+    padding: 8px;
+    border-radius: $borderRadius;
+
+    @include accentGlass;
+  }
 
   main {
     gap: 32px;

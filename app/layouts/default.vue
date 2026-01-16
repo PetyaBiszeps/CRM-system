@@ -8,9 +8,12 @@ const route = useRoute()
     <AppSidebar />
 
     <div class="content">
-      <nav v-if="route.meta.title">
-        <p>CRM / {{ i18n.t(String(route.meta.title)) }}</p>
-      </nav>
+      <p
+        v-if="route.meta.title"
+        class="breadcrumb"
+      >
+        CRM / {{ i18n.t(String(route.meta.title)) }}
+      </p>
 
       <slot />
 

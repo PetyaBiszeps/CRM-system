@@ -15,16 +15,13 @@
     flex-direction: column;
     scrollbar-gutter: stable both-edges;
 
-    nav {
+    .breadcrumb {
       width: fit-content;
+      color: $secondaryText;
       padding: 0 8px;
+      font-size: $fontSizeSmall;
+      margin-bottom: 16px;
       border-radius: $borderRadius;
-      margin-bottom: 8px;
-
-      p {
-        color: $secondaryText;
-        font-size: $fontSizeSmall;
-      }
 
       @include glassBg;
     }
