@@ -73,14 +73,20 @@ const isFilterOpen = ref<boolean>(true)
             :key="header.id"
           >
             <div class="filterWrapper">
-              <input
+              <BaseInput
                 v-if="header.column.getCanFilter?.() ?? true"
-                type="text"
-                :value="filters[header.id] || ''"
-                placeholder="Filter..."
+                :id="`filter-${header.id}`"
+                :model-value="filters[header.id] || ''"
+                :name="`filter-${header.id}`"
+                :type="'text'"
+                :placeholder="'filter...'"
+                :disabled="false"
+                :readonly="false"
+                autocomplete="off"
+
                 @click.stop
-                @input="(e) => emit('filter', header.id, (e.target as HTMLInputElement).value)"
-              >
+                @input="(e: Event) => emit('filter', header.id, (e.target as HTMLInputElement).value)"
+              />
             </div>
           </th>
         </tr>
