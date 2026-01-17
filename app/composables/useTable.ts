@@ -9,7 +9,8 @@ export const useTable = <T>(url: string) => {
     search: '',
     filters: [] as IFilter[],
     sortBy: undefined as string | undefined,
-    sortOrder: 'asc' as 'asc' | 'desc'
+    sortOrder: 'asc' as 'asc' | 'desc',
+    mode: 'default' as 'default' | 'compact'
   })
 
   const params = computed(() => {

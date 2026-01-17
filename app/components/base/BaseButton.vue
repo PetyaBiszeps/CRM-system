@@ -46,7 +46,7 @@ const handleClick = (event: MouseEvent) => {
 
     @click="handleClick"
   >
-    <slot name="leftIcon" />
+    <slot name="left-icon" />
 
     <span v-if="!loading">
       <slot />
@@ -56,6 +56,6 @@ const handleClick = (event: MouseEvent) => {
       <slot name="loader">Loading...</slot>
     </span>
 
-    <slot name="rightIcon" />
+    <slot name="right-icon" />
   </component>
 </template>

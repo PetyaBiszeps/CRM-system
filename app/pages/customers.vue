@@ -24,6 +24,7 @@ const {
   <div :class="['customersPage']">
     <AppToolbar
       v-model:limit="state.limit"
+      v-model:mode="state.mode"
       v-model:search="search"
       v-model:page="page"
 

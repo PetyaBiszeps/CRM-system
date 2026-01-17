@@ -5,6 +5,9 @@ const { total, pending } = defineProps<{
   pending: boolean
 }>()
 
+const mode = defineModel<'default' | 'compact'>('mode', {
+  default: 'default'
+})
 const search = defineModel<string | number>('search', {
   default: ''
 })
@@ -18,6 +21,10 @@ const page = defineModel<number>('page', {
 const totalPages = computed(() => {
   return Math.ceil(total / limit.value || 1)
 })
+
+const toggleMode = () => {
+  mode.value = mode.value === 'default' ? 'compact' : 'default'
+}
 
 const first = () => {
   return page.value = 1
@@ -52,7 +59,12 @@ watch(limit, () => {
       </header>
 
       <main>
-        <button>Default</button>
+        <BaseButton @click="toggleMode">
+          <template #left-icon>
+            {{ mode === 'default' ? '≡' : '≶' }}
+          </template>
+          {{ mode === 'default' ? 'default' : 'compact' }}
+        </BaseButton>
       </main>
     </section>
 
@@ -146,8 +158,8 @@ watch(limit, () => {
       <main>
         <button>create new</button>
         <button>select all</button>
-        <button>columns</button>
         <button>filters</button>
+        <button>columns</button>
         <button>reset</button>
       </main>
     </section>
