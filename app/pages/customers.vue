@@ -23,11 +23,11 @@ const {
 <template>
   <div :class="['customersPage']">
     <AppToolbar
+      v-model:limit="state.limit"
       v-model:search="search"
       v-model:page="page"
 
       :state="state"
-      :limit="state.limit"
 
       :total="total"
       :pending="pending"

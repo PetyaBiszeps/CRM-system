@@ -1,20 +1,22 @@
 <script setup lang="ts">
-const { limit, total, pending } = defineProps<{
+const { total, pending } = defineProps<{
   state: object
-  limit: number
   total: number
   pending: boolean
 }>()
 
-const page = defineModel<number>('page', {
-  default: 1
-})
 const search = defineModel<string | number>('search', {
   default: ''
 })
+const limit = defineModel<number>('limit', {
+  default: 10
+})
+const page = defineModel<number>('page', {
+  default: 1
+})
 
 const totalPages = computed(() => {
-  return Math.ceil(total / limit || 1)
+  return Math.ceil(total / limit.value || 1)
 })
 
 const first = () => {
@@ -36,6 +38,10 @@ const next = () => {
 const last = () => {
   return page.value = totalPages.value
 }
+
+watch(limit, () => {
+  page.value = 1
+})
 </script>
 
 <template>
@@ -69,7 +75,18 @@ const last = () => {
     </section>
 
     <section>
-      limit
+      <select
+        v-model.number="limit"
+        :id="'totalSelect'"
+        :name="'totalSelect'"
+        :disabled="pending"
+      >
+        <option value="10" />
+        <option value="25" />
+        <option value="50" />
+        <option value="100" />
+        <option value="200" />
+      </select>
     </section>
 
     <section>
