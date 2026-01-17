@@ -15,9 +15,9 @@ const {
   total,
   search,
   pending,
-  toggleSort,
-  toggleFilter,
-  toggleClear
+  toggleClear,
+  handleSort,
+  handleFilter
 } = useTable<ICustomer>('/api/customers')
 </script>
 
@@ -34,6 +34,9 @@ const {
       :total="total"
       :pending="pending"
 
+      @create="null"
+      @filters="null"
+      @columns="null"
       @clear="toggleClear"
     />
 
@@ -47,8 +50,8 @@ const {
       :sort-by="state.sortBy"
       :sort-order="state.sortOrder"
 
-      @sort="toggleSort"
-      @filter="toggleFilter"
+      @sort="handleSort"
+      @filter="handleFilter"
     />
   </div>
 </template>

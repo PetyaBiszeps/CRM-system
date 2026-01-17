@@ -4,7 +4,7 @@ const { total, pending } = defineProps<{
   total: number
   pending: boolean
 }>()
-const emit = defineEmits(['clear'])
+const emit = defineEmits(['create', 'filters', 'columns', 'clear'])
 
 const mode = defineModel<'default' | 'compact'>('mode', {
   default: 'default'
@@ -157,19 +157,19 @@ watch(limit, () => {
       </header>
 
       <main>
-        <BaseButton @click="null">
+        <BaseButton @click="emit('create')">
           <template #left-icon>
             <Icon name="material-symbols:note-add-outline" />
           </template>
         </BaseButton>
 
-        <BaseButton @click="null">
+        <BaseButton @click="emit('filters')">
           <template #left-icon>
             <Icon name="material-symbols:filter-alt-outline" />
           </template>
         </BaseButton>
 
-        <BaseButton @click="null">
+        <BaseButton @click="emit('columns')">
           <template #left-icon>
             <Icon name="material-symbols:view-column-2-outline" />
           </template>

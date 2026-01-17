@@ -33,11 +33,11 @@ const table = useVueTable({
   getCoreRowModel: getCoreRowModel()
 })
 
-function toggleSort(id: string) {
+function handleSort(id: string) {
   emit('sort', id)
 }
 
-function toggleFilter(id: string, value: string) {
+function handleFilter(id: string, value: string) {
   emit('filter', id, value)
 }
 </script>
@@ -52,8 +52,8 @@ function toggleFilter(id: string, value: string) {
         :sort-by="sortBy"
         :sort-order="sortOrder"
 
-        @sort="toggleSort"
-        @filter="toggleFilter"
+        @sort="handleSort"
+        @filter="handleFilter"
       />
       <TableError v-if="error" />
 

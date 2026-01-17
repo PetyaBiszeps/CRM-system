@@ -35,7 +35,13 @@ export const useTable = <T>(url: string) => {
     query: params
   })
 
-  const toggleSort = (columnId: string) => {
+  const toggleClear = () => {
+    state.filters = []
+    state.sortBy = ''
+    state.sortOrder = 'asc'
+  }
+
+  const handleSort = (columnId: string) => {
     if (state.sortBy === columnId) {
       if (state.sortOrder === 'asc') {
         state.sortOrder = 'desc'
@@ -51,7 +57,7 @@ export const useTable = <T>(url: string) => {
     }
   }
 
-  const toggleFilter = (columnId: string, columnValue: string) => {
+  const handleFilter = (columnId: string, columnValue: string) => {
     const filter = state.filters.find(filter => filter.id === columnId)
 
     if (!columnValue) {
@@ -69,12 +75,6 @@ export const useTable = <T>(url: string) => {
     }
   }
 
-  const toggleClear = () => {
-    state.filters = []
-    state.sortBy = ''
-    state.sortOrder = 'asc'
-  }
-
   watch([() => state.search, () => state.filters], () => {
     state.page = 1
   }, { deep: true })
@@ -88,8 +88,8 @@ export const useTable = <T>(url: string) => {
     state,
     error,
     pending,
-    toggleSort,
-    toggleFilter,
-    toggleClear
+    toggleClear,
+    handleSort,
+    handleFilter
   }
 }
