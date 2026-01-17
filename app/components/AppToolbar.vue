@@ -75,20 +75,27 @@ watch(limit, () => {
     </section>
 
     <section>
-      <select
-        v-model.number="limit"
-        :id="'totalSelect'"
-        :name="'totalSelect'"
-        :disabled="pending"
-      >
-        <option
-          v-for="rows in [10, 25, 50, 100, 200]"
-          :key="rows"
-          :value="rows"
+      <header>
+        <h4>Shown Rows</h4>
+      </header>
+
+      <main>
+        <select
+          v-model.number="limit"
+
+          :id="'totalSelect'"
+          :name="'totalSelect'"
+          :disabled="pending"
         >
-          {{ rows }}
-        </option>
-      </select>
+          <option
+            v-for="rows in [10, 25, 50, 100, 200]"
+            :key="rows"
+            :value="rows"
+          >
+            {{ rows }}
+          </option>
+        </select>
+      </main>
     </section>
 
     <section>
