@@ -47,7 +47,13 @@ watch(limit, () => {
 <template>
   <nav :class="['toolbarWrapper']">
     <section>
-      s1
+      <header>
+        <h4>Mode</h4>
+      </header>
+
+      <main>
+        <button>Default</button>
+      </main>
     </section>
 
     <section>
@@ -68,10 +74,6 @@ watch(limit, () => {
           autocomplete="off"
         />
       </main>
-    </section>
-
-    <section>
-      s3
     </section>
 
     <section>
@@ -101,40 +103,51 @@ watch(limit, () => {
     <section>
       <header>
         <h4>Pagination</h4>
-
-        <main>
-          <button
-            :disabled="page === 1 || pending"
-            @click="first"
-          >
-            ⇐
-          </button>
-
-          <button
-            :disabled="page === 1 || pending"
-            @click="prev"
-          >
-            ←
-          </button>
-
-          <!-- <span>{{ page }} / {{ totalPages }}</span> -->
-          <span>9999999 / 9999999</span>
-
-          <button
-            :disabled="page === totalPages || pending"
-            @click="next"
-          >
-            →
-          </button>
-
-          <button
-            :disabled="page === totalPages || pending"
-            @click="last"
-          >
-            ⇒
-          </button>
-        </main>
       </header>
+
+      <main>
+        <button
+          :disabled="page === 1 || pending"
+          @click="first"
+        >
+          ⇐
+        </button>
+
+        <button
+          :disabled="page === 1 || pending"
+          @click="prev"
+        >
+          ←
+        </button>
+
+        <!-- <span>{{ page }} / {{ totalPages }}</span> -->
+        <span>9999999 / 9999999</span>
+
+        <button
+          :disabled="page === totalPages || pending"
+          @click="next"
+        >
+          →
+        </button>
+
+        <button
+          :disabled="page === totalPages || pending"
+          @click="last"
+        >
+          ⇒
+        </button>
+      </main>
+    </section>
+
+    <section>
+      <header>
+        <h4>Actions</h4>
+      </header>
+
+      <main>
+        <button>col</button>
+        <button>fil</button>
+      </main>
     </section>
   </nav>
 </template>
