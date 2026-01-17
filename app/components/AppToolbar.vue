@@ -81,11 +81,13 @@ watch(limit, () => {
         :name="'totalSelect'"
         :disabled="pending"
       >
-        <option value="10" />
-        <option value="25" />
-        <option value="50" />
-        <option value="100" />
-        <option value="200" />
+        <option
+          v-for="rows in [10, 25, 50, 100, 200]"
+          :key="rows"
+          :value="rows"
+        >
+          {{ rows }}
+        </option>
       </select>
     </section>
 

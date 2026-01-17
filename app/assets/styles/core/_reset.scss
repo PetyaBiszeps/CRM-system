@@ -40,17 +40,23 @@ strong, a, p, span, code, pre, kbd, samp {
   color: inherit;
 }
 
-input, button {
+input, button, select {
   background-color: transparent;
 }
 
-input {
+input, select {
   border: none;
 
   &:focus {
     border: none;
     outline: none;
   }
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 }
 
 fieldset, button {

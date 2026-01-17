@@ -8,6 +8,10 @@
 @use "layouts/default.scss";
 
   // Components
+    // Base
+@use "components/base/input.scss";
+@use "components/base/select.scss";
+
     // Layout
 @use "components/dock.scss";
 @use "components/table.scss";
