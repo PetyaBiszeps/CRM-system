@@ -5,6 +5,8 @@ import {
   type ColumnDef,
   getCoreRowModel
 } from '@tanstack/vue-table'
+import TableLoader from '~/components/table/TableLoader.vue'
+import TableError from '~/components/table/TableError.vue'
 
 const { error, items, pending, columns, filters = {} } = defineProps<{
   error: unknown
@@ -53,20 +55,12 @@ function toggleFilter(id: string, value: string) {
         @sort="toggleSort"
         @filter="toggleFilter"
       />
+      <TableError v-if="error" />
 
-      <tbody v-if="pending && (!items || items.length === 0)">
-        <tr>
-          <td>
-            <AppLoader />
-          </td>
-        </tr>
-      </tbody>
-
-      <tbody v-else-if="error">
-        <tr>
-          <td>Error :(</td>
-        </tr>
-      </tbody>
+      <TableLoader
+        v-else-if="pending
+          && (!items || items.length === 0)"
+      />
 
       <tbody
         v-else
