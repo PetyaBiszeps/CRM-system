@@ -1,15 +1,19 @@
 @use "../resources.scss" as *;
 
 .toolbarWrapper {
+  height: 100%;
   display: flex;
+  max-height: 95px;
   align-items: center;
   flex-direction: row;
   justify-content: space-between;
 
   section {
     height: 100%;
+    display: flex;
     padding: 12px 16px;
     border-radius: $borderRadius;
+    flex-direction: column;
 
     header {
       margin-bottom: 4px;
@@ -21,6 +25,7 @@
 
     main {
       gap: 16px;
+      height: 100%;
       display: flex;
       margin: auto;
       align-items: center;
