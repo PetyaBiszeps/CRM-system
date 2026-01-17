@@ -50,6 +50,8 @@ const {
       :sort-by="state.sortBy"
       :sort-order="state.sortOrder"
 
+      :class="[state.mode]"
+
       @sort="handleSort"
       @filter="handleFilter"
     />
