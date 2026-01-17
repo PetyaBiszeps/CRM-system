@@ -123,14 +123,24 @@ watch(limit, () => {
           :disabled="page === 1 || pending"
           @click="first"
         >
-          ⇐
+          <template #left-icon>
+            <Icon
+              :size="25"
+              name="material-symbols:keyboard-double-arrow-left"
+            />
+          </template>
         </BaseButton>
 
         <BaseButton
           :disabled="page === 1 || pending"
           @click="prev"
         >
-          ←
+          <template #left-icon>
+            <Icon
+              :size="25"
+              name="material-symbols:keyboard-arrow-left"
+            />
+          </template>
         </BaseButton>
 
         <span>{{ page }} / {{ totalPages }}</span>
@@ -139,14 +149,24 @@ watch(limit, () => {
           :disabled="page === totalPages || pending"
           @click="next"
         >
-          →
+          <template #left-icon>
+            <Icon
+              :size="25"
+              name="material-symbols:keyboard-arrow-right"
+            />
+          </template>
         </BaseButton>
 
         <BaseButton
           :disabled="page === totalPages || pending"
           @click="last"
         >
-          ⇒
+          <template #left-icon>
+            <Icon
+              :size="25"
+              name="material-symbols:keyboard-double-arrow-right"
+            />
+          </template>
         </BaseButton>
       </main>
     </section>
@@ -159,25 +179,37 @@ watch(limit, () => {
       <main>
         <BaseButton @click="emit('create')">
           <template #left-icon>
-            <Icon name="material-symbols:note-add-outline" />
+            <Icon
+              :size="25"
+              name="material-symbols:note-add-outline"
+            />
           </template>
         </BaseButton>
 
         <BaseButton @click="emit('filters')">
           <template #left-icon>
-            <Icon name="material-symbols:filter-alt-outline" />
+            <Icon
+              :size="25"
+              name="material-symbols:filter-alt-outline"
+            />
           </template>
         </BaseButton>
 
         <BaseButton @click="emit('columns')">
           <template #left-icon>
-            <Icon name="material-symbols:view-column-2-outline" />
+            <Icon
+              :size="25"
+              name="material-symbols:view-column-2-outline"
+            />
           </template>
         </BaseButton>
 
         <BaseButton @click="emit('clear')">
           <template #left-icon>
-            <Icon name="material-symbols:delete-sweep-outline" />
+            <Icon
+              :size="25"
+              name="material-symbols:delete-sweep-outline"
+            />
           </template>
         </BaseButton>
       </main>
