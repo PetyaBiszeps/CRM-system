@@ -58,7 +58,7 @@ watch(limit, () => {
 
     <section>
       <header>
-        <h4>Search</h4>
+        <h4>Global Search</h4>
       </header>
 
       <main>
@@ -75,7 +75,7 @@ watch(limit, () => {
 
     <section>
       <header>
-        <h4>Shown Rows</h4>
+        <h4>Rows</h4>
       </header>
 
       <main>
@@ -145,8 +145,10 @@ watch(limit, () => {
       </header>
 
       <main>
-        <button>col</button>
-        <button>fil</button>
+        <button>select all</button>
+        <button>columns</button>
+        <button>filters</button>
+        <button>reset</button>
       </main>
     </section>
   </nav>
