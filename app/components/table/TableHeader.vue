@@ -64,9 +64,6 @@ const getFilter = (columnId: string): string => {
             :name="`filter-${header.id}`"
             :type="'text'"
             :placeholder="'filter...'"
-            :disabled="false"
-            :readonly="false"
-            autocomplete="off"
 
             @click.stop
             @input="(e: Event) => emit('filter', header.id, (e.target as HTMLInputElement).value)"

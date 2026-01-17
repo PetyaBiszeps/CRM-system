@@ -69,9 +69,6 @@ watch(limit, () => {
           name="globalSearchInput"
           type="search"
           placeholder="Search..."
-          :disabled="false"
-          :readonly="false"
-          autocomplete="off"
         />
       </main>
     </section>

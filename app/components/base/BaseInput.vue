@@ -1,12 +1,20 @@
 <script setup lang="ts">
-const { id, name, type, placeholder, disabled, readonly, autocomplete } = defineProps<{
+const {
+  id,
+  name,
+  type,
+  placeholder,
+  disabled = false,
+  readonly = false,
+  autocomplete = 'off'
+} = defineProps<{
   id: string
   name: string
   type: string
   placeholder: string
-  disabled: boolean
-  readonly: boolean
-  autocomplete: string
+  disabled?: boolean
+  readonly?: boolean
+  autocomplete?: string
 }>()
 const emit = defineEmits(['focus', 'blur'])
 
