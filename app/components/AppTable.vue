@@ -1,12 +1,9 @@
 <script setup lang="ts" generic="T extends Record<string, any>">
 import {
-  FlexRender,
   useVueTable,
   type ColumnDef,
   getCoreRowModel
 } from '@tanstack/vue-table'
-import TableLoader from '~/components/table/TableLoader.vue'
-import TableError from '~/components/table/TableError.vue'
 
 const { error, items, pending, columns, filters = {} } = defineProps<{
   error: unknown
@@ -62,27 +59,12 @@ function toggleFilter(id: string, value: string) {
           && (!items || items.length === 0)"
       />
 
-      <tbody
+      <TableBody
         v-else
-        :class="[{
-          pending: pending,
-        }]"
-      >
-        <tr
-          v-for="row in table.getRowModel().rows"
-          :key="row.id"
-        >
-          <td
-            v-for="cell in row.getVisibleCells()"
-            :key="cell.id"
-          >
-            <FlexRender
-              :render="cell.column.columnDef.cell"
-              :props="cell.getContext()"
-            />
-          </td>
-        </tr>
-      </tbody>
+
+        :table="table"
+        :pending="pending"
+      />
     </table>
   </div>
 </template>
