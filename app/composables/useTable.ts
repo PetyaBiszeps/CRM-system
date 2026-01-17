@@ -1,9 +1,13 @@
+import type {
+  IFilter
+} from '@/types'
+
 export const useTable = <T>(url: string) => {
   const state = reactive({
     page: 1,
     limit: 10,
     search: '',
-    filters: {} as Record<string, string>,
+    filters: [] as IFilter[],
     sortBy: undefined as string | undefined,
     sortOrder: 'asc' as 'asc' | 'desc'
   })
@@ -17,12 +21,9 @@ export const useTable = <T>(url: string) => {
       sortOrder: state.sortOrder
     }
 
-    Object.entries(state.filters).forEach(([key, value]) => {
-      if (value) {
-        query[`col_${key}`] = value
-      }
-    })
-
+    if (state.filters.length) {
+      query.filters = JSON.stringify(state.filters)
+    }
     return query
   })
 
@@ -50,12 +51,20 @@ export const useTable = <T>(url: string) => {
   }
 
   const toggleFilter = (columnId: string, columnValue: string) => {
+    const filter = state.filters.find(filter => filter.id === columnId)
+
     if (!columnValue) {
-      const { [columnId]: _, ...rest } = state.filters
-      state.filters = rest
+      if (filter) {
+        state.filters = state.filters.filter(f => f.id !== columnId)
+      }
     }
     else {
-      state.filters[columnId] = columnValue
+      if (filter) {
+        filter.value = columnValue
+      }
+      else {
+        state.filters.push({ id: columnId, value: columnValue })
+      }
     }
   }
 

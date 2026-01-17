@@ -4,13 +4,20 @@ import {
   FlexRender
 } from '@tanstack/vue-table'
 
-const { table } = defineProps<{
+const { table, filters } = defineProps<{
   table: Table<T>
-  filters: Record<string, string>
+  filters: {
+    id: string
+    value: string
+  }[]
   sortBy?: string
   sortOrder?: 'asc' | 'desc'
 }>()
 const emit = defineEmits(['sort', 'filter'])
+
+const getFilter = (columnId: string): string => {
+  return filters.find(filter => filter.id === columnId)?.value || ''
+}
 </script>
 
 <template>
@@ -53,7 +60,7 @@ const emit = defineEmits(['sort', 'filter'])
           <BaseInput
             v-if="header.column.getCanFilter?.() ?? true"
             :id="`filter-${header.id}`"
-            :model-value="filters[header.id] || ''"
+            :model-value="getFilter(header.id)"
             :name="`filter-${header.id}`"
             :type="'text'"
             :placeholder="'filter...'"

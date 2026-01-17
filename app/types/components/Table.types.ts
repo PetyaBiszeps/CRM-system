@@ -8,3 +8,8 @@ import type {
 export interface ITable {
   customers: ColumnDef<ICustomer>[]
 }
+
+export interface IFilter {
+  id: string
+  value: string
+}

@@ -7,11 +7,22 @@ export default defineEventHandler(async (event) => {
   const query = getQuery(event)
   const filters: Partial<Record<keyof ICustomer, string>> = {}
 
-  for (const [id, value] of Object.entries(query)) {
-    if (id.startsWith('col_') && value) {
-      const column = id.replace('col_', '') as keyof ICustomer
+  const rawFilters = query.filters as string
 
-      filters[column] = String(value)
+  if (rawFilters) {
+    try {
+      const parsedFilters = JSON.parse(rawFilters) as { id: string, value: string }[]
+
+      if (Array.isArray(parsedFilters)) {
+        parsedFilters.forEach((f) => {
+          if (f.id && f.value) {
+            filters[f.id as keyof ICustomer] = String(f.value)
+          }
+        })
+      }
+    }
+    catch (e) {
+      console.error('Failed to parse filters:', e)
     }
   }
 

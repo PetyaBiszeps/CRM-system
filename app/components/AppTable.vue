@@ -5,13 +5,16 @@ import {
   getCoreRowModel
 } from '@tanstack/vue-table'
 
-const { error, items, pending, columns, filters = {} } = defineProps<{
+const { error, items, pending, columns, filters = [] } = defineProps<{
   error: unknown
   items: T[] | undefined
   pending: boolean
   columns: ColumnDef<T>[]
 
-  filters?: Record<string, string>
+  filters?: {
+    id: string
+    value: string
+  }[]
   sortBy?: string
   sortOrder?: 'asc' | 'desc'
 }>()
