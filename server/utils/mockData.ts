@@ -26,7 +26,26 @@ const MOCK_CUSTOMERS: ICustomer[] = [
   { id: 13, name: 'Sony', email: 'playstation.support@sony.com', type: 'partner', priority: 6 },
   { id: 14, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
   { id: 15, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
-  { id: 16, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 }
+  { id: 16, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 17, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 18, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 19, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 20, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 21, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 22, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 23, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 24, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 25, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 26, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 27, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 28, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 29, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 30, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 31, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 32, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 33, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 34, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 },
+  { id: 35, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 }
 ]
 
 export async function getCustomersFromDB(opts: GetCustomersOptions): Promise<ICustomers> {

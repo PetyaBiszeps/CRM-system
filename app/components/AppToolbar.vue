@@ -120,8 +120,7 @@ watch(limit, () => {
           ←
         </button>
 
-        <!-- <span>{{ page }} / {{ totalPages }}</span> -->
-        <span>9999999 / 9999999</span>
+        <span>{{ page }} / {{ totalPages }}</span>
 
         <button
           :disabled="page === totalPages || pending"
@@ -145,6 +144,7 @@ watch(limit, () => {
       </header>
 
       <main>
+        <button>create new</button>
         <button>select all</button>
         <button>columns</button>
         <button>filters</button>
