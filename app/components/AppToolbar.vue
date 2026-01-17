@@ -4,6 +4,7 @@ const { total, pending } = defineProps<{
   total: number
   pending: boolean
 }>()
+const emit = defineEmits(['clear'])
 
 const mode = defineModel<'default' | 'compact'>('mode', {
   default: 'default'
@@ -118,35 +119,35 @@ watch(limit, () => {
       </header>
 
       <main>
-        <button
+        <BaseButton
           :disabled="page === 1 || pending"
           @click="first"
         >
           ⇐
-        </button>
+        </BaseButton>
 
-        <button
+        <BaseButton
           :disabled="page === 1 || pending"
           @click="prev"
         >
           ←
-        </button>
+        </BaseButton>
 
         <span>{{ page }} / {{ totalPages }}</span>
 
-        <button
+        <BaseButton
           :disabled="page === totalPages || pending"
           @click="next"
         >
           →
-        </button>
+        </BaseButton>
 
-        <button
+        <BaseButton
           :disabled="page === totalPages || pending"
           @click="last"
         >
           ⇒
-        </button>
+        </BaseButton>
       </main>
     </section>
 
@@ -156,11 +157,29 @@ watch(limit, () => {
       </header>
 
       <main>
-        <button>create new</button>
-        <button>select all</button>
-        <button>filters</button>
-        <button>columns</button>
-        <button>reset</button>
+        <BaseButton @click="null">
+          <template #left-icon>
+            <Icon name="material-symbols:note-add-outline" />
+          </template>
+        </BaseButton>
+
+        <BaseButton @click="null">
+          <template #left-icon>
+            <Icon name="material-symbols:filter-alt-outline" />
+          </template>
+        </BaseButton>
+
+        <BaseButton @click="null">
+          <template #left-icon>
+            <Icon name="material-symbols:view-column-2-outline" />
+          </template>
+        </BaseButton>
+
+        <BaseButton @click="emit('clear')">
+          <template #left-icon>
+            <Icon name="material-symbols:delete-sweep-outline" />
+          </template>
+        </BaseButton>
       </main>
     </section>
   </nav>

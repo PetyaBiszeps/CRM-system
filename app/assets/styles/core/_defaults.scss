@@ -1,6 +1,6 @@
 @use "../resources.scss" as *;
 
-button {
+button, select {
   cursor: pointer;
   display: inline-flex;
   transition: all $transitionBase;
@@ -14,4 +14,8 @@ button {
   &:hover {
     color: $accent;
   }
+}
+
+select {
+  text-align: center;
 }

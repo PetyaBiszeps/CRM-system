@@ -16,7 +16,8 @@ const {
   search,
   pending,
   toggleSort,
-  toggleFilter
+  toggleFilter,
+  toggleClear
 } = useTable<ICustomer>('/api/customers')
 </script>
 
@@ -32,6 +33,8 @@ const {
 
       :total="total"
       :pending="pending"
+
+      @clear="toggleClear"
     />
 
     <AppTable

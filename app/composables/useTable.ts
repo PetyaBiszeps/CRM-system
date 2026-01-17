@@ -69,6 +69,12 @@ export const useTable = <T>(url: string) => {
     }
   }
 
+  const toggleClear = () => {
+    state.filters = []
+    state.sortBy = ''
+    state.sortOrder = 'asc'
+  }
+
   watch([() => state.search, () => state.filters], () => {
     state.page = 1
   }, { deep: true })
@@ -83,6 +89,7 @@ export const useTable = <T>(url: string) => {
     error,
     pending,
     toggleSort,
-    toggleFilter
+    toggleFilter,
+    toggleClear
   }
 }

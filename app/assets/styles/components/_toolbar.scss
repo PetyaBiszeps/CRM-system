@@ -23,7 +23,9 @@
       gap: 16px;
       display: flex;
       margin: auto;
+      align-items: center;
       flex-direction: row;
+      justify-content: center;
     }
 
     &:first-child {
@@ -36,10 +38,6 @@
 
     &:nth-child(4) {
       min-width: 315px;
-
-      main {
-        justify-content: center;
-      }
     }
 
     @include glassBg;
