@@ -6,7 +6,8 @@ const {
   placeholder,
   disabled = false,
   readonly = false,
-  autocomplete = 'off'
+  autocomplete = 'off',
+  variant = 'ghost'
 } = defineProps<{
   id: string
   name: string
@@ -15,6 +16,7 @@ const {
   disabled?: boolean
   readonly?: boolean
   autocomplete?: string
+  variant?: 'ghost' | 'primary' | 'secondary' | 'tertiary'
 }>()
 const emit = defineEmits(['focus', 'blur'])
 
@@ -34,6 +36,8 @@ const model = defineModel<string | number>({
     :disabled="disabled"
     :readonly="readonly"
     :autocomplete="autocomplete"
+
+    :class="['base-input', `base-input--${variant}`]"
 
     @focus="emit('focus')"
     @blur="emit('blur')"

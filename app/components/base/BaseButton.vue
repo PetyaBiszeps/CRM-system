@@ -12,7 +12,7 @@ const {
   type?: 'button' | 'reset' | 'submit'
   disabled?: boolean
   loading?: boolean
-  variant?: 'ghost'
+  variant?: 'ghost' | 'primary' | 'secondary' | 'tertiary'
 }>()
 const emit = defineEmits(['click'])
 
@@ -40,7 +40,7 @@ const handleClick = (event: MouseEvent) => {
     :type="dynamicProps.type"
     :disabled="dynamicProps.disabled"
 
-    :class="['dynamic-button', `dynamic-button--${variant}`, {
+    :class="['base-button', `base-button--${variant}`, {
       loading: loading,
     }]"
 
