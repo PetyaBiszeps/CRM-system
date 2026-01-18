@@ -17,14 +17,25 @@ export const useAuth = () => {
     isLoading.value = true
     error.value = null
 
-    await $fetch('/api/auth/login', {
-      method: 'POST',
-      body: credentials
-    })
-    await fetch()
-    await router.push('/')
-
-    isLoading.value = false
+    try {
+      await $fetch('/api/auth/login', {
+        method: 'POST',
+        body: credentials
+      })
+      await fetch()
+      await router.push('/')
+    }
+    catch (err: unknown) {
+      if (err instanceof Error) {
+        error.value = err.message
+      }
+      else {
+        error.value = String(err)
+      }
+    }
+    finally {
+      isLoading.value = false
+    }
   }
 
   const logout = async () => {
