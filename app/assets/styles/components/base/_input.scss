@@ -1,8 +1,6 @@
 .base-input {
   padding: 8px 12px;
 
-  &--ghost {}
-
   &--primary {
 
   }
@@ -13,5 +11,11 @@
 
   &--tertiary {
 
+  }
+
+  &--ghost {}
+
+  &--filter {
+    padding: revert;
   }
 }

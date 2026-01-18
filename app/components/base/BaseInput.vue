@@ -16,7 +16,7 @@ const {
   disabled?: boolean
   readonly?: boolean
   autocomplete?: string
-  variant?: 'ghost' | 'primary' | 'secondary' | 'tertiary'
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost' | 'filter'
 }>()
 const emit = defineEmits(['focus', 'blur'])
 

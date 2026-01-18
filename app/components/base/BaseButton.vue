@@ -12,7 +12,7 @@ const {
   type?: 'button' | 'reset' | 'submit'
   disabled?: boolean
   loading?: boolean
-  variant?: 'ghost' | 'primary' | 'secondary' | 'tertiary'
+  variant?: 'primary' | 'secondary' | 'tertiary' | 'ghost'
 }>()
 const emit = defineEmits(['click'])
 

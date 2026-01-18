@@ -16,11 +16,14 @@
     border-radius: $borderRadius;
     flex-direction: column;
 
+    h1 {
+      text-align: center;
+    }
+
     form {
       gap: 8px;
       display: flex;
       margin-top: 16px;
-      align-items: flex-start;
       flex-direction: column;
     }
 
