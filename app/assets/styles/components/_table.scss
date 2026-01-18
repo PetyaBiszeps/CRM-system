@@ -94,7 +94,7 @@
         }
       }
 
-      &.pending {
+      &.isFetching {
         filter: blur(2px) grayscale(0.5);
         opacity: 0.6;
         transform: scale(0.995);

@@ -1,8 +1,8 @@
 <script setup lang="ts">
-const { total, pending } = defineProps<{
+const { total, isFetching } = defineProps<{
   state: object
   total: number
-  pending: boolean
+  isFetching: boolean
 }>()
 const emit = defineEmits(['create', 'filters', 'columns', 'clear'])
 
@@ -108,7 +108,7 @@ watch(limit, () => {
           }, {
             id: '200', value: 200,
           }]"
-          :disabled="pending"
+          :disabled="isFetching"
         />
       </main>
     </section>
@@ -120,7 +120,7 @@ watch(limit, () => {
 
       <main>
         <BaseButton
-          :disabled="page === 1 || pending"
+          :disabled="page === 1 || isFetching"
           @click="first"
         >
           <template #left-icon>
@@ -132,7 +132,7 @@ watch(limit, () => {
         </BaseButton>
 
         <BaseButton
-          :disabled="page === 1 || pending"
+          :disabled="page === 1 || isFetching"
           @click="prev"
         >
           <template #left-icon>
@@ -146,7 +146,7 @@ watch(limit, () => {
         <span>{{ page }} / {{ totalPages }}</span>
 
         <BaseButton
-          :disabled="page === totalPages || pending"
+          :disabled="page === totalPages || isFetching"
           @click="next"
         >
           <template #left-icon>
@@ -158,7 +158,7 @@ watch(limit, () => {
         </BaseButton>
 
         <BaseButton
-          :disabled="page === totalPages || pending"
+          :disabled="page === totalPages || isFetching"
           @click="last"
         >
           <template #left-icon>

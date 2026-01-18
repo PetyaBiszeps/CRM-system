@@ -14,7 +14,7 @@ const {
   error,
   total,
   search,
-  pending,
+  isFetching,
   toggleClear,
   handleSort,
   handleFilter
@@ -32,7 +32,7 @@ const {
       :state="state"
 
       :total="total"
-      :pending="pending"
+      :is-fetching="isFetching"
 
       @create="null"
       @filters="null"
@@ -43,7 +43,7 @@ const {
     <AppTable
       :error="error"
       :items="items"
-      :pending="pending"
+      :is-fetching="isFetching"
       :columns="columns.customers"
 
       :filters="state.filters"

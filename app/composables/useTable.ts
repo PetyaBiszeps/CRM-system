@@ -1,3 +1,4 @@
+import { useQuery } from '@tanstack/vue-query'
 import type {
   IFilter
 } from '@/types'
@@ -28,11 +29,18 @@ export const useTable = <T>(url: string) => {
     return query
   })
 
-  const { data, pending, error } = useFetch<{
-    items: T[]
-    total: number
-  }>(url, {
-    query: params
+  const { data, isFetching, error } = useQuery({
+    queryKey: [url, params],
+
+    placeholderData: previousData => previousData,
+    queryFn: async () => {
+      return await $fetch<{
+        items: T[]
+        total: number
+      }>(url, {
+        query: params.value
+      })
+    }
   })
 
   const toggleClear = () => {
@@ -87,7 +95,7 @@ export const useTable = <T>(url: string) => {
     data,
     state,
     error,
-    pending,
+    isFetching,
     toggleClear,
     handleSort,
     handleFilter

@@ -4,16 +4,16 @@ import {
   FlexRender
 } from '@tanstack/vue-table'
 
-const { table, pending } = defineProps<{
+const { table, isFetching } = defineProps<{
   table: Table<T>
-  pending: boolean
+  isFetching: boolean
 }>()
 </script>
 
 <template>
   <tbody
     :class="[{
-      pending: pending,
+      isFetching: isFetching,
     }]"
   >
     <tr

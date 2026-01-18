@@ -5,10 +5,10 @@ import {
   getCoreRowModel
 } from '@tanstack/vue-table'
 
-const { error, items, pending, columns, filters = [] } = defineProps<{
+const { error, items, isFetching, columns, filters = [] } = defineProps<{
   error: unknown
   items: T[] | undefined
-  pending: boolean
+  isFetching: boolean
   columns: ColumnDef<T>[]
 
   filters?: {
@@ -58,7 +58,7 @@ function handleFilter(id: string, value: string) {
       <TableError v-if="error" />
 
       <TableLoader
-        v-else-if="pending
+        v-else-if="isFetching
           && (!items || items.length === 0)"
       />
 
@@ -66,7 +66,7 @@ function handleFilter(id: string, value: string) {
         v-else
 
         :table="table"
-        :pending="pending"
+        :is-fetching="isFetching"
       />
     </table>
   </div>
