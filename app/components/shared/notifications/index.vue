@@ -2,6 +2,8 @@
 const model = defineModel<boolean>({
   required: true
 })
+
+// const { user } = useUserSession()
 </script>
 
 <template>
