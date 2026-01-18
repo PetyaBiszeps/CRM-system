@@ -1,3 +1,12 @@
+export interface IAuth {
+  email: string
+  password: string
+}
+
+export interface IUser extends IAuth {
+  id: string
+}
+
 export interface IResponse<T> {
   items: T[]
   total: number

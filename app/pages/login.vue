@@ -6,7 +6,6 @@ definePageMeta({
 
 const {
   isLoading,
-  error,
   login
 } = useAuth()
 
@@ -30,8 +29,23 @@ async function handleSubmit() {
     <h1>Welcome to CRM!</h1>
 
     <form @submit.prevent>
-      <BaseInput v-model="form.email" />
-      <BaseInput v-model="form.password" />
+      <BaseInput
+        v-model="form.email"
+
+        id="loginEmail"
+        name="loginEmail"
+        type="email"
+        placeholder="Enter your email..."
+      />
+
+      <BaseInput
+        v-model="form.password"
+
+        id="loginPassword"
+        name="loginPassword"
+        type="password"
+        placeholder="Enter your password..."
+      />
 
       <BaseButton @click="handleSubmit">
         {{ isLoading ? 'Loading...' : 'Login' }}
