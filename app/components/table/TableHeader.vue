@@ -14,10 +14,6 @@ const { table, filters } = defineProps<{
   sortOrder?: 'asc' | 'desc'
 }>()
 const emit = defineEmits(['sort', 'filter'])
-
-const getFilter = (columnId: string): string => {
-  return filters.find(filter => filter.id === columnId)?.value || ''
-}
 </script>
 
 <template>
@@ -56,20 +52,14 @@ const getFilter = (columnId: string): string => {
         v-for="header in headerGroup.headers"
         :key="header.id"
       >
-        <div class="filterWrapper">
-          <BaseInput
-            v-if="header.column.getCanFilter?.() ?? true"
-            :id="`filter-${header.id}`"
-            :model-value="getFilter(header.id)"
-            :name="`filter-${header.id}`"
-            :type="'text'"
-            :placeholder="'filter...'"
-            :variant="'filter'"
+        <TableFilter
+          v-if="header.column.getCanFilter?.() ?? true"
 
-            @click.stop
-            @input="(e: Event) => emit('filter', header.id, (e.target as HTMLInputElement).value)"
-          />
-        </div>
+          :header="header"
+          :filters="filters"
+
+          @filter="emit('filter')"
+        />
       </th>
     </tr>
   </thead>
