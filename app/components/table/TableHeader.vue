@@ -4,7 +4,12 @@ import {
   FlexRender
 } from '@tanstack/vue-table'
 
-const { table, filters } = defineProps<{
+const { state, table, filters } = defineProps<{
+  state: {
+    ui: {
+      filters: boolean
+    }
+  }
   table: Table<T>
   filters: {
     id: string
@@ -49,7 +54,7 @@ const handleFilter = (id: string, value: string) => {
       v-for="headerGroup in table.getHeaderGroups()"
       :key="headerGroup.id"
       :class="['filters', {
-        open: true,
+        open: state.ui.filters,
       }]"
     >
       <th

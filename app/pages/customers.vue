@@ -15,6 +15,7 @@ const {
   total,
   search,
   isFetching,
+  toggleFilters,
   toggleClear,
   handleSort,
   handleFilter
@@ -35,12 +36,13 @@ const {
       :is-fetching="isFetching"
 
       @create="null"
-      @filters="null"
+      @filters="toggleFilters"
       @columns="null"
       @clear="toggleClear"
     />
 
     <AppTable
+      :state="state"
       :error="error"
       :items="items"
       :is-fetching="isFetching"

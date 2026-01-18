@@ -5,7 +5,12 @@ import {
   getCoreRowModel
 } from '@tanstack/vue-table'
 
-const { error, items, isFetching, columns, filters = [] } = defineProps<{
+const { state, error, items, isFetching, columns, filters = [] } = defineProps<{
+  state: {
+    ui: {
+      filters: boolean
+    }
+  }
   error: unknown
   items: T[] | undefined
   isFetching: boolean
@@ -46,6 +51,7 @@ function handleFilter(id: string, value: string) {
   <div class="tableWrapper">
     <table>
       <TableHeader
+        :state="state"
         :table="table"
 
         :filters="filters"
