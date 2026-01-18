@@ -6,6 +6,9 @@ import type {
 const i18n = useI18n()
 const theme = useTheme()
 const isNotificationsOpen = ref<boolean>(false)
+const {
+  logout
+} = useAuth()
 
 const dockButtons = computed<IDockButton[]>(() => [{
   id: 'notifications',
@@ -52,7 +55,7 @@ function handleClick(button: IDockButton) {
   }
 
   if (button.id === 'logout') {
-    return null
+    return logout()
   }
 }
 </script>

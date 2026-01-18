@@ -6,7 +6,8 @@ export default defineNuxtConfig({
     '@nuxtjs/color-mode',
     '@nuxtjs/i18n',
     '@nuxt/image',
-    '@nuxt/icon'
+    '@nuxt/icon',
+    'nuxt-auth-utils'
   ],
   devtools: {
     enabled: true

@@ -9,7 +9,7 @@ const { error } = defineProps<{
 </script>
 
 <template>
-  <NuxtLayout name="error">
+  <NuxtLayout name="centered">
     <NuxtImg
       src="/loader.svg"
       width="200"
