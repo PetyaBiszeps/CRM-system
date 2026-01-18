@@ -14,6 +14,10 @@ const { table, filters } = defineProps<{
   sortOrder?: 'asc' | 'desc'
 }>()
 const emit = defineEmits(['sort', 'filter'])
+
+const handleFilter = (id: string, value: string) => {
+  emit('filter', id, value)
+}
 </script>
 
 <template>
@@ -58,7 +62,7 @@ const emit = defineEmits(['sort', 'filter'])
           :header="header"
           :filters="filters"
 
-          @filter="emit('filter')"
+          @filter="handleFilter"
         />
       </th>
     </tr>
