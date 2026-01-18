@@ -26,30 +26,39 @@ async function handleSubmit() {
 
 <template>
   <div :class="['loginPage']">
-    <h1>Welcome to CRM!</h1>
+    <section>
+      <h1>Welcome to CRM!</h1>
 
-    <form @submit.prevent>
-      <BaseInput
-        v-model="form.email"
+      <form @submit.prevent>
+        <BaseInput
+          v-model="form.email"
 
-        id="loginEmail"
-        name="loginEmail"
-        type="email"
-        placeholder="Enter your email..."
+          id="loginEmail"
+          name="loginEmail"
+          type="email"
+          placeholder="Enter your email..."
+        />
+
+        <BaseInput
+          v-model="form.password"
+
+          id="loginPassword"
+          name="loginPassword"
+          type="password"
+          placeholder="Enter your password..."
+        />
+
+        <BaseButton @click="handleSubmit">
+          {{ isLoading ? 'Loading...' : 'Login' }}
+        </BaseButton>
+      </form>
+    </section>
+
+    <section>
+      <NuxtImg
+        src="/loader.svg"
+        alt="Loading..."
       />
-
-      <BaseInput
-        v-model="form.password"
-
-        id="loginPassword"
-        name="loginPassword"
-        type="password"
-        placeholder="Enter your password..."
-      />
-
-      <BaseButton @click="handleSubmit">
-        {{ isLoading ? 'Loading...' : 'Login' }}
-      </BaseButton>
-    </form>
+    </section>
   </div>
 </template>

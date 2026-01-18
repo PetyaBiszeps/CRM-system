@@ -1,0 +1,31 @@
+@use '../resources.scss' as *;
+
+.loginPage {
+  gap: 16px;
+  width: 100%;
+  display: flex;
+  max-width: 800px;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+
+  section {
+    flex: 1;
+    display: flex;
+    padding: 12px 16px;
+    border-radius: $borderRadius;
+    flex-direction: column;
+
+    form {
+      gap: 8px;
+      display: flex;
+      margin-top: 16px;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+
+    &:first-child {
+      @include glassBg;
+    }
+  }
+}
