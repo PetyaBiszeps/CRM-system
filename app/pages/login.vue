@@ -14,7 +14,7 @@ const form = reactive({
   password: ''
 })
 
-async function handleSubmit() {
+async function handleLogin() {
   try {
     await login(form)
   }
@@ -22,36 +22,50 @@ async function handleSubmit() {
     return e
   }
 }
+
+async function handleRegister() {
+  return null
+}
 </script>
 
 <template>
   <div :class="['loginPage']">
     <section>
-      <h1>Welcome to CRM!</h1>
+      <header>
+        <h1>Welcome to CRM!</h1>
+      </header>
 
-      <form @submit.prevent>
-        <BaseInput
-          v-model="form.email"
+      <main>
+        <form @submit.prevent>
+          <BaseInput
+            v-model="form.email"
 
-          id="loginEmail"
-          name="loginEmail"
-          type="email"
-          placeholder="Enter your email..."
-        />
+            id="loginEmail"
+            name="loginEmail"
+            type="email"
+            placeholder="Enter your email..."
+          />
 
-        <BaseInput
-          v-model="form.password"
+          <BaseInput
+            v-model="form.password"
 
-          id="loginPassword"
-          name="loginPassword"
-          type="password"
-          placeholder="Enter your password..."
-        />
+            id="loginPassword"
+            name="loginPassword"
+            type="password"
+            placeholder="Enter your password..."
+          />
+        </form>
+      </main>
 
-        <BaseButton @click="handleSubmit">
+      <footer>
+        <BaseButton @click="handleLogin">
           {{ isLoading ? 'Loading...' : 'Login' }}
         </BaseButton>
-      </form>
+
+        <BaseButton @click="handleRegister">
+          {{ isLoading ? 'Loading...' : 'Register' }}
+        </BaseButton>
+      </footer>
     </section>
 
     <section>

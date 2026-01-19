@@ -16,19 +16,36 @@
     border-radius: $borderRadius;
     flex-direction: column;
 
-    h1 {
-      text-align: center;
+    header {
+      h1 {
+        text-align: center;
+        white-space: nowrap;
+      }
     }
 
-    form {
-      gap: 8px;
+    main {
+      form {
+        gap: 8px;
+        display: flex;
+        margin-top: 16px;
+        flex-direction: column;
+      }
+    }
+
+    footer {
       display: flex;
-      margin-top: 16px;
-      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
     }
 
     &:first-child {
       @include glassBg;
+    }
+
+    &:last-child {
+      @media screen and (max-width: 640px) {
+        display: none;
+      }
     }
   }
 }
