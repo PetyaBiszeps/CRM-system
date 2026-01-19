@@ -9,6 +9,7 @@ const { state, error, items, isFetching, columns, filters = [] } = defineProps<{
   state: {
     ui: {
       filters: boolean
+      isCreating: boolean
     }
   }
   error: unknown
@@ -71,6 +72,7 @@ function handleFilter(id: string, value: string) {
       <TableBody
         v-else
 
+        :state="state"
         :table="table"
         :is-fetching="isFetching"
       />

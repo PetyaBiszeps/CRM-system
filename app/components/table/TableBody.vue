@@ -4,7 +4,13 @@ import {
   FlexRender
 } from '@tanstack/vue-table'
 
-const { table, isFetching } = defineProps<{
+const { state, table, isFetching } = defineProps<{
+  state: {
+    ui: {
+      filters: boolean
+      isCreating: boolean
+    }
+  }
   table: Table<T>
   isFetching: boolean
 }>()
@@ -16,6 +22,8 @@ const { table, isFetching } = defineProps<{
       isFetching: isFetching,
     }]"
   >
+    <TableRow v-if="state.ui.isCreating" />
+
     <tr
       v-for="row in table.getRowModel().rows"
       :key="row.id"
