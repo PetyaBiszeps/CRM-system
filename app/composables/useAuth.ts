@@ -17,18 +17,7 @@ export const useAuth = () => {
       method: 'POST',
       body: credentials
     })
-    const { data, error } = await client.auth.refreshSession()
-
-    if (error) {
-      throw error
-    }
-
-    if (data.user) {
-      user.value = (data.user as unknown) as typeof user.value
-
-      await router.push('/')
-    }
-    isLoading.value = false
+    await login(credentials)
   }
 
   const login = async (credentials: IAuth) => {
