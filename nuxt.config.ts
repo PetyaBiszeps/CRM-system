@@ -7,6 +7,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxt/icon',
+    '@nuxtjs/supabase',
     'nuxt-auth-utils'
   ],
   devtools: {
