@@ -67,7 +67,7 @@ function handleClick(button: IDockButton) {
         v-for="button in dockButtons"
         :key="button.id"
       >
-        <button @click="handleClick(button)">
+        <button @click.stop="handleClick(button)">
           <Icon
             :name="button.icon"
             :title="button.title"
@@ -77,7 +77,7 @@ function handleClick(button: IDockButton) {
         </button>
       </li>
 
-      <SharedNotifications v-model="isNotificationsOpen" />
+      <DockNotifications v-model="isNotificationsOpen" />
     </ul>
   </div>
 </template>
