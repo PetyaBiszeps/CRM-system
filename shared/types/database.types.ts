@@ -45,5 +45,5 @@ export interface Database {
   }
 }
 
-export type ICustomer = Database['public']['Tables']['customers']['Row']
-export type INewCustomer = Database['public']['Tables']['customers']['Insert']
+export type IDBCustomer = Database['public']['Tables']['customers']['Row']
+export type IDBNewCustomer = Database['public']['Tables']['customers']['Insert']

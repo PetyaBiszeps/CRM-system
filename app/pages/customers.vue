@@ -20,6 +20,11 @@ const {
   handleSort,
   handleFilter
 } = useTable<ICustomer>('/api/customers')
+
+// const {
+//   submit,
+//   isPending
+// } = useRequest().create<IDBNewCustomer, IDBCustomer>('/api/customers/create')
 </script>
 
 <template>
