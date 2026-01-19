@@ -1,4 +1,3 @@
-import { getCustomersFromDB } from '~~/server/utils/mockData'
 import type {
   ICustomer
 } from '@/types'
