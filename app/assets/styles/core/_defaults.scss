@@ -19,3 +19,7 @@ button, select {
 select {
   text-align: center;
 }
+
+::selection {
+  background: $accent;
+}
