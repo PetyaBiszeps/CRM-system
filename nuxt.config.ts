@@ -66,6 +66,7 @@ export default defineNuxtConfig({
       login: '/login',
       callback: '',
       exclude: []
-    }
+    },
+    types: '~~/shared/types/database.types.ts'
   }
 })
