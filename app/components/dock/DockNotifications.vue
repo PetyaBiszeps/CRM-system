@@ -3,6 +3,8 @@ const model = defineModel<boolean>({
   required: true
 })
 
+const { user } = useAuth()
+
 function closeMenu() {
   model.value = false
 }
@@ -15,7 +17,7 @@ function closeMenu() {
       v-click-outside="closeMenu"
       :class="['notifications']"
     >
-      <h2>Notifications</h2>
+      <h2>{{ user?.email }}</h2>
     </div>
   </transition>
 </template>
