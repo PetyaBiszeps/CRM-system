@@ -21,5 +21,6 @@ select {
 }
 
 ::selection {
+  color: $globalText;
   background: $accent;
 }
