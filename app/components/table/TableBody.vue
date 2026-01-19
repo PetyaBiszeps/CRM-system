@@ -1,10 +1,11 @@
 <script setup lang="ts" generic="T">
-import {
-  type Table,
-  FlexRender
+import { FlexRender } from '@tanstack/vue-table'
+import type {
+  Table,
+  ColumnDef
 } from '@tanstack/vue-table'
 
-const { state, table, isFetching } = defineProps<{
+const { state, table, columns, isFetching } = defineProps<{
   state: {
     ui: {
       filters: boolean
@@ -12,6 +13,7 @@ const { state, table, isFetching } = defineProps<{
     }
   }
   table: Table<T>
+  columns: ColumnDef<T>[]
   isFetching: boolean
 }>()
 </script>
@@ -22,7 +24,11 @@ const { state, table, isFetching } = defineProps<{
       isFetching: isFetching,
     }]"
   >
-    <TableRow v-if="state.ui.isCreating" />
+    <TableRow
+      v-if="state.ui.isCreating"
+
+      :columns="columns"
+    />
 
     <tr
       v-for="row in table.getRowModel().rows"

@@ -74,6 +74,7 @@ function handleFilter(id: string, value: string) {
 
         :state="state"
         :table="table"
+        :columns="columns"
         :is-fetching="isFetching"
       />
     </table>
