@@ -10,6 +10,27 @@ export const useAuth = () => {
 
   const loggedIn = computed(() => !!user.value)
 
+  const register = async (credentials: IAuth) => {
+    isLoading.value = true
+
+    await $fetch('/api/auth/register', {
+      method: 'POST',
+      body: credentials
+    })
+    const { data, error } = await client.auth.refreshSession()
+
+    if (error) {
+      throw error
+    }
+
+    if (data.user) {
+      user.value = (data.user as unknown) as typeof user.value
+
+      await router.push('/')
+    }
+    isLoading.value = false
+  }
+
   const login = async (credentials: IAuth) => {
     isLoading.value = true
 
@@ -43,6 +64,6 @@ export const useAuth = () => {
 
   return {
     user, isLoading, loggedIn,
-    login, logout
+    register, login, logout
   }
 }

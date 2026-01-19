@@ -6,6 +6,7 @@ definePageMeta({
 
 const {
   isLoading,
+  register,
   login
 } = useAuth()
 
@@ -24,7 +25,12 @@ async function handleLogin() {
 }
 
 async function handleRegister() {
-  return null
+  try {
+    await register(form)
+  }
+  catch (e) {
+    return e
+  }
 }
 </script>
 
