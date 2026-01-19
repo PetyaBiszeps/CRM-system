@@ -24,7 +24,7 @@ export const useAuth = () => {
     }
 
     if (data.user) {
-      user.value = data.user as any
+      user.value = (data.user as unknown) as typeof user.value
 
       await router.push('/')
     }
