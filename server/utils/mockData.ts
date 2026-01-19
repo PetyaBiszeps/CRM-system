@@ -1,4 +1,8 @@
 import type { ICustomer, ICustomers } from '@/types'
+import type { H3Event } from 'h3'
+import {
+  serverSupabaseClient
+} from '#supabase/server'
 
 interface GetCustomersOptions {
   page: number
@@ -9,60 +13,46 @@ interface GetCustomersOptions {
   sortOrder?: 'asc' | 'desc'
 }
 
-const MOCK_CUSTOMERS: ICustomer[] = [
-  { id: 0, name: 'Ubisoft', email: 'business@ubi.com', type: 'customer', priority: 1 },
-  { id: 1, name: 'CD PROJEKT RED', email: 'biz@cdprojektred.com', type: 'partner', priority: 2 },
-  { id: 2, name: 'Bethesda', email: 'marketing@bethesda.us', type: 'customer', priority: 3 },
-  { id: 3, name: 'Valve', email: 'noreply@steampowered.com', type: 'partner', priority: 4 },
-  { id: 4, name: 'Sandfall', email: 'noreply@sandfall.fr', type: 'partner', priority: 5 },
-  { id: 5, name: 'Sony', email: 'playstation.support@sony.com', type: 'customer', priority: 6 }
-]
+export async function getCustomersFromDB(event: H3Event, opts: GetCustomersOptions): Promise<ICustomers> {
+  const client = await serverSupabaseClient(event)
 
-export async function getCustomersFromDB(opts: GetCustomersOptions): Promise<ICustomers> {
-  await new Promise(resolve => setTimeout(resolve, 500))
-
-  let result = MOCK_CUSTOMERS.filter((item) => {
-    const search = !opts.search
-      || item.name.toLowerCase().includes(opts.search.toLowerCase())
-      || item.email.toLowerCase().includes(opts.search.toLowerCase())
-      || item.type.toLowerCase().includes(opts.search.toLowerCase())
-
-    if (!search) {
-      return false
-    }
-
-    if (opts.filters && Object.keys(opts.filters).length > 0) {
-      return Object.entries(opts.filters).every(([id, value]) => {
-        if (!value) {
-          return true
-        }
-        const columnValue = String(item[id as keyof ICustomer]).toLowerCase()
-
-        return columnValue.includes(value.toLowerCase())
-      })
-    }
-    return true
+  let query = client.from('customers').select('*', {
+    count: 'exact'
   })
 
-  if (opts.sortBy) {
-    const col = opts.sortBy as keyof ICustomer
-    const order = opts.sortOrder === 'desc' ? -1 : 1
+  if (opts.search) {
+    query = query.or(`name.ilike.%${opts.search}%,email.ilike.%${opts.search}%,type.ilike.%${opts.search}%`)
+  }
 
-    result = [...result].sort((a, b) => {
-      if (a[col] < b[col]) {
-        return -1 * order
+  if (opts.filters && Object.keys(opts.filters).length > 0) {
+    Object.entries(opts.filters).forEach(([column, value]) => {
+      if (value) {
+        query = query.ilike(column, `%${value}%`)
       }
-
-      if (a[col] > b[col]) {
-        return 1 * order
-      }
-      return 0
     })
   }
-  const start = (opts.page - 1) * opts.limit
+  const sortBy = opts.sortBy || 'id'
+  const ascending = opts.sortOrder === 'asc'
+
+  query = query.order(sortBy, {
+    ascending: ascending
+  })
+  const from = (opts.page - 1) * opts.limit
+  const to = from + opts.limit - 1
+
+  query = query.range(from, to)
+
+  const { data, error, count } = await query
+
+  if (error) {
+    throw createError({
+      statusCode: 500,
+      message: error.message
+    })
+  }
 
   return {
-    items: result.slice(start, start + opts.limit),
-    total: result.length
+    items: (data as ICustomer[]) || [],
+    total: count || 0
   }
 }

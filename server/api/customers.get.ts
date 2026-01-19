@@ -26,7 +26,7 @@ export default defineEventHandler(async (event) => {
     }
   }
 
-  return await getCustomersFromDB({
+  return await getCustomersFromDB(event, {
     page: Number(query.page) || 1,
     limit: Number(query.limit) || 10,
     search: String(query.search || ''),
