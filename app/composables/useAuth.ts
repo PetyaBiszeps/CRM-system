@@ -7,32 +7,28 @@ export const useAuth = () => {
   const user = useSupabaseUser()
   const client = useSupabaseClient()
   const isLoading = ref<boolean>(false)
-  const error = ref<string | null>(null)
 
   const loggedIn = computed(() => !!user.value)
 
   const login = async (credentials: IAuth) => {
     isLoading.value = true
-    error.value = null
 
-    try {
-      await $fetch('/api/auth/login', {
-        method: 'POST',
-        body: credentials
-      })
+    await $fetch('/api/auth/login', {
+      method: 'POST',
+      body: credentials
+    })
+    const { data, error } = await client.auth.refreshSession()
+
+    if (error) {
+      throw error
+    }
+
+    if (data.user) {
+      user.value = data.user as any
+
       await router.push('/')
     }
-    catch (err: unknown) {
-      if (err instanceof Error) {
-        error.value = err.message
-      }
-      else {
-        error.value = String(err)
-      }
-    }
-    finally {
-      isLoading.value = false
-    }
+    isLoading.value = false
   }
 
   const logout = async () => {
@@ -46,7 +42,7 @@ export const useAuth = () => {
   }
 
   return {
-    user, isLoading, error, loggedIn,
+    user, isLoading, loggedIn,
     login, logout
   }
 }
