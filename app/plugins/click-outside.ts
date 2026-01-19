@@ -10,15 +10,11 @@ export default defineNuxtPlugin((nuxtApp) => {
         }
       }
 
-      document.addEventListener('click', el.clickOutside, {
-        capture: true
-      })
+      document.addEventListener('click', el.clickOutside)
     },
 
     unmounted(el) {
-      document.removeEventListener('click', el.clickOutside, {
-        capture: true
-      })
+      document.removeEventListener('click', el.clickOutside)
       delete el.clickOutside
     }
   })
