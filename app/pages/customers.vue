@@ -15,6 +15,7 @@ const {
   total,
   search,
   isFetching,
+  toggleCreation,
   toggleFilters,
   toggleClear,
   handleSort,
@@ -40,7 +41,7 @@ const {
       :total="total"
       :is-fetching="isFetching"
 
-      @create="null"
+      @create="toggleCreation"
       @filters="toggleFilters"
       @columns="null"
       @clear="toggleClear"
