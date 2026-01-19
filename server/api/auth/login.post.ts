@@ -1,22 +1,27 @@
+import {
+  serverSupabaseClient
+} from '#supabase/server'
+
 export default defineEventHandler(async (event) => {
-  const { email, password } = await readBody(event)
+  const body = await readBody(event)
+  const client = await serverSupabaseClient(event)
 
-  if (email === 'admin@test.com' && password === 'admin') {
-    await setUserSession(event, {
-      user: {
-        id: 1,
-        name: 'Yaroslav',
-        email: 'admin@test.com'
-      }
+  console.log('Попытка входа:', body.email, body.password)
+
+  const { data, error } = await client.auth.signInWithPassword({
+    email: body.email,
+    password: body.password
+  })
+
+  if (error) {
+    throw createError({
+      statusCode: 401,
+      statusMessage: error.message
     })
-
-    return {
-      success: true
-    }
   }
 
-  throw createError({
-    statusCode: 401,
-    message: 'Invalid Credentials'
-  })
+  return {
+    success: true,
+    user: data.user
+  }
 })

@@ -4,14 +4,12 @@ import type {
 
 export const useAuth = () => {
   const router = useRouter()
-  const isLoading = ref(false)
+  const user = useSupabaseUser()
+  const client = useSupabaseClient()
+  const isLoading = ref<boolean>(false)
   const error = ref<string | null>(null)
-  const {
-    user,
-    clear,
-    fetch,
-    loggedIn
-  } = useUserSession()
+
+  const loggedIn = computed(() => !!user.value)
 
   const login = async (credentials: IAuth) => {
     isLoading.value = true
@@ -22,7 +20,6 @@ export const useAuth = () => {
         method: 'POST',
         body: credentials
       })
-      await fetch()
       await router.push('/')
     }
     catch (err: unknown) {
@@ -39,7 +36,12 @@ export const useAuth = () => {
   }
 
   const logout = async () => {
-    await clear()
+    const { error } = await client.auth.signOut()
+
+    if (error) {
+      throw error
+    }
+    user.value = null
     await router.push('/login')
   }
 

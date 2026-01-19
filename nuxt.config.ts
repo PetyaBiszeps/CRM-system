@@ -7,8 +7,7 @@ export default defineNuxtConfig({
     '@nuxtjs/i18n',
     '@nuxt/image',
     '@nuxt/icon',
-    '@nuxtjs/supabase',
-    'nuxt-auth-utils'
+    '@nuxtjs/supabase'
   ],
   devtools: {
     enabled: true
@@ -60,5 +59,13 @@ export default defineNuxtConfig({
       dir: '~/app/assets/svgs',
       prefix: 'local'
     }]
+  },
+  supabase: {
+    redirect: true,
+    redirectOptions: {
+      login: '/login',
+      callback: '',
+      exclude: []
+    }
   }
 })
