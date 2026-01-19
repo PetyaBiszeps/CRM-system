@@ -31,7 +31,7 @@ export async function getCustomersFromDB(event: H3Event, opts: GetCustomersOptio
       }
     })
   }
-  const sortBy = opts.sortBy || 'id'
+  const sortBy = opts.sortBy || 'created_at'
   const ascending = opts.sortOrder === 'asc'
 
   query = query.order(sortBy, {

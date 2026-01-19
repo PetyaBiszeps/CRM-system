@@ -34,6 +34,8 @@ export interface ICustomer {
   email: string
   type: 'customer' | 'partner'
   priority: number
+  created_at: Date
+  updated_at: Date
 }
 
 export interface ISetting {

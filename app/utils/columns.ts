@@ -27,6 +27,14 @@ export const columns: ITable = {
     customerHelper.accessor('priority', {
       header: 'Priority',
       cell: info => info.getValue()
+    }) as ColumnDef<ICustomer>,
+    customerHelper.accessor('created_at', {
+      header: 'Created At',
+      cell: info => info.getValue()
+    }) as ColumnDef<ICustomer>,
+    customerHelper.accessor('updated_at', {
+      header: 'Updated At',
+      cell: info => info.getValue()
     }) as ColumnDef<ICustomer>
   ]
 }
