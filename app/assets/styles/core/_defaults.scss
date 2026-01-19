@@ -1,5 +1,11 @@
 @use "../resources.scss" as *;
 
+a {
+  &:hover {
+    color: $accent;
+  }
+}
+
 button, select {
   cursor: pointer;
   display: inline-flex;

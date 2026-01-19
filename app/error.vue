@@ -10,14 +10,16 @@ const { error } = defineProps<{
 
 <template>
   <NuxtLayout name="centered">
-    <NuxtImg
-      src="/loader.svg"
-      width="200"
-    />
+    <div>
+      <NuxtImg
+        src="/loader.svg"
+        width="200"
+      />
 
-    <h1>{{ error.statusCode }}</h1>
-    <h3>{{ error.message }}</h3>
+      <h1>{{ error.statusCode }}</h1>
+      <h3>{{ error.message }}</h3>
 
-    <NuxtLink to="/">Go back home</NuxtLink>
+      <NuxtLink to="/">Go back home</NuxtLink>
+    </div>
   </NuxtLayout>
 </template>
