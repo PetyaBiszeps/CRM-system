@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T">
 import type {
   ColumnDef
 } from '@tanstack/vue-table'
@@ -7,6 +7,8 @@ const { columns } = defineProps<{
   columns: ColumnDef<T>[]
 }>()
 const emit = defineEmits(['save', 'cancel'])
+
+const row = ref<Partial<T>>({})
 </script>
 
 <template>
@@ -16,7 +18,7 @@ const emit = defineEmits(['save', 'cancel'])
       :key="column.id"
     >
       <template v-if="column.id === 'actions'">
-        <BaseButton @click="emit('save')">
+        <BaseButton @click="emit('save', row)">
           Save
         </BaseButton>
 
@@ -26,7 +28,7 @@ const emit = defineEmits(['save', 'cancel'])
       </template>
 
       <template v-else>
-        {{ column }}
+        <!-- <TableCell /> -->
       </template>
     </td>
   </tr>
