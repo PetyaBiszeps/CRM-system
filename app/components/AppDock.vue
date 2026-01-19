@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type {
   IDockButton
-} from '~/types'
+} from '@/types'
 
 const i18n = useI18n()
 const theme = useTheme()

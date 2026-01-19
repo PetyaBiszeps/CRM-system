@@ -8,6 +8,11 @@ const customerHelper = createColumnHelper<ICustomer>()
 
 export const columns: ITable = {
   customers: [
+    customerHelper.display({
+      id: 'actions',
+      header: 'Actions',
+      cell: () => null
+    }),
     customerHelper.accessor('id', {
       header: 'ID',
       cell: info => info.getValue()
