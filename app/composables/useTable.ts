@@ -3,7 +3,13 @@ import type {
   IFilter
 } from '@/types'
 
-export const useTable = <T>(url: string) => {
+export const useTable = <T extends object, B extends object = T>(url: string) => {
+  const ui = useUiStore()
+
+  const {
+    submit: create
+  } = useRequest().create<B, T>(`${url}/create`)
+
   const state = reactive({
     page: 1,
     limit: 10,
@@ -84,8 +90,12 @@ export const useTable = <T>(url: string) => {
     }
   }
 
-  const handleSave = async () => {
-    return null
+  const handleSave = async (payload: B) => {
+    create(payload, {
+      onSuccess: () => {
+        ui.cancelCreating()
+      }
+    })
   }
 
   watch([() => state.search, () => state.filters], () => {

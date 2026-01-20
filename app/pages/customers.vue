@@ -32,10 +32,6 @@ const {
   handleFilter,
   handleSave
 } = useTable<ICustomer>('/api/customers')
-
-// const {
-//   submit
-// } = useRequest().create<IDBNewCustomer, ICustomer>('/api/customers/create')
 </script>
 
 <template>
