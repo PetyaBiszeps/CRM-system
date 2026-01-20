@@ -5,10 +5,6 @@ import type {
 
 export const useTable = <T>(url: string) => {
   const state = reactive({
-    ui: {
-      filters: false,
-      isCreating: false
-    },
     page: 1,
     limit: 10,
     search: '',
@@ -45,14 +41,6 @@ export const useTable = <T>(url: string) => {
       })
     }
   })
-
-  const toggleCreation = () => {
-    state.ui.isCreating = !state.ui.isCreating
-  }
-
-  const toggleFilters = () => {
-    state.ui.filters = !state.ui.filters
-  }
 
   const toggleClear = () => {
     state.filters = []
@@ -107,8 +95,6 @@ export const useTable = <T>(url: string) => {
     state,
     error,
     isFetching,
-    toggleCreation,
-    toggleFilters,
     toggleClear,
     handleSort,
     handleFilter

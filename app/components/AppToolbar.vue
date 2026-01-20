@@ -1,6 +1,5 @@
 <script setup lang="ts">
 const { total, isFetching } = defineProps<{
-  state: object
   total: number
   isFetching: boolean
 }>()

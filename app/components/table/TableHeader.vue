@@ -1,14 +1,13 @@
 <script setup lang="ts" generic="T">
-import {
-  type Table,
-  FlexRender
+import { FlexRender } from '@tanstack/vue-table'
+import type {
+  Table
 } from '@tanstack/vue-table'
 
-const { state, table, filters } = defineProps<{
-  state: {
-    ui: {
-      filters: boolean
-    }
+const { ui, table, filters } = defineProps<{
+  ui: {
+    isFilters: boolean
+    isCreating: boolean
   }
   table: Table<T>
   filters: {
@@ -54,7 +53,7 @@ const handleFilter = (id: string, value: string) => {
       v-for="headerGroup in table.getHeaderGroups()"
       :key="headerGroup.id"
       :class="['filters', {
-        open: state.ui.filters,
+        open: ui.isFilters,
       }]"
     >
       <th

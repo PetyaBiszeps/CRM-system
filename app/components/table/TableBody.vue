@@ -5,12 +5,10 @@ import type {
   ColumnDef
 } from '@tanstack/vue-table'
 
-const { state, table, columns, isFetching } = defineProps<{
-  state: {
-    ui: {
-      filters: boolean
-      isCreating: boolean
-    }
+const { ui, table, columns, isFetching } = defineProps<{
+  ui: {
+    isFilters: boolean
+    isCreating: boolean
   }
   table: Table<T>
   columns: ColumnDef<T>[]
@@ -25,7 +23,7 @@ const { state, table, columns, isFetching } = defineProps<{
     }]"
   >
     <TableRow
-      v-if="state.ui.isCreating"
+      v-if="ui.isCreating"
 
       :columns="columns"
     />

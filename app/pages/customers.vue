@@ -8,19 +8,23 @@ definePageMeta({
 })
 
 const {
-  mode
+  ui,
+  mode,
+  toggleCreation,
+  toggleFilters
 } = useUi()
 
 const {
   page,
   items,
-  state,
+  limit,
   error,
   total,
+  filters,
+  sortBy,
+  sortOrder,
   search,
   isFetching,
-  toggleCreation,
-  toggleFilters,
   toggleClear,
   handleSort,
   handleFilter
@@ -35,12 +39,10 @@ const {
 <template>
   <div :class="['customersPage']">
     <AppToolbar
-      v-model:limit="state.limit"
       v-model:search="search"
+      v-model:limit="limit"
       v-model:page="page"
       v-model:mode="mode"
-
-      :state="state"
 
       :total="total"
       :is-fetching="isFetching"
@@ -52,15 +54,15 @@ const {
     />
 
     <AppTable
-      :state="state"
+      :ui="ui"
       :error="error"
       :items="items"
       :is-fetching="isFetching"
       :columns="columns.customers"
 
-      :filters="state.filters"
-      :sort-by="state.sortBy"
-      :sort-order="state.sortOrder"
+      :filters="filters"
+      :sort-by="sortBy"
+      :sort-order="sortOrder"
 
       :class="[mode]"
 
