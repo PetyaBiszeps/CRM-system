@@ -34,7 +34,31 @@
       "title": "Orders"
     },
     "customers": {
-      "title": "Customers"
+      "title": "Customers",
+      "toolbar": {
+        "mode": {
+          "title": "Mode",
+          "values": {
+            "default": "default",
+            "compact": "compact"
+          }
+        },
+        "search": {
+          "title": "Global Search",
+          "placeholder": "Search..."
+        },
+        "rows": "Rows",
+        "pagination": "Pagination",
+        "actions": {
+          "title": "Actions",
+          "values": {
+            "create": "Create Row",
+            "filter": "Open Filters",
+            "columns": "Open Columns",
+            "clear": "Clear Filters"
+          }
+        }
+      }
     },
     "settings": {
       "title": "Settings"

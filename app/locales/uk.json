@@ -34,7 +34,31 @@
       "title": "Замовлення"
     },
     "customers": {
-      "title": "Клієнти"
+      "title": "Клієнти",
+      "toolbar": {
+        "mode": {
+          "title": "Стиль",
+          "values": {
+            "default": "Стандартний",
+            "compact": "Компактний"
+          }
+        },
+        "search": {
+          "title": "Глобальний пошук",
+          "placeholder": "Пошук..."
+        },
+        "rows": "Ряди",
+        "pagination": "Сторінки",
+        "actions": {
+          "title": "Екшени",
+          "values": {
+            "create": "Створити ряд",
+            "filter": "Відкрити фільтри",
+            "columns": "Відкрити колонки",
+            "clear": "Очистити фільтри"
+          }
+        }
+      }
     },
     "settings": {
       "title": "Налаштування"

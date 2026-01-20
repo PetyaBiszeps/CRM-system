@@ -18,6 +18,8 @@ const page = defineModel<number>('page', {
   default: 1
 })
 
+const i18n = useI18n()
+
 const totalPages = computed(() => {
   return Math.ceil(total / limit.value || 1)
 })
@@ -55,7 +57,7 @@ watch(limit, () => {
   <nav :class="['toolbarWrapper']">
     <section>
       <header>
-        <h4>Mode</h4>
+        <h4>{{ i18n.t('pages.customers.toolbar.mode.title') }}</h4>
       </header>
 
       <main>
@@ -63,14 +65,17 @@ watch(limit, () => {
           <template #left-icon>
             {{ mode === 'default' ? '≡' : '≶' }}
           </template>
-          {{ mode === 'default' ? 'default' : 'compact' }}
+          {{ mode === 'default'
+            ? i18n.t('pages.customers.toolbar.mode.values.default')
+            : i18n.t('pages.customers.toolbar.mode.values.compact')
+          }}
         </BaseButton>
       </main>
     </section>
 
     <section>
       <header>
-        <h4>Global Search</h4>
+        <h4>{{ i18n.t('pages.customers.toolbar.search.title') }}</h4>
       </header>
 
       <main>
@@ -80,14 +85,14 @@ watch(limit, () => {
           id="globalSearchInput"
           name="globalSearchInput"
           type="search"
-          placeholder="Search..."
+          :placeholder="i18n.t('pages.customers.toolbar.search.placeholder')"
         />
       </main>
     </section>
 
     <section>
       <header>
-        <h4>Rows</h4>
+        <h4>{{ i18n.t('pages.customers.toolbar.rows') }}</h4>
       </header>
 
       <main>
@@ -114,7 +119,7 @@ watch(limit, () => {
 
     <section>
       <header>
-        <h4>Pagination</h4>
+        <h4>{{ i18n.t('pages.customers.toolbar.pagination') }}</h4>
       </header>
 
       <main>
@@ -172,11 +177,14 @@ watch(limit, () => {
 
     <section>
       <header>
-        <h4>Actions</h4>
+        <h4>{{ i18n.t('pages.customers.toolbar.actions.title') }}</h4>
       </header>
 
       <main>
-        <BaseButton @click="emit('create')">
+        <BaseButton
+          :title="i18n.t('pages.customers.toolbar.actions.values.create')"
+          @click="emit('create')"
+        >
           <template #left-icon>
             <Icon
               :size="25"
@@ -185,7 +193,10 @@ watch(limit, () => {
           </template>
         </BaseButton>
 
-        <BaseButton @click="emit('filters')">
+        <BaseButton
+          :title="i18n.t('pages.customers.toolbar.actions.values.filters')"
+          @click="emit('filters')"
+        >
           <template #left-icon>
             <Icon
               :size="25"
@@ -194,7 +205,10 @@ watch(limit, () => {
           </template>
         </BaseButton>
 
-        <BaseButton @click="emit('columns')">
+        <BaseButton
+          :title="i18n.t('pages.customers.toolbar.actions.values.columns')"
+          @click="emit('columns')"
+        >
           <template #left-icon>
             <Icon
               :size="25"
@@ -203,7 +217,10 @@ watch(limit, () => {
           </template>
         </BaseButton>
 
-        <BaseButton @click="emit('clear')">
+        <BaseButton
+          :title="i18n.t('pages.customers.toolbar.actions.values.clear')"
+          @click="emit('clear')"
+        >
           <template #left-icon>
             <Icon
               :size="25"
