@@ -18,12 +18,28 @@ const row = ref<Partial<T>>({})
       :key="column.id"
     >
       <template v-if="column.id === 'actions'">
-        <BaseButton @click="emit('save', row as T)">
-          Save
+        <BaseButton
+          variant="action"
+          @click="emit('save', row as T)"
+        >
+          <template #left-icon>
+            <Icon
+              :size="16"
+              name="material-symbols:save-outline"
+            />
+          </template>
         </BaseButton>
 
-        <BaseButton @click="emit('cancel')">
-          Cancel
+        <BaseButton
+          variant="action"
+          @click="emit('cancel')"
+        >
+          <template #left-icon>
+            <Icon
+              :size="16"
+              name="material-symbols:close-small-outline"
+            />
+          </template>
         </BaseButton>
       </template>
 
