@@ -81,6 +81,10 @@
           padding: 14px 16px;
           white-space: nowrap;
           border-bottom: 1px solid color-mix(in srgb, $globalBorder 5%, transparent);
+
+          &.actions {
+            padding: 0;
+          }
         }
 
         &:hover {

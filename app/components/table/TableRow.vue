@@ -16,28 +16,23 @@ const row = ref<Partial<T>>({})
     <td
       v-for="column in columns"
       :key="column.id"
+      :class="column.id"
     >
       <template v-if="column.id === 'actions'">
-        <BaseButton
-          variant="action"
-          @click="emit('save', row as T)"
-        >
+        <BaseButton @click="emit('save', row as T)">
           <template #left-icon>
             <Icon
-              :size="16"
+              :size="25"
               name="material-symbols:save-outline"
             />
           </template>
         </BaseButton>
 
-        <BaseButton
-          variant="action"
-          @click="emit('cancel')"
-        >
+        <BaseButton @click="emit('cancel', row as T)">
           <template #left-icon>
             <Icon
-              :size="16"
-              name="material-symbols:close-small-outline"
+              :size="25"
+              name="material-symbols:cancel-outline"
             />
           </template>
         </BaseButton>
