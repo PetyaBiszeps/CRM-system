@@ -28,7 +28,7 @@ const emit = defineEmits(['save', 'cancel'])
 
       :columns="columns"
 
-      @save="emit('save')"
+      @save="emit('save', $event)"
       @cancel="emit('cancel')"
     />
 

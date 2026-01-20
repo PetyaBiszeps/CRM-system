@@ -32,6 +32,18 @@ const {
   handleFilter,
   handleSave
 } = useTable<ICustomer>('/api/customers')
+
+const {
+  submit
+} = useRequest().create<IDBNewCustomer, ICustomer>('/api/customers/create')
+
+const onSave = (payload: ICustomer) => {
+  submit(payload as unknown as IDBNewCustomer, {
+    onSuccess: () => {
+      toggleCreation()
+    }
+  })
+}
 </script>
 
 <template>
@@ -67,7 +79,7 @@ const {
       @sort="handleSort"
       @filter="handleFilter"
 
-      @save="handleSave"
+      @save="onSave"
       @cancel="cancelCreating"
     />
   </div>

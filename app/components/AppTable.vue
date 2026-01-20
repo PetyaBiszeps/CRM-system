@@ -75,7 +75,7 @@ function handleFilter(id: string, value: string) {
         :columns="columns"
         :is-fetching="isFetching"
 
-        @save="emit('save')"
+        @save="emit('save', $event)"
         @cancel="emit('cancel')"
       />
     </table>

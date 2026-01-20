@@ -84,7 +84,7 @@ export const useTable = <T>(url: string) => {
     }
   }
 
-  const handleSave = () => {
+  const handleSave = async () => {
     return null
   }
 
