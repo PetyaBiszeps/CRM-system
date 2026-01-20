@@ -53,7 +53,7 @@
           "title": "Actions",
           "values": {
             "create": "Create Row",
-            "filter": "Open Filters",
+            "filters": "Open Filters",
             "columns": "Open Columns",
             "clear": "Clear Filters"
           }

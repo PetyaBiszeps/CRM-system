@@ -35,7 +35,7 @@ export const columns: ITable = {
       header: 'Currency',
       cell: info => info.getValue()
     }) as ColumnDef<IOrder>,
-    orderHelper.accessor('createdAt', {
+    orderHelper.accessor('created_at', {
       id: 'created_at',
       header: 'Created At',
       cell: info => info.getValue()

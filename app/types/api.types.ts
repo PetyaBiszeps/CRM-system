@@ -25,7 +25,7 @@ export interface IOrder {
   amount: number
   status: 'pending' | 'completed' | 'canceled'
   currency: 'USD' | 'EUR' | 'UAH'
-  createdAt: Date
+  created_at: Date
 }
 
 export interface ICustomer {
