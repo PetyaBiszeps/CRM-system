@@ -12,7 +12,8 @@ const {
   mode,
   toggleCreation,
   toggleFilters,
-  toggleColumns
+  toggleColumns,
+  cancelCreating
 } = useUi()
 
 const {
@@ -28,13 +29,9 @@ const {
   isFetching,
   clearFilters,
   handleSort,
-  handleFilter
+  handleFilter,
+  handleSave
 } = useTable<ICustomer>('/api/customers')
-
-// const {
-//   submit,
-//   isPending
-// } = useRequest().create<IDBNewCustomer, IDBCustomer>('/api/customers/create')
 </script>
 
 <template>
@@ -69,6 +66,9 @@ const {
 
       @sort="handleSort"
       @filter="handleFilter"
+
+      @save="handleSave"
+      @cancel="cancelCreating"
     />
   </div>
 </template>

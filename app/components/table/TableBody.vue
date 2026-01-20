@@ -14,6 +14,7 @@ const { ui, table, columns, isFetching } = defineProps<{
   columns: ColumnDef<T>[]
   isFetching: boolean
 }>()
+const emit = defineEmits(['save', 'cancel'])
 </script>
 
 <template>
@@ -26,6 +27,9 @@ const { ui, table, columns, isFetching } = defineProps<{
       v-if="ui.isCreating"
 
       :columns="columns"
+
+      @save="emit('save')"
+      @cancel="emit('cancel')"
     />
 
     <tr

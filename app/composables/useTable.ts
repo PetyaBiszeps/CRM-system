@@ -84,6 +84,10 @@ export const useTable = <T>(url: string) => {
     }
   }
 
+  const handleSave = () => {
+    return null
+  }
+
   watch([() => state.search, () => state.filters], () => {
     state.page = 1
   }, { deep: true })
@@ -99,6 +103,7 @@ export const useTable = <T>(url: string) => {
     isFetching,
     clearFilters,
     handleSort,
-    handleFilter
+    handleFilter,
+    handleSave
   }
 }

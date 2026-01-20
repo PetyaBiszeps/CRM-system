@@ -22,7 +22,7 @@ const { ui, error, items, isFetching, columns, filters = [] } = defineProps<{
   sortBy?: string
   sortOrder?: 'asc' | 'desc'
 }>()
-const emit = defineEmits(['sort', 'filter'])
+const emit = defineEmits(['save', 'cancel', 'sort', 'filter'])
 
 const table = useVueTable({
   get data() {
@@ -74,6 +74,9 @@ function handleFilter(id: string, value: string) {
         :table="table"
         :columns="columns"
         :is-fetching="isFetching"
+
+        @save="emit('save')"
+        @cancel="emit('cancel')"
       />
     </table>
   </div>

@@ -18,12 +18,17 @@ export const useUi = () => {
     ui.isColumns = !ui.isColumns
   }
 
+  const cancelCreating = () => {
+    ui.isCreating = false
+  }
+
   return {
     ...toRefs(ui),
 
     ui,
     toggleCreation,
     toggleFilters,
-    toggleColumns
+    toggleColumns,
+    cancelCreating
   }
 }
