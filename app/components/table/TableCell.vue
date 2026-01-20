@@ -8,7 +8,7 @@ const { column } = defineProps<{
 }>()
 // const emit = defineEmits([])
 
-const model = defineModel<string | number>({
+const model = defineModel<string | number | undefined>({
   required: true
 })
 

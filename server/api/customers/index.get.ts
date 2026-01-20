@@ -10,7 +10,10 @@ export default defineEventHandler(async (event) => {
 
   if (rawFilters) {
     try {
-      const parsedFilters = JSON.parse(rawFilters) as { id: string, value: string }[]
+      const parsedFilters = JSON.parse(rawFilters) as {
+        id: string
+        value: string
+      }[]
 
       if (Array.isArray(parsedFilters)) {
         parsedFilters.forEach((f) => {

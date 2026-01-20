@@ -8,7 +8,7 @@ const { columns } = defineProps<{
 }>()
 const emit = defineEmits(['save', 'cancel'])
 
-const row = ref<Partial<T>>({})
+const row = reactive<Partial<T>>({})
 </script>
 
 <template>
@@ -39,7 +39,11 @@ const row = ref<Partial<T>>({})
       </template>
 
       <template v-else>
-        <!-- <TableCell /> -->
+        <TableCell
+          v-model="(row as any)[column.id!]"
+
+          :column="column"
+        />
       </template>
     </td>
   </tr>

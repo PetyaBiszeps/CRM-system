@@ -20,7 +20,7 @@ const {
 }>()
 const emit = defineEmits(['focus', 'blur'])
 
-const model = defineModel<string | number>({
+const model = defineModel<string | number | undefined>({
   required: true
 })
 </script>
