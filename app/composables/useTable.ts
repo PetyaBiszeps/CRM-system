@@ -43,8 +43,10 @@ export const useTable = <T>(url: string) => {
   })
 
   const clearFilters = () => {
-    state.filters = []
+    state.page = 1
+    state.search = ''
     state.sortBy = ''
+    state.filters = []
     state.sortOrder = 'asc'
   }
 
