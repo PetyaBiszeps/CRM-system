@@ -1,12 +1,46 @@
 import { type ColumnDef, createColumnHelper } from '@tanstack/vue-table'
 import type {
   ITable,
+  IOrder,
   ICustomer
 } from '@/types'
 
+const orderHelper = createColumnHelper<IOrder>()
 const customerHelper = createColumnHelper<ICustomer>()
 
 export const columns: ITable = {
+  orders: [
+    orderHelper.display({
+      id: 'actions',
+      header: 'Actions',
+      cell: () => null
+    }),
+    orderHelper.accessor('id', {
+      id: 'id',
+      header: 'ID',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
+    orderHelper.accessor('amount', {
+      id: 'amount',
+      header: 'Amount',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
+    orderHelper.accessor('status', {
+      id: 'status',
+      header: 'Status',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
+    orderHelper.accessor('currency', {
+      id: 'currency',
+      header: 'Currency',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
+    orderHelper.accessor('createdAt', {
+      id: 'created_at',
+      header: 'Created At',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>
+  ],
   customers: [
     customerHelper.display({
       id: 'actions',

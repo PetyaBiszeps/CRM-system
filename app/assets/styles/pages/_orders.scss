@@ -1,0 +1,10 @@
+@use '../resources.scss' as *;
+
+.ordersPage {
+  gap: 32px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  max-height: calc(100% - 79px);
+  flex-direction: column;
+}
