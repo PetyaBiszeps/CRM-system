@@ -4,7 +4,7 @@ import type {
 } from '@/types'
 
 export const useTable = <T extends object, B extends object = T>(url: string) => {
-  const ui = useUiStore()
+  const states = useStates()
 
   const {
     submit: create
@@ -93,7 +93,7 @@ export const useTable = <T extends object, B extends object = T>(url: string) =>
   const handleSave = async (payload: B) => {
     create(payload, {
       onSuccess: () => {
-        ui.cancelCreating()
+        states.cancelCreating()
       }
     })
   }

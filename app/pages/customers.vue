@@ -14,7 +14,7 @@ const {
   toggleFilters,
   toggleColumns,
   cancelCreating
-} = useUiStore()
+} = useStates()
 
 const {
   page,
