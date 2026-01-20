@@ -11,7 +11,8 @@ const {
   ui,
   mode,
   toggleCreation,
-  toggleFilters
+  toggleFilters,
+  toggleColumns
 } = useUi()
 
 const {
@@ -25,7 +26,7 @@ const {
   sortOrder,
   search,
   isFetching,
-  handleClear,
+  clearFilters,
   handleSort,
   handleFilter
 } = useTable<ICustomer>('/api/customers')
@@ -49,8 +50,8 @@ const {
 
       @create="toggleCreation"
       @filters="toggleFilters"
-      @columns="null"
-      @clear="handleClear"
+      @columns="toggleColumns"
+      @clear="clearFilters"
     />
 
     <AppTable

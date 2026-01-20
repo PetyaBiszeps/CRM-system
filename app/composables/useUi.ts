@@ -1,6 +1,7 @@
 export const useUi = () => {
   const ui = reactive({
     isFilters: false,
+    isColumns: false,
     isCreating: false,
     mode: 'default' as 'default' | 'compact'
   })
@@ -13,11 +14,16 @@ export const useUi = () => {
     ui.isFilters = !ui.isFilters
   }
 
+  const toggleColumns = () => {
+    ui.isColumns = !ui.isColumns
+  }
+
   return {
     ...toRefs(ui),
 
     ui,
     toggleCreation,
-    toggleFilters
+    toggleFilters,
+    toggleColumns
   }
 }

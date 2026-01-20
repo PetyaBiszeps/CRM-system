@@ -42,7 +42,7 @@ export const useTable = <T>(url: string) => {
     }
   })
 
-  const handleClear = () => {
+  const clearFilters = () => {
     state.filters = []
     state.sortBy = ''
     state.sortOrder = 'asc'
@@ -95,7 +95,7 @@ export const useTable = <T>(url: string) => {
     state,
     error,
     isFetching,
-    handleClear,
+    clearFilters,
     handleSort,
     handleFilter
   }
