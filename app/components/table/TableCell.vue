@@ -17,7 +17,8 @@ const defaults = computed(() => {
     id: column.id as string,
     name: column.id as string,
     type: 'text', // Add column.meta.type in future
-    placeholder: column.id as string
+    placeholder: column.id as string,
+    variant: 'table' as const
   }
 })
 </script>
@@ -30,5 +31,6 @@ const defaults = computed(() => {
     :name="defaults.name"
     :type="defaults.type"
     :placeholder="defaults.placeholder"
+    :variant="defaults.variant"
   />
 </template>
