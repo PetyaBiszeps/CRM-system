@@ -14,7 +14,7 @@ const {
   toggleFilters,
   toggleColumns,
   cancelCreating
-} = useUi()
+} = useUiStore()
 
 const {
   page,
@@ -33,17 +33,9 @@ const {
   handleSave
 } = useTable<ICustomer>('/api/customers')
 
-const {
-  submit
-} = useRequest().create<IDBNewCustomer, ICustomer>('/api/customers/create')
-
-const onSave = (payload: ICustomer) => {
-  submit(payload as unknown as IDBNewCustomer, {
-    onSuccess: () => {
-      toggleCreation()
-    }
-  })
-}
+// const {
+//   submit
+// } = useRequest().create<IDBNewCustomer, ICustomer>('/api/customers/create')
 </script>
 
 <template>
@@ -79,7 +71,7 @@ const onSave = (payload: ICustomer) => {
       @sort="handleSort"
       @filter="handleFilter"
 
-      @save="onSave"
+      @save="handleSave"
       @cancel="cancelCreating"
     />
   </div>

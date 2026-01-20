@@ -1,4 +1,4 @@
-export const useUi = () => {
+export const useUiStore = defineStore('ui', () => {
   const ui = reactive({
     isFilters: false,
     isColumns: false,
@@ -31,4 +31,4 @@ export const useUi = () => {
     toggleColumns,
     cancelCreating
   }
-}
+})
