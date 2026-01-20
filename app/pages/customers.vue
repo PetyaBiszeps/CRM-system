@@ -25,7 +25,7 @@ const {
   sortOrder,
   search,
   isFetching,
-  toggleClear,
+  handleClear,
   handleSort,
   handleFilter
 } = useTable<ICustomer>('/api/customers')
@@ -50,7 +50,7 @@ const {
       @create="toggleCreation"
       @filters="toggleFilters"
       @columns="null"
-      @clear="toggleClear"
+      @clear="handleClear"
     />
 
     <AppTable
