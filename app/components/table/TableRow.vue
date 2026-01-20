@@ -18,7 +18,7 @@ const row = ref<Partial<T>>({})
       :key="column.id"
     >
       <template v-if="column.id === 'actions'">
-        <BaseButton @click="emit('save', row)">
+        <BaseButton @click="emit('save', row as T)">
           Save
         </BaseButton>
 
