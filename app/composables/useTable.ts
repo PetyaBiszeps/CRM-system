@@ -14,8 +14,7 @@ export const useTable = <T>(url: string) => {
     search: '',
     filters: [] as IFilter[],
     sortBy: undefined as string | undefined,
-    sortOrder: 'asc' as 'asc' | 'desc',
-    mode: 'default' as 'default' | 'compact'
+    sortOrder: 'asc' as 'asc' | 'desc'
   })
 
   const params = computed(() => {

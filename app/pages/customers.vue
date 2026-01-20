@@ -8,6 +8,10 @@ definePageMeta({
 })
 
 const {
+  mode
+} = useUi()
+
+const {
   page,
   items,
   state,
@@ -32,9 +36,9 @@ const {
   <div :class="['customersPage']">
     <AppToolbar
       v-model:limit="state.limit"
-      v-model:mode="state.mode"
       v-model:search="search"
       v-model:page="page"
+      v-model:mode="mode"
 
       :state="state"
 
@@ -58,7 +62,7 @@ const {
       :sort-by="state.sortBy"
       :sort-order="state.sortOrder"
 
-      :class="[state.mode]"
+      :class="[mode]"
 
       @sort="handleSort"
       @filter="handleFilter"
