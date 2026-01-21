@@ -58,12 +58,24 @@ export const columns: ITable = {
     orderHelper.accessor('created_at', {
       id: 'created_at',
       header: 'Created At',
-      cell: info => info.getValue()
+      cell: (info) => {
+        const date = info.getValue()
+
+        return date
+          ? new Date(date).toLocaleDateString('uk-UA')
+          : ''
+      }
     }) as ColumnDef<IOrder>,
     orderHelper.accessor('updated_at', {
       id: 'updated_at',
       header: 'Updated At',
-      cell: info => info.getValue()
+      cell: (info) => {
+        const date = info.getValue()
+
+        return date
+          ? new Date(date).toLocaleDateString('uk-UA')
+          : ''
+      }
     }) as ColumnDef<IOrder>
   ],
   customers: [
@@ -100,12 +112,24 @@ export const columns: ITable = {
     customerHelper.accessor('created_at', {
       id: 'created_at',
       header: 'Created At',
-      cell: info => info.getValue()
+      cell: (info) => {
+        const date = info.getValue()
+
+        return date
+          ? new Date(date).toLocaleDateString('uk-UA')
+          : ''
+      }
     }) as ColumnDef<ICustomer>,
     customerHelper.accessor('updated_at', {
       id: 'updated_at',
       header: 'Updated At',
-      cell: info => info.getValue()
+      cell: (info) => {
+        const date = info.getValue()
+
+        return date
+          ? new Date(date).toLocaleDateString('uk-UA')
+          : ''
+      }
     }) as ColumnDef<ICustomer>
   ]
 }
