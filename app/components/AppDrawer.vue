@@ -8,8 +8,13 @@ const {
   <div :class="['drawerWrapper']">
     <div class="overlay" />
 
-    <aside v-click-outside="closeDrawer">
-      Some text here
-    </aside>
+    <transition
+      name="slide-left"
+      appear
+    >
+      <aside v-click-outside="closeDrawer">
+        Some text here
+      </aside>
+    </transition>
   </div>
 </template>
