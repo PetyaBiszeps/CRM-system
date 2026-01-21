@@ -3,9 +3,9 @@ export interface IAuth {
   password: string
 }
 
-export interface IUser extends IAuth {
-  id: string
-}
+// export interface IUser extends IAuth {
+//   id: string
+// }
 
 export interface IResponse<T> {
   items: T[]
@@ -14,6 +14,16 @@ export interface IResponse<T> {
 
 export interface IGood {
   id: number
+  name: string
+  description?: string
+  sku?: string
+  price: number
+  currency: 'USD' | 'EUR' | 'UAH'
+  category: string
+  stock: number
+  status: 'active' | 'archived' | 'out_of_stock'
+  created_at: Date
+  updated_at: Date
 }
 
 export interface IPayment {
@@ -49,12 +59,12 @@ export interface ICustomer {
   updated_at: Date
 }
 
-export interface ISetting {
-  id: number
-}
+// export interface ISetting {
+//   id: number
+// }
 
-export type IGoods = IResponse<IGood>
-export type IPayments = IResponse<IPayment>
-export type IOrders = IResponse<IOrder>
-export type ICustomers = IResponse<ICustomer>
-export type ISettings = IResponse<ISetting>
+// export type IGoods = IResponse<IGood>
+// export type IPayments = IResponse<IPayment>
+// export type IOrders = IResponse<IOrder>
+// export type ICustomers = IResponse<ICustomer>
+// export type ISettings = IResponse<ISetting>

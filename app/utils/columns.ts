@@ -1,16 +1,92 @@
 import { type ColumnDef, createColumnHelper } from '@tanstack/vue-table'
 import type {
+  IGood,
   ITable,
   IOrder,
   IPayment,
   ICustomer
 } from '@/types'
 
+const goodsHelper = createColumnHelper<IGood>()
 const orderHelper = createColumnHelper<IOrder>()
 const paymentHelper = createColumnHelper<IPayment>()
 const customerHelper = createColumnHelper<ICustomer>()
 
 export const columns: ITable = {
+  goods: [
+    goodsHelper.display({
+      id: 'actions',
+      header: 'Actions',
+      cell: () => null
+    }),
+    goodsHelper.accessor('id', {
+      id: 'id',
+      header: 'ID',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('name', {
+      id: 'name',
+      header: 'Name',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('description', {
+      id: 'description',
+      header: 'Description',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('sku', {
+      id: 'sku',
+      header: 'SKU',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('price', {
+      id: 'price',
+      header: 'Price',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('currency', {
+      id: 'currency',
+      header: 'Currency',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('category', {
+      id: 'category',
+      header: 'Category',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('stock', {
+      id: 'stock',
+      header: 'Stock',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('status', {
+      id: 'status',
+      header: 'Status',
+      cell: info => info.getValue()
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('created_at', {
+      id: 'created_at',
+      header: 'Created At',
+      cell: (info) => {
+        const date = info.getValue()
+
+        return date
+          ? new Date(date).toLocaleDateString('uk-UA')
+          : ''
+      }
+    }) as ColumnDef<IGood>,
+    goodsHelper.accessor('updated_at', {
+      id: 'updated_at',
+      header: 'Updated At',
+      cell: (info) => {
+        const date = info.getValue()
+
+        return date
+          ? new Date(date).toLocaleDateString('uk-UA')
+          : ''
+      }
+    }) as ColumnDef<IGood>
+  ],
   payments: [
     paymentHelper.display({
       id: 'actions',
