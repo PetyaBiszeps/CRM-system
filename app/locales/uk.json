@@ -2,7 +2,7 @@
   "components": {
     "sidebar": {
       "tabs": {
-        "dashboard": "Задачі",
+        "kanban": "Задачі",
         "goods": "Товари",
         "payments": "Оплати",
         "orders": "Замовлення",
@@ -21,7 +21,7 @@
     }
   },
   "pages": {
-    "dashboard": {
+    "kanban": {
       "title": "Задачі"
     },
     "goods": {

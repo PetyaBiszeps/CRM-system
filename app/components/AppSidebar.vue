@@ -6,7 +6,7 @@ import type {
 const i18n = useI18n()
 
 const sidebarTabs = computed<ISidebarTab[]>(() => [{
-  name: i18n.t('components.sidebar.tabs.dashboard'),
+  name: i18n.t('components.sidebar.tabs.kanban'),
   icon: 'material-symbols:interactive-space-outline',
   link: '/'
 }, {

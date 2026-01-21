@@ -2,7 +2,7 @@
   "components": {
     "sidebar": {
       "tabs": {
-        "dashboard": "Dashboard",
+        "kanban": "Kanban",
         "goods": "Goods",
         "payments": "Payments",
         "orders": "Orders",
@@ -21,8 +21,8 @@
     }
   },
   "pages": {
-    "dashboard": {
-      "title": "Dashboard"
+    "kanban": {
+      "title": "Kanban"
     },
     "goods": {
       "title": "Goods"

@@ -4,6 +4,6 @@ const i18n = useI18n()
 
 <template>
   <div>
-    <h1>{{ i18n.t('pages.dashboard.title') }}</h1>
+    <h1>{{ i18n.t('pages.kanban.title') }}</h1>
   </div>
 </template>
