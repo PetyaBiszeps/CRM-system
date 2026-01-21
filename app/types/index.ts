@@ -1,4 +1,5 @@
 export * from './api.types'
 export * from './components/Dock.types'
 export * from './components/Table.types'
+export * from './components/Kanban.types'
 export * from './components/Sidebar.types'

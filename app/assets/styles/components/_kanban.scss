@@ -1,3 +1,79 @@
-@use "../resources" as *;
+@use "../resources.scss" as *;
 
-.kanbanWrapper {}
+.kanbanColumn {
+  gap: 1rem;
+  display: flex;
+  min-width: 300px;
+  flex-direction: column;
+
+  header {
+    border: 1px solid $globalBorder;
+    padding: 0.25rem;
+    border-radius: $borderRadius;
+
+    h3 {
+      text-align: center;
+      text-transform: uppercase;
+    }
+  }
+
+  main {
+    gap: 1rem;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+
+    .kanbanCard {
+      cursor: grab;
+      padding: 12px 16px;
+      background: $accent;
+      transition: $transitionBase;
+      border-radius: $borderRadius;
+
+      header {
+        border: unset;
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 10px;
+        justify-content: space-between;
+
+        // h4 {}
+
+        // span {}
+      }
+
+      main {
+        article {
+          display: flex;
+          margin-top: 6px;
+          flex-direction: column;
+
+          &.label {
+            opacity: 0.6;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+          }
+
+          &.value {
+            font-size: 0.85rem;
+            font-weight: 500;
+          }
+        }
+      }
+
+      &.is-dragging {
+        opacity: 0.5;
+        transform: scale(0.95);
+      }
+
+      & > * {
+        pointer-events: none;
+      }
+    }
+
+    .filler {
+      flex-grow: 1;
+      min-height: 50px;
+    }
+  }
+}
