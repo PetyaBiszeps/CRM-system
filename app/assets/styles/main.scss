@@ -16,6 +16,7 @@
     // Layout
 @use "components/dock.scss";
 @use "components/table.scss";
+@use "components/kanban.scss";
 @use "components/loader.scss";
 @use "components/sidebar.scss";
 @use "components/toolbar.scss";
@@ -23,9 +24,10 @@
     // Shared
 @use "components/shared/notifications.scss";
 
-    // Pages
+  // Pages
 @use "pages/login.scss";
 @use "pages/goods.scss";
+@use "pages/kanban.scss";
 @use "pages/orders.scss";
 @use "pages/payments.scss";
 @use "pages/contacts.scss";
