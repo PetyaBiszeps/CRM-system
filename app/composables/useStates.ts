@@ -1,17 +1,23 @@
 interface IStates {
+  isDrawer: boolean
+  isCreating: boolean
   isFilters: boolean
   isColumns: boolean
-  isCreating: boolean
   mode: 'default' | 'compact'
 }
 
 export const useStates = () => {
   const ui = useState<IStates>('ui', () => ({
+    isDrawer: false,
+    isCreating: false,
     isFilters: false,
     isColumns: false,
-    isCreating: false,
     mode: 'default'
   }))
+
+  const toggleDrawer = () => {
+    ui.value.isDrawer = !ui.value.isDrawer
+  }
 
   const toggleCreation = () => {
     ui.value.isCreating = !ui.value.isCreating
@@ -33,6 +39,7 @@ export const useStates = () => {
     ...toRefs(ui.value),
 
     ui,
+    toggleDrawer,
     toggleCreation,
     toggleFilters,
     toggleColumns,

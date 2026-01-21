@@ -1,6 +1,9 @@
 <script setup lang="ts">
 const i18n = useI18n()
 const route = useRoute()
+const {
+  isDrawer
+} = useStates()
 </script>
 
 <template>
@@ -20,6 +23,6 @@ const route = useRoute()
       <AppDock />
     </div>
 
-    <!-- <AppDrawer /> -->
+    <AppDrawer v-if="isDrawer" />
   </div>
 </template>
