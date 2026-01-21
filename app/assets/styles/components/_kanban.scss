@@ -38,7 +38,9 @@
 
         // h4 {}
 
-        // span {}
+        & > span {
+          border-bottom: 1px solid $globalBorder;
+        }
       }
 
       & > main {
