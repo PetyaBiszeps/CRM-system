@@ -19,6 +19,10 @@ export const useStates = () => {
     ui.value.isDrawer = !ui.value.isDrawer
   }
 
+  const closeDrawer = () => {
+    ui.value.isDrawer = false
+  }
+
   const toggleCreation = () => {
     ui.value.isCreating = !ui.value.isCreating
   }
@@ -40,6 +44,7 @@ export const useStates = () => {
 
     ui,
     toggleDrawer,
+    closeDrawer,
     toggleCreation,
     toggleFilters,
     toggleColumns,

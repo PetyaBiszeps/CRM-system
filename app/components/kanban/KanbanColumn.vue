@@ -11,6 +11,9 @@ const { title, color, status, cards } = defineProps<{
 }>()
 const emit = defineEmits(['move'])
 
+const {
+  toggleDrawer
+} = useStates()
 const isOver = ref<boolean>(false)
 
 const onDragOver = () => {
@@ -64,6 +67,8 @@ const onDrop = (e: DragEvent) => {
         :item="card"
         :data-id="card.id"
         :data-rank="card.rank"
+
+        @click.stop="toggleDrawer"
       />
 
       <div
