@@ -22,10 +22,15 @@ export interface IPayment {
 
 export interface IOrder {
   id: number
-  amount: number
-  status: 'pending' | 'completed' | 'canceled'
+  items_preview: string
+  items_count: number
+  total_price: number
   currency: 'USD' | 'EUR' | 'UAH'
+  customer_name: string
+  status: 'pending' | 'completed' | 'canceled'
+  payment_status: 'paid' | 'unpaid'
   created_at: Date
+  updated_at: Date
 }
 
 export interface ICustomer {

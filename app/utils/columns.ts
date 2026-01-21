@@ -20,14 +20,19 @@ export const columns: ITable = {
       header: 'ID',
       cell: info => info.getValue()
     }) as ColumnDef<IOrder>,
-    orderHelper.accessor('amount', {
-      id: 'amount',
-      header: 'Amount',
+    orderHelper.accessor('items_preview', {
+      id: 'items_preview',
+      header: 'Preview',
       cell: info => info.getValue()
     }) as ColumnDef<IOrder>,
-    orderHelper.accessor('status', {
-      id: 'status',
-      header: 'Status',
+    orderHelper.accessor('items_count', {
+      id: 'items_count',
+      header: 'Count',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
+    orderHelper.accessor('total_price', {
+      id: 'total_price',
+      header: 'Total Price',
       cell: info => info.getValue()
     }) as ColumnDef<IOrder>,
     orderHelper.accessor('currency', {
@@ -35,9 +40,29 @@ export const columns: ITable = {
       header: 'Currency',
       cell: info => info.getValue()
     }) as ColumnDef<IOrder>,
+    orderHelper.accessor('customer_name', {
+      id: 'customer_name',
+      header: 'Customer',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
+    orderHelper.accessor('status', {
+      id: 'status',
+      header: 'Status',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
+    orderHelper.accessor('payment_status', {
+      id: 'payment_status',
+      header: 'Payment Status',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
     orderHelper.accessor('created_at', {
       id: 'created_at',
       header: 'Created At',
+      cell: info => info.getValue()
+    }) as ColumnDef<IOrder>,
+    orderHelper.accessor('updated_at', {
+      id: 'updated_at',
+      header: 'Updated At',
       cell: info => info.getValue()
     }) as ColumnDef<IOrder>
   ],

@@ -21,7 +21,7 @@ export async function getOrdersFromDB(event: H3Event, opts: GetOrdersOptions): P
   })
 
   if (opts.search) {
-    query = query.or(`name.ilike.%${opts.search}%,email.ilike.%${opts.search}%,type.ilike.%${opts.search}%`)
+    query = query.or(`customer_name.ilike.%${opts.search}%,items_preview.ilike.%${opts.search}%`)
   }
 
   if (opts.filters && Object.keys(opts.filters).length > 0) {
