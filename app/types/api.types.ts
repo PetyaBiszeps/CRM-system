@@ -18,6 +18,12 @@ export interface IGood {
 
 export interface IPayment {
   id: number
+  amount: number
+  currency: 'USD' | 'EUR' | 'UAH'
+  status: 'pending' | 'confirmed' | 'failed' | 'refunded'
+  customer: string
+  created_at: Date
+  updated_at: Date
 }
 
 export interface IOrder {

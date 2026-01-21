@@ -2,13 +2,69 @@ import { type ColumnDef, createColumnHelper } from '@tanstack/vue-table'
 import type {
   ITable,
   IOrder,
+  IPayment,
   ICustomer
 } from '@/types'
 
 const orderHelper = createColumnHelper<IOrder>()
+const paymentHelper = createColumnHelper<IPayment>()
 const customerHelper = createColumnHelper<ICustomer>()
 
 export const columns: ITable = {
+  payments: [
+    paymentHelper.display({
+      id: 'actions',
+      header: 'Actions',
+      cell: () => null
+    }),
+    paymentHelper.accessor('id', {
+      id: 'id',
+      header: 'ID',
+      cell: info => info.getValue()
+    }) as ColumnDef<IPayment>,
+    paymentHelper.accessor('amount', {
+      id: 'amount',
+      header: 'Amount',
+      cell: info => info.getValue()
+    }) as ColumnDef<IPayment>,
+    paymentHelper.accessor('currency', {
+      id: 'currency',
+      header: 'Currency',
+      cell: info => info.getValue()
+    }) as ColumnDef<IPayment>,
+    paymentHelper.accessor('status', {
+      id: 'status',
+      header: 'Status',
+      cell: info => info.getValue()
+    }) as ColumnDef<IPayment>,
+    paymentHelper.accessor('customer', {
+      id: 'customer',
+      header: 'Customer',
+      cell: info => info.getValue()
+    }) as ColumnDef<IPayment>,
+    paymentHelper.accessor('created_at', {
+      id: 'created_at',
+      header: 'Created At',
+      cell: (info) => {
+        const date = info.getValue()
+
+        return date
+          ? new Date(date).toLocaleDateString('uk-UA')
+          : ''
+      }
+    }) as ColumnDef<IPayment>,
+    paymentHelper.accessor('updated_at', {
+      id: 'updated_at',
+      header: 'Updated At',
+      cell: (info) => {
+        const date = info.getValue()
+
+        return date
+          ? new Date(date).toLocaleDateString('uk-UA')
+          : ''
+      }
+    }) as ColumnDef<IPayment>
+  ],
   orders: [
     orderHelper.display({
       id: 'actions',
