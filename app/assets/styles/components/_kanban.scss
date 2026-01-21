@@ -6,7 +6,7 @@
   min-width: 300px;
   flex-direction: column;
 
-  header {
+  & > header {
     border: 1px solid $globalBorder;
     padding: 0.25rem;
     border-radius: $borderRadius;
@@ -17,7 +17,7 @@
     }
   }
 
-  main {
+  & > main {
     gap: 1rem;
     display: flex;
     flex-grow: 1;
@@ -30,11 +30,10 @@
       transition: $transitionBase;
       border-radius: $borderRadius;
 
-      header {
-        border: unset;
+      & > header {
         display: flex;
         align-items: flex-start;
-        margin-bottom: 10px;
+        margin-bottom: 16px;
         justify-content: space-between;
 
         // h4 {}
@@ -42,10 +41,10 @@
         // span {}
       }
 
-      main {
+      & > main {
         article {
           display: flex;
-          margin-top: 6px;
+          margin-top: 8px;
           flex-direction: column;
 
           &.label {

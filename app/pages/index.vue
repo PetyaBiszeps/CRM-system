@@ -34,13 +34,13 @@ const getCardsByStatus = (status: string) => {
 }
 
 const handleMove = async (data: IMoveEvent) => {
-  const card = deals.value.find(deal => deal.id === data.cardId)
+  const card = deals.value.find(deal => deal.id === Number(data.cardId))
 
   if (!card) {
     return
   }
   const targetCards = getCardsByStatus(data.toStatus)
-    .filter(deal => deal.id !== data.cardId)
+    .filter(deal => deal.id !== Number(data.cardId))
 
   let newRank: string
 
