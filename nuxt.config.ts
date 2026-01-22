@@ -31,7 +31,7 @@ export default defineNuxtConfig({
     classSuffix: ''
   },
   build: {
-    transpile: []
+    transpile: ['vue']
   },
   compatibilityDate: '2025-07-15',
   eslint: {
