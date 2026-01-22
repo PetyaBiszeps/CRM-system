@@ -25,7 +25,7 @@
     border-bottom-left-radius: $borderRadius;
 
     & > header {
-      border-bottom: 1px solid $globalBorder;
+      border-bottom: 1px dashed $globalBorder;
 
       ul {
         gap: 2rem;
