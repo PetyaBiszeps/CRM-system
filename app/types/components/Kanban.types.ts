@@ -5,18 +5,19 @@ export interface IKanbanColumn {
 }
 
 export interface IKanbanCard {
-  id: number
+  id: string
   title: string
   price: number
   customer: string
   created_at: string
   status: string
   rank: string
+  is_global: boolean
 }
 
 export interface IMoveEvent {
-  cardId: number
+  cardId: string
   toStatus: string
-  targetCardId: number | null
+  targetCardId: string | null
   dropAtEnd: boolean
 }
