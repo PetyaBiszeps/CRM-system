@@ -10,21 +10,23 @@ definePageMeta({
 })
 
 const deals = ref<IKanbanCard[]>([{
-  id: 1,
+  id: 'fsaifojSAe31452fds',
   title: 'Bethesda Project',
   price: 1200,
   customer: 'Bethesda',
   created_at: '2025-11-20',
   status: 'incoming',
-  rank: LexoRank.middle().toString()
+  rank: LexoRank.middle().toString(),
+  is_global: false
 }, {
-  id: 2,
+  id: 'fsaifojSAe314',
   title: 'Ubisoft UI',
   price: 3500,
   customer: 'Ubisoft',
   created_at: '2025-11-21',
   status: 'incoming',
-  rank: LexoRank.middle().genNext().toString()
+  rank: LexoRank.middle().genNext().toString(),
+  is_global: true
 }])
 
 const getCardsByStatus = (status: string) => {
@@ -34,13 +36,13 @@ const getCardsByStatus = (status: string) => {
 }
 
 const handleMove = async (data: IMoveEvent) => {
-  const card = deals.value.find(deal => deal.id === Number(data.cardId))
+  const card = deals.value.find(deal => deal.id === String(data.cardId))
 
   if (!card) {
     return
   }
   const targetCards = getCardsByStatus(data.toStatus)
-    .filter(deal => deal.id !== Number(data.cardId))
+    .filter(deal => deal.id !== String(data.cardId))
 
   let newRank: string
 
