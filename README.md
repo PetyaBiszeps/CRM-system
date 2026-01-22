@@ -46,7 +46,7 @@ This project uses the **Nuxt 4** structure:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/PetyaBiszeps/CRM-system.git](https://github.com/PetyaBiszeps/CRM-system.git)
+    git clone https://github.com/PetyaBiszeps/CRM-system.git
     cd crm-system
     ```
 
@@ -75,8 +75,9 @@ This project uses the **Nuxt 4** structure:
 ## 📜 Roadmap
 
 - [ ] Advanced analytics and reporting dashboard.
-- [ ] Email automation & integration.
 - [ ] Client portal for order and task tracking.
+- [ ] Payment, customer tracking support.
+- [ ] Email automation & integration.
 
 ---
 
