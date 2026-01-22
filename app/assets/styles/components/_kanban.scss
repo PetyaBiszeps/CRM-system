@@ -4,6 +4,7 @@
   gap: 1rem;
   display: flex;
   min-width: 300px;
+  border-radius: $borderRadius;
   flex-direction: column;
 
   & > header {
@@ -70,11 +71,38 @@
       & > * {
         pointer-events: none;
       }
+
+      &.drop-target {
+        border: 2px solid $globalBorder;
+        transform: translateY(4px);
+
+        &::before {
+          content: '';
+
+          top: -12px;
+          left: 0;
+          right: 0;
+          height: 4px;
+          position: absolute;
+          background: $accent;
+          border-radius: $borderRadius;
+        }
+      }
     }
 
     .filler {
       flex-grow: 1;
       min-height: 50px;
+
+      &.drop-target {
+        border: 2px dashed $globalBorder;
+        background: color-mix(in srgb, $accent, transparent 80%);
+        border-radius: $borderRadius;
+      }
     }
+  }
+
+  &.is-over {
+    background: color-mix(in srgb, $accent, transparent 95%);
   }
 }

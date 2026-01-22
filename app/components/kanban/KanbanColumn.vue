@@ -11,21 +11,39 @@ const { title, color, status, cards } = defineProps<{
 }>()
 const emit = defineEmits(['move'])
 
+const isOver = ref<boolean>(false)
+const dropTargetId = ref<string | null>(null)
 const {
   toggleDrawer
 } = useStates()
-const isOver = ref<boolean>(false)
 
-const onDragOver = () => {
+const onDragOver = (e: DragEvent) => {
   isOver.value = true
+
+  const target = e.target as HTMLElement
+  const card = target.closest('.kanbanCard') as HTMLElement
+
+  if (card) {
+    dropTargetId.value = card.getAttribute('data-id')
+  }
+  else if (target.getAttribute('data-type') === 'filler') {
+    dropTargetId.value = 'filler'
+  }
+  else {
+    dropTargetId.value = null
+  }
 }
 
-const onDragLeave = () => {
-  isOver.value = false
+const onDragLeave = (e: DragEvent) => {
+  if (!e.relatedTarget || !(e.currentTarget as HTMLElement).contains(e.relatedTarget as Node)) {
+    isOver.value = false
+    dropTargetId.value = null
+  }
 }
 
 const onDrop = (e: DragEvent) => {
   isOver.value = false
+  dropTargetId.value = null
 
   const cardId = e.dataTransfer?.getData('text/plain')
 
@@ -49,7 +67,9 @@ const onDrop = (e: DragEvent) => {
 
 <template>
   <section
-    :class="['kanbanColumn']"
+    :class="['kanbanColumn', {
+      'is-over': isOver,
+    }]"
 
     @dragover.prevent="onDragOver"
     @dragleave="onDragLeave"
@@ -68,12 +88,20 @@ const onDrop = (e: DragEvent) => {
         :data-id="card.id"
         :data-rank="card.rank"
 
+        :class="[{
+          'drop-target': dropTargetId === card.id,
+        }]"
+
         @click.stop="toggleDrawer"
       />
 
       <div
         class="filler"
         data-type="filler"
+
+        :class="[{
+          'drop-target': dropTargetId === 'filler',
+        }]"
       />
     </main>
   </section>
