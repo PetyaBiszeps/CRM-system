@@ -30,6 +30,28 @@ export const useRequest = () => {
         error,
         data
       }
+    },
+    patch: <T extends {
+      id: string | number
+    }, R>(url: string) => {
+      const { data, mutate, isPending, error } = useMutation({
+        mutationFn: (body: T) => {
+          const { id, ...payload } = body
+
+          return $fetch<R>(`${url}/${id}`, {
+            method: 'PATCH',
+            body: payload
+          })
+        },
+        onSuccess: () => invalidate(url)
+      })
+
+      return {
+        submit: mutate,
+        isPending,
+        error,
+        data
+      }
     }
   }
 }

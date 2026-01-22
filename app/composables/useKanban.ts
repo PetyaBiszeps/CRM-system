@@ -6,6 +6,10 @@ import type {
 } from '@/types'
 
 export const useKanban = (url: string) => {
+  const {
+    submit: patch
+  } = useRequest().patch<Partial<IKanbanCard>, IKanbanCard>(url)
+
   const { data } = useQuery({
     queryKey: [url],
     queryFn: async () => {
@@ -61,10 +65,12 @@ export const useKanban = (url: string) => {
     else {
       newRank = LexoRank.middle().toString()
     }
-    card.status = data.toStatus
-    card.rank = newRank
 
-    // ToDo -supabase await request
+    return patch({
+      id: card.id,
+      rank: newRank,
+      status: data.toStatus
+    })
   }
 
   return {
