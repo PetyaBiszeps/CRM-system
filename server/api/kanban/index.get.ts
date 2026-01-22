@@ -6,7 +6,7 @@ import type {
 export default defineEventHandler(async (event) => {
   const client = await serverSupabaseClient(event)
 
-  const { data, error } = await client.from('kanban').select('*').order('index', {
+  const { data, error } = await client.from('kanban').select('*').order('rank', {
     ascending: true
   })
 
