@@ -30,6 +30,9 @@ export default defineNuxtConfig({
     fallback: 'light',
     classSuffix: ''
   },
+  build: {
+    transpile: []
+  },
   compatibilityDate: '2025-07-15',
   eslint: {
     config: {
