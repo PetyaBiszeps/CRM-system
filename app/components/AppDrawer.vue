@@ -1,5 +1,6 @@
 <script setup lang="ts">
 const {
+  activeCard,
   closeDrawer
 } = useStates()
 </script>
@@ -13,7 +14,7 @@ const {
       appear
     >
       <aside v-click-outside="closeDrawer">
-        Some text here
+        <DrawerHeader :card="activeCard" />
       </aside>
     </transition>
   </div>

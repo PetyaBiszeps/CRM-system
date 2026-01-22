@@ -24,6 +24,18 @@
     border-top-left-radius: $borderRadius;
     border-bottom-left-radius: $borderRadius;
 
+    & > header {
+      border-bottom: 1px solid $globalBorder;
+
+      ul {
+        gap: 2rem;
+        display: flex;
+        flex-direction: column;
+
+        // li {}
+      }
+    }
+
     @include glassBg;
   }
 }

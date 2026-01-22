@@ -1,5 +1,10 @@
+import type {
+  IKanbanCard
+} from '@/types'
+
 interface IStates {
   isDrawer: boolean
+  activeCard: IKanbanCard | null
   isCreating: boolean
   isFilters: boolean
   isColumns: boolean
@@ -9,18 +14,21 @@ interface IStates {
 export const useStates = () => {
   const ui = useState<IStates>('ui', () => ({
     isDrawer: false,
+    activeCard: null,
     isCreating: false,
     isFilters: false,
     isColumns: false,
     mode: 'default'
   }))
 
-  const toggleDrawer = () => {
+  const toggleDrawer = (card: IKanbanCard) => {
+    ui.value.activeCard = card
     ui.value.isDrawer = !ui.value.isDrawer
   }
 
   const closeDrawer = () => {
     ui.value.isDrawer = false
+    ui.value.activeCard = null
   }
 
   const toggleCreation = () => {

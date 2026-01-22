@@ -92,7 +92,7 @@ const onDrop = (e: DragEvent) => {
           'drop-target': dropTargetId === card.id,
         }]"
 
-        @click.stop="toggleDrawer"
+        @click.stop="toggleDrawer(card)"
       />
 
       <div
