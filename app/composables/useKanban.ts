@@ -8,7 +8,9 @@ import type {
 export const useKanban = (url: string) => {
   const {
     submit: patch
-  } = useRequest().patch<Partial<IKanbanCard>, IKanbanCard>(url)
+  } = useRequest().patch<Partial<IKanbanCard> & {
+    id: string
+  }, IKanbanCard>(url)
 
   const { data } = useQuery({
     queryKey: [url],
