@@ -32,7 +32,9 @@
         display: flex;
         flex-direction: column;
 
-        // li {}
+        li:last-child {
+          margin-bottom: 16px;
+        }
       }
     }
 
