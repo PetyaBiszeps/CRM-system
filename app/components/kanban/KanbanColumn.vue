@@ -25,11 +25,9 @@ const onDragOver = (e: DragEvent) => {
 
   if (card) {
     dropTargetId.value = card.getAttribute('data-id')
-  }
-  else if (target.getAttribute('data-type') === 'filler') {
+  } else if (target.getAttribute('data-type') === 'filler') {
     dropTargetId.value = 'filler'
-  }
-  else {
+  } else {
     dropTargetId.value = null
   }
 }

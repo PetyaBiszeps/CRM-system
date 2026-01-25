@@ -5,6 +5,10 @@ export default withNuxt([{
   rules: {
     '@stylistic/eol-last': ['error', 'never'],
     '@stylistic/comma-dangle': ['error', 'never'],
+    '@stylistic/brace-style': ['error', '1tbs', {
+      allowSingleLine: true
+    }],
+
     'vue/attributes-order': ['error', {
       order: [
         'CONDITIONALS', // v-if, v-else

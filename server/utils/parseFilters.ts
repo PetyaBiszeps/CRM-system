@@ -18,8 +18,7 @@ export const parseFilters = <T>(rawFilters: unknown): Partial<Record<keyof T, st
         }
       })
     }
-  }
-  catch (e) {
+  } catch (e) {
     console.error('Failed to parse filters:', e)
   }
   return filters

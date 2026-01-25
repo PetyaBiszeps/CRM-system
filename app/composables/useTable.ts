@@ -60,13 +60,11 @@ export const useTable = <T extends object, B extends object = T>(url: string) =>
     if (state.sortBy === columnId) {
       if (state.sortOrder === 'asc') {
         state.sortOrder = 'desc'
-      }
-      else {
+      } else {
         state.sortBy = undefined
         state.sortOrder = 'asc'
       }
-    }
-    else {
+    } else {
       state.sortBy = columnId
       state.sortOrder = 'asc'
     }
@@ -79,12 +77,10 @@ export const useTable = <T extends object, B extends object = T>(url: string) =>
       if (filter) {
         state.filters = state.filters.filter(f => f.id !== columnId)
       }
-    }
-    else {
+    } else {
       if (filter) {
         filter.value = columnValue
-      }
-      else {
+      } else {
         state.filters.push({ id: columnId, value: columnValue })
       }
     }

@@ -4,8 +4,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       el.clickOutside = (event: Event) => {
         if (el.contains(event.target)) {
           return
-        }
-        else {
+        } else {
           binding.value(event)
         }
       }

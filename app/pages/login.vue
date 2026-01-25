@@ -18,8 +18,7 @@ const form = reactive({
 async function handleLogin() {
   try {
     await login(form)
-  }
-  catch (e) {
+  } catch (e) {
     return e
   }
 }
@@ -27,8 +26,7 @@ async function handleLogin() {
 async function handleRegister() {
   try {
     await register(form)
-  }
-  catch (e) {
+  } catch (e) {
     return e
   }
 }

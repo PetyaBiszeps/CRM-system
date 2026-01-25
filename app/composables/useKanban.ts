@@ -39,15 +39,13 @@ export const useKanban = (url: string) => {
 
     if (targetCards.length === 0) {
       newRank = LexoRank.middle().toString()
-    }
-    else if (data.dropAtEnd) {
+    } else if (data.dropAtEnd) {
       const lastCard = targetCards[targetCards.length - 1]
 
       newRank = lastCard
         ? LexoRank.parse(lastCard.rank).genNext().toString()
         : LexoRank.middle().toString()
-    }
-    else if (data.targetCardId) {
+    } else if (data.targetCardId) {
       const targetIdx = targetCards.findIndex(deal => deal.id === data.targetCardId)
       const nextCard = targetCards[targetIdx]
       const prevCard = targetCards[targetIdx - 1]
@@ -55,16 +53,13 @@ export const useKanban = (url: string) => {
       if (nextCard) {
         if (!prevCard) {
           newRank = LexoRank.parse(nextCard.rank).genPrev().toString()
-        }
-        else {
+        } else {
           newRank = LexoRank.parse(prevCard.rank).between(LexoRank.parse(nextCard.rank)).toString()
         }
-      }
-      else {
+      } else {
         newRank = LexoRank.middle().toString()
       }
-    }
-    else {
+    } else {
       newRank = LexoRank.middle().toString()
     }
 
