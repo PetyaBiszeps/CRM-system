@@ -8,6 +8,18 @@ A modern, high-performance Customer Relationship Management (CRM) system designe
 
 This project is a full-featured CRM platform that allows users to manage sales pipelines, track customer interactions, and handle orders in real-time. The application leverages a reactive architecture for a seamless user experience.
 
+## 🌐 Live Demo
+You can try the live prototype here:
+
+**Demo:** [click here](https://crm-system-prototype.vercel.app/)
+
+Use the following demo credentials:
+
+```text
+Email: user@test.com
+Password: user
+```
+
 ## ✨ Key Features
 
 * **📊 Kanban Pipeline:** Visual lead management using a Kanban board.
